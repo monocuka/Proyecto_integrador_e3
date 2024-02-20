@@ -5,7 +5,7 @@ Sprint 1
 
 issues prioridad alta.
 
-#Colocar encabezado
+#1 Colocar encabezado
 
 Como usuario, quiero un encabezado que muestre el logo de la aplicación y una barra para facilitar la navegación en el sitio.
 
