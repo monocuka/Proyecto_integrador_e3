@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import '../assets/css/header.css'
 import logo from '../assets/img/logo-sin-fondo-ni letras.png';
@@ -49,9 +50,9 @@ export const Header = () => {
         <div className="menu__bar" style={{'backgroundColor': colorMenu}}>
             <div>
                 <div className="header-left">    
-                    <a href="#" title="Logo" className="logo">
+                    <Link to={'/home'} title="Logo" className="logo">
                         <img className="logo-header" src={ isLogoMobile } style={{'display' : displayLogo}} alt="logo" />
-                    </a>
+                    </Link>
                     <div className="texto-logo">
                         <h3>Construye sin límites</h3>
                         <h5>alquila con facilidad</h5>
