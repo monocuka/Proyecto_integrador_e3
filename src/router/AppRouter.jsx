@@ -13,7 +13,7 @@ export const AppRouter = () => {
           <Route path="/home" element={ <Home  /> } />
           <Route path="/" element={ <Navigate to="/home" /> } />
           <Route path="/admin" element={ <Admin /> } />
-          <Route path="/AgregarProducto" element={ <AgregarProducto /> } />
+          <Route path="/agregarProducto" element={ <AgregarProducto /> } />
       </Routes>
     </>
   )

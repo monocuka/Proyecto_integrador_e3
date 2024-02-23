@@ -1,4 +1,4 @@
-import '../assets/css/AgregarProducto.css';
+import '../assets/css/agregarProducto.css';
 
 export const AgregarProducto = () => {
     return (
