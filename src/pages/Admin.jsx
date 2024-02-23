@@ -1,3 +1,6 @@
+import '../assets/css/admin.css';
+
+
 export const Admin = () => {
     return (
       <>

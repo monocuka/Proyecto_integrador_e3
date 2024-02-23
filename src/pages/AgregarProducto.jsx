@@ -1,3 +1,5 @@
+import '../assets/css/AgregarProducto.css';
+
 export const AgregarProducto = () => {
     return (
       <div>
