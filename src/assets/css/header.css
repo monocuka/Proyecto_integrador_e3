@@ -140,10 +140,20 @@
 
 ul h2{
     font-size: 30px;
+    font-weight: medium;
     color: var(--background-header);
     margin-bottom: 30px;
 } 
 
+.texto-logo h3{
+    font-size: 22px;
+    font-weight: bolder;
+}
+
+.texto-logo h5{
+    font-size: 22px;
+    font-weight: normal;
+}
 @media (min-width: 600px) {
     .menu-icon {
         display: none;
@@ -160,10 +170,6 @@ ul h2{
         display: block;
     }
     
-    .logo-header{
-        background: url('assets/soloLogoPng.png') no-repeat;
-    }
-
     .navigation--mobile {
         top: var(--navbar-height);
         position: absolute;
