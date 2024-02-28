@@ -1,11 +1,10 @@
-
+/* Estilos generales que se aplican a todas las pantallas */
 body {
-  margin: 0%;
+  margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
 }
 
-/* Contenedor principal del registro */
 .registro-container {
   background-color: #F1DFBE;
 }
@@ -82,11 +81,13 @@ header {
 
 .product-form form {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .product-form label {
   margin-bottom: 5px;
+  width: 100%; /* O ajusta según necesidades */
+  box-sizing: border-box;
 }
 
 .product-form input,
@@ -94,6 +95,7 @@ header {
 .product-form textarea {
   margin-bottom: 10px;
   padding: 8px;
+  box-sizing: border-box;
 }
 
 /* Imágenes del footer */
@@ -144,3 +146,109 @@ footer {
   margin-left: 10px; /* Nuevo margen izquierdo para separar los íconos */
 }
 
+/* Media query para pantallas más pequeñas */
+@media screen and (max-width: 768px) {
+  header {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .logo-container, .slogan {
+    margin-bottom: 10px;
+  }
+
+  .user-icon {
+    margin-top: 10px;
+  }
+
+  .body-container {
+    flex-direction: row; /* Cambiado de column a row */
+  }
+
+  .company-image,
+  .product-form {
+    width: 50%; /* Cambiado a 50% para dividir en dos partes iguales */
+  }
+
+  .company-image {
+    display: block;
+    width: 100%; /* O ajusta según necesidades */
+    height: auto;
+    margin-right: 0;
+    margin-bottom: 20px; /* Puedes ajustar el espacio inferior si es necesario */
+  }
+
+  .product-form {
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  .footer-images {
+    justify-content: space-between;
+    padding: 10px;
+  }
+
+  .slogan .line1 {
+    font-size: 16px;
+  }
+
+  .icon-white {
+    font-size: 20px;
+  }
+}
+
+/* Estilos para el formulario del producto en pantallas grandes */
+@media screen and (min-width: 769px) {
+  .product-form form {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .product-form label {
+    width: 30%; /* Ancho reducido para etiquetas en pantallas grandes */
+  }
+
+  .product-form input,
+  .product-form select,
+  .product-form textarea {
+    width: 70%; /* Ancho aumentado para inputs en pantallas grandes */
+    margin-bottom: 15px; /* Mayor espacio entre inputs */
+  }
+
+  .button-container {
+    justify-content: center;
+  }
+
+  .button-custom,
+  .button-custom1 {
+    margin-right: 10px; /* Espacio entre los botones en pantallas grandes */
+  }
+}
+
+/* Estilos para botones personalizados */
+.button-custom,
+.button-custom1 {
+  font-size: 14px;
+  padding: 10px 20px;
+  border-radius: 5px; /* Añade border-radius común a ambos botones */
+}
+
+.button-custom {
+  background-color: #DE8121;
+  color: #FFFFFF;
+  border: none;
+}
+
+.button-custom1 {
+  background-color: #F1DFBE;
+  color: #DE8121;
+  border: solid #DE8121;
+  border-radius: 8px; /* Ajusta el border-radius para el botón de cancelar */
+}
+
+/* Estilos para el footer en pantallas grandes */
+@media screen and (min-width: 769px) {
+  .footer-images i {
+    margin-right: 10px; /* Ajusta el espacio entre los iconos del footer */
+  }
+}
