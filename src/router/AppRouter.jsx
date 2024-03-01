@@ -1,6 +1,6 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 
-import { Home } from '../pages/Home';
+import { Home } from '../pages/Home.jsx';
 import { Admin } from '../pages/Admin';
 import { AgregarProducto } from '../pages/AgregarProducto';
 import { Header } from '../components/Header';

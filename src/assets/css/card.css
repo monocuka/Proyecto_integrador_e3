@@ -1,0 +1,41 @@
+/* En tu archivo card.css */
+
+#root {
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    height: 100vh; /* 100% del alto de la ventana */
+    background-color: #f5e5da; /* Fondo naranja ladrillo muy claro */
+}
+
+.Cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%; /* Ajusta según tus necesidades */
+    background-color: #f5e5da; /* Naranja ladrillo muy claro */
+    padding: 20px; /* Espaciado adicional para mejorar la apariencia */
+}
+
+.product1 {
+    width: 45%; /* Ajusta según tus necesidades */
+    margin-bottom: 1em;
+    padding: 1em;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera para resaltar la tarjeta */
+    text-align: center; /* Centra el texto horizontalmente */
+}
+
+/* Estilos específicos para el texto y otros elementos dentro de .product1 */
+.product1 h2 {
+    color: #000;
+    margin-bottom: 10px; /* Espacio adicional entre el título y otros elementos */
+}
+
+.product1 p {
+    color: #555; /* Texto más oscuro para mejorar la visibilidad */
+    margin-bottom: 15px; /* Espacio adicional entre los párrafos */
+}
+
+/* Ajusta estos estilos según sea necesario para adaptarse a tu diseño específico */

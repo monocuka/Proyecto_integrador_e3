@@ -1,0 +1,29 @@
+body {
+    background-color: #f6f2f0;
+    color: black;
+    margin: 0;
+    height: 100vh; 
+    font-family: Arial, sans-serif; 
+}
+h1{
+    color: black;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+section {
+    flex: 1;
+    min-width: 300px; 
+    margin: 10px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+
+
