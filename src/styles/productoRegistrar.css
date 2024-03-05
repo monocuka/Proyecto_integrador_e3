@@ -252,3 +252,80 @@ footer {
     margin-right: 10px; /* Ajusta el espacio entre los iconos del footer */
   }
 }
+
+/* Estilos generales que se aplican a todas las pantallas */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* ... (otros estilos) ... */
+
+/* Media query para pantallas más pequeñas */
+@media screen and (max-width: 768px) {
+  header {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .logo-container, .slogan {
+    margin-bottom: 10px;
+  }
+
+  .user-icon {
+    margin-top: 10px;
+  }
+
+  .body-container {
+    flex-direction: column; /* Cambiado de row a column */
+    padding: 10px;
+  }
+
+  .company-image,
+  .product-form {
+    width: 100%; /* Cambiado a 100% para ocupar el ancho completo */
+  }
+
+  .company-image {
+    margin-bottom: 20px; /* Puedes ajustar el espacio inferior si es necesario */
+  }
+
+  .product-form {
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  .footer-images {
+    justify-content: space-between;
+    padding: 10px;
+  }
+
+  .slogan .line1 {
+    font-size: 16px;
+  }
+
+  .icon-white {
+    font-size: 20px;
+  }
+}
+
+/* Media query para pantallas medianas y pequeñas */
+@media screen and (max-width: 768px) {
+  header {
+    padding: 10px;
+  }
+
+  .body-container {
+    flex-direction: column; /* Cambiado de row a column */
+    padding: 10px;
+  }
+
+  .company-image,
+  .product-form {
+    width: 100%; /* Cambiado a 100% para ocupar el ancho completo */
+    max-width: none; /* Eliminado el máximo para permitir que la imagen ocupe el ancho completo */
+    margin-right: 0; /* Elimina el margen derecho */
+    margin-bottom: 20px; /* Añade espacio inferior para separar la imagen del formulario */
+  }
+}
