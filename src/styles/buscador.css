@@ -1,0 +1,57 @@
+:root {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    --color-primary: #ffffff;
+    --color-secondary: #DE8121;
+    --color-tertiary: #F1DFBE;
+    --color-quaternary: #E5E5E5;
+    --color-quinary: #342822;
+    --color-senary: black;
+}
+
+.buscador {
+    background-color: var(--color-quinary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 7rem 0px 26px 0px;
+    color: var(--color-tertiary);
+}
+
+input {
+    width: 650px;
+    height: 40px;
+    border-radius: 5px;
+    /* border: 1px solid var(--color-secondary); */
+    margin: 0.8rem;
+    padding-left: 10px;
+    border: none;
+}
+
+.btn-buscar {
+    border-radius: 5px;
+    padding: 0.8rem;
+    border: none;
+    /* margin-left: 10px; */
+    background-color: #DE8121;
+    color: var(--color-primary);
+    cursor: pointer;
+}
+
+.btn-buscar:hover{
+    background-color: var(--color-tertiary);
+    color: var(--color-secondary);
+}
+
+@media screen and (max-width: 768px) {
+    .input {
+        width: 450px;
+    }
+}
+@media screen and (max-width: 400px){
+    .input {
+        width: 250px;
+    }
+}
+    
