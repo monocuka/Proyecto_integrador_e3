@@ -28,10 +28,13 @@ export const Home = () => {
     const productosMostrados = productos.slice(0, 8);
 
     return (
-        <div id='hCard' className="HomeCards">
-            {productosMostrados.map(producto => (
-                <Card key={producto.id} product={producto} />
-            ))}
+        <div id='bodyCard'>
+            <div id='hCard' className="HomeCards">
+                {productosMostrados.map(producto => (
+                    <Card key={producto.id} product={producto} />
+                ))}
+            </div>
         </div>
+        
     );
 }

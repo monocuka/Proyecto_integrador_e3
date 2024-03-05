@@ -25,10 +25,24 @@ section {
 #root {
     width: 100%;
 }
-#root > #hCard {
+#hCard {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 20px;
 }
+#bodyCard {
+    display: flex;
+    justify-content: center;
+}
 
 
+@media (max-width: 918px) {
+.bodyCrad{
+
+}
+#hCard {
+    display: flex;
+    flex-direction: column;
+}
+    
+}
