@@ -55,7 +55,7 @@
 
 .titulo_tipo{
     text-align: start;
-    font-size: 1.5em;
+    font-size: 1.3rem;
     margin: 0.4em 3em;
     color: var(--color-senary);
 }
@@ -65,23 +65,30 @@
     justify-content: center;
 }
 
-@media screen and (max-width: 768px) {
-    .container-tipo-img{
-        width: 150px;
+@media screen and (max-width: 1270px) {
+    .card-tipo {
+        justify-content: start;
     }
+}
+
+@media screen and (max-width: 768px) {
     .titulo_tipo {
-        font-size: 14px;
+        font-size: 18px;
     }
 
     .text-tipo{
         font-size: 12px;
     }
+    
 }
 
-@media screen and (max-width: 689px) {
+@media screen and (max-width: 480px) {
     .card-tipo {
-        display: block;
         text-align: center;
         padding: 1em;
+    }
+
+    .container-tipo-img{
+        width: 250px;
     }
 }

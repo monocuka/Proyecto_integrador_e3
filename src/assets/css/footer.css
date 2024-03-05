@@ -32,3 +32,13 @@
     margin: 0 10px;
     width: 15px;
   }
+
+  @media screen and (max-width: 600px){
+    .container_footer{
+      display: block;
+      text-align: center;
+    }
+    .iconoRS {
+      padding-top: 6px;
+    }
+  }
