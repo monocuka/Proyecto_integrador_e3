@@ -1,5 +1,11 @@
-body{
-    margin-top: 100px;
-    height: 500px;
-    width: 500px;
+
+#hCard {
+    text-align: center;
+}
+.HomeCards{
+    background-color: rgb(246, 215, 167);
+    border: 1px red solid;
+    width: 70%;
+    text-align: center;
+    padding-top: 3%;
 }

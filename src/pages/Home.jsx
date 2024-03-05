@@ -28,11 +28,10 @@ export const Home = () => {
     const productosMostrados = productos.slice(0, 8);
 
     return (
-        <div className="Home">
+        <div id='hCard' className="HomeCards">
             {productosMostrados.map(producto => (
                 <Card key={producto.id} product={producto} />
             ))}
         </div>
     );
-
 }

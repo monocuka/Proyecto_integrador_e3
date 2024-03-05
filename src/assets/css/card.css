@@ -1,0 +1,8 @@
+.imagesP > img{
+    width: 50%;
+    
+}
+.Cards{
+    border: 1px black solid;
+    padding: 3%;
+}

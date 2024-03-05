@@ -1,9 +1,6 @@
-body {
-    background-color: #f6f2f0;
-    color: black;
+*{
     margin: 0;
-    height: 100vh; 
-    font-family: Arial, sans-serif; 
+    padding: 0%;
 }
 h1{
     color: black;
@@ -24,6 +21,14 @@ section {
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+#root {
+    width: 100%;
+}
+#root > #hCard {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
 }
 
 
