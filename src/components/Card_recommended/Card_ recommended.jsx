@@ -8,14 +8,14 @@ import './../../assets/css/Card_recommendad.css';
 const Card_recommended = ({ product }) => {
   const { nombre, descripcion, precio, id } = product;
 
-  const firstImage = product.imagenes && product.imagenes.length > 0 ? product.imagenes[0].urlImagen : null;
-  console.log(firstImage)
+  const imagenUrl = product.imagenes && product.imagenes.length > 0 ? product.imagenes[0].urlImagen : null;
+  console.log(imagenUrl)
 
   return (
     <section className="container-card">
       <div className="card-product">
-        {firstImage && (
-          <img src={firstImage} alt={nombre} className="img-card-recommended" />
+        {imagenUrl && (
+          <img src={`http://${imagenUrl}`} alt={nombre} className="img-card-recommended" />
         )}
         <div className="description-product">
           <h3 className="tittle">{nombre}</h3>

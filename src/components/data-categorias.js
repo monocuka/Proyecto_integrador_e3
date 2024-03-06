@@ -8,19 +8,19 @@ export const categoria = [
     {
       id: 2,
       imageurl:
-        "https://images.pexels.com/photos/4253320/pexels-photo-4253320.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      categoria: "Gastronomía",
+      'https://img.freepik.com/foto-gratis/excavadora-pesada-excavar-luz-diurna_23-2149194832.jpg?t=st=1709754274~exp=1709757874~hmac=dc0897be4654ea6388e8743853c7f44b1c1730b8e017b8e2ebd64a1ae2d01c8c&w=900',
+      categoria: "Retroexcavadoras",
     },
     {
       id: 3,
       imageurl:
-        "https://images.pexels.com/photos/2440525/pexels-photo-2440525.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "https://img.freepik.com/foto-gratis/excavadora-pesada-excavar-luz-diurna_23-2149194828.jpg?t=st=1709754582~exp=1709758182~hmac=34fa16e07c2588eca696477049b3b5ad6a8659339a260abc698c73b1d8f9942d&w=900",
       categoria: "Dumperes (Volquetes)",
     },
     {
       id: 4,
       imageurl:
-        "https://images.pexels.com/photos/17412897/pexels-photo-17412897/free-photo-of-paisaje-gente-agua-corriente.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "https://img.freepik.com/foto-gratis/excavadora-cavando-suelo-luz-dia_23-2149194767.jpg?w=900&t=st=1709754644~exp=1709755244~hmac=d25231eb381c5b6dbaa3d5a61af0eb5773f659ce65eba26bb63ad22e2a2fbc64",
       categoria: "Bulldozers",
     },
 ]
