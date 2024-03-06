@@ -1,8 +1,8 @@
 import '../assets/css/home.css';
 import Buscador from '../components/Buscador';
 import Recommended from '../components/Card_recommended/Recommended';
-import Card_tipo from '../components/Card_tipo';
-import './../assets/css/home.css'
+import { Card_categoria } from '../components/Card_categoria';
+import '../assets/css/card_tipo.css'
 
 export const Home = () => {
 
@@ -15,10 +15,7 @@ export const Home = () => {
     </div>
     <h3 className='titulo_tipo background-tittle'>Busqueda por tipo de maquinaria</h3>
     <div className='card-tipo card-recomendado'>
-          <Card_tipo/>
-          <Card_tipo/>
-          <Card_tipo/>
-          <Card_tipo/>
+          <Card_categoria/>
     </div>
     <div className="fondo-recomendado">
       <h3 className='titulo_tipo'>Lo más recomendado</h3>

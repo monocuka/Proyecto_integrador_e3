@@ -1,54 +1,38 @@
-import React, { useState, useEffect } from 'react';
+// Card_recommended.jsx
+import React from 'react';
 import StarRating from './StarRating';
 import { Link } from 'react-router-dom';
 import './../../assets/css/Card_recommendad.css';
 
-const Card_recommended = ({ imagen, description, name, precio, rating, rentalCount }) => {
-  
-  const [product, setProduct] = useState([]);
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const backendUrl = 'http://localhost:8080/';
+const Card_recommended = ({ product }) => {
+  const { nombre, descripcion, precio, id } = product;
 
-    fetch(`${backendUrl}/${name}`)
-      .then(response => response.json())
-      .then(data => {
-        setProduct(data);
-        setLoading(false);
-      })
-      .catch(error => {
-        console.error('Error al obtener el producto:', error);
-        setLoading(false);
-      });
-  }, [name]);
-
-  if (loading) {
-    return <div>Cargando...</div>;
-  }
+  const firstImage = product.imagenes && product.imagenes.length > 0 ? product.imagenes[0].urlImagen : null;
+  console.log(firstImage)
 
   return (
-    <>
-        <section className="container-card">
-          <div className="card-product">
-            <img src={imagen} alt={name} className="img-card-recommended" />
-            <div className="description-product">
-                <h3 className="tittle">{name}</h3>
-                <p className="description">{description}</p>
-                <div className="score">
-                  <p className="score-num">({rentalCount})</p>
-                  <StarRating rating={rating}/>
-                </div>
-                <div className="valor">
-                  <p className="num-precio">${precio}</p>
-                  <p className="hrs">Valor por día</p>
-                </div>
-                <Link to={`/detalle/${name}`} className="btn-buscar btn-detail">Ver detalle</Link>
-            </div>
+    <section className="container-card">
+      <div className="card-product">
+        {firstImage && (
+          <img src={firstImage} alt={nombre} className="img-card-recommended" />
+        )}
+        <div className="description-product">
+          <h3 className="tittle">{nombre}</h3>
+          <p className="description">{descripcion}</p>
+          <div className="score">
+            <p className="score-num">({product.rentalCount})</p>
+            <StarRating rating={product.rating}/>
           </div>
-        </section>
-    </>
-  )
+          <div className="valor">
+            <p className="num-precio">${precio}</p>
+            <p className="hrs">Valor por día</p>
+          </div>
+          <Link to={`/detalle/${id}`} className="btn-buscar btn-detail">Ver detalle</Link>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default Card_recommended;

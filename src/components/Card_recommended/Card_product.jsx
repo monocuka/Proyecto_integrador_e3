@@ -1,34 +1,40 @@
-import React, { useEffect, useState } from 'react'
+// Card_product.jsx
+import React, { useEffect, useState } from 'react';
 import Card_recommended from './Card_ recommended';
-import { Array_Card_Recommended } from './Array_Card_Recommended';
-import './../../assets/css/Card_recommendad.css'
+import '../../assets/css/Card_recommendad.css';
 
 const Card_product = () => {
-
-  const [products, setProducts] = useState('null')
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
-      fetch('http://localhost:8080/products')
-      .then(res => res.json())
-      .then(data => setProducts(data))
-  }),[]
+    const fetchData = async () => {
+      try {
+        const res = await fetch('http://localhost:8080/api/producto/');
+        if (!res.ok) {
+          throw new Error('La solicitud no fue exitosa');
+        }
+        const jsonData = await res.json();
+        setProducts(jsonData);
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    };
 
-    const randomIndex = Math.floor(Math.random() * Array_Card_Recommended.length);
-    const randomProduct = Array_Card_Recommended[randomIndex];
+    fetchData();
+  }, []);
+
+  if (products.length === 0) {
+    return <div>Cargando...</div>;
+  }
+
+  const randomIndex = Math.floor(Math.random() * products.length);
+  const randomProduct = products[randomIndex];
 
   return (
     <div className='card-product-reco'>
-        <Card_recommended
-            key={randomProduct.id}
-            img={randomProduct.img}
-            name={randomProduct.name}
-            description={randomProduct.description}
-            precio={randomProduct.precio}
-            rating={randomProduct.rating}
-            rentalCount={randomProduct.rentalCount}
-        />
+      <Card_recommended product={randomProduct} />
     </div>
-  )
-}
+  );
+};
 
-export default Card_product
+export default Card_product;
