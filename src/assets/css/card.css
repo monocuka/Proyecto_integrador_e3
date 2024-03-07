@@ -28,6 +28,7 @@
 }
 .infoCard > h5 {
     width: 70%;
+    text-align: left;
 }
 .btnDetalles{
     padding: 10px;
