@@ -1,30 +1,43 @@
- import '../assets/css/productoRegistrar.css'
+import '../assets/css/productoRegistrar.css'
+import { useState,  useEffect } from 'react';
+
 export const RegistrarProducto = () => {
-  const btnClick = async (event) => {
-    event.preventDefault();
-    const imagen = document.getElementById("product-image").files[0];
-    const name = document.getElementById("product-name").value;
-    const cost = document.getElementById("cost").value;
-    const quantity = document.getElementById("quantity").value;
-    const description = document.getElementById("description").value;
-    const codigo = document.getElementById("code").value;
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const [categories, setCategories] = useState([]);
 
-    const responseElement = document.getElementById("response");
+  useEffect(() => {
+    fetch('http://localhost:8080/api/categoria/')
+      .then(response => response.json())
+      .then(data => setCategories(data))
+      .catch(error => console.error('Error:', error));
+  }, []);
 
-    const productData = {
-        nombre: name,
-        descripcion: description,
-        precio: cost,
-        codigo: codigo,
-        cantidad: quantity,
-        categoria: {
-            cat_id: 1,
-            nombre: "Compresores de aire",
-            descripcion: "Son ideales para darle potencia a otras herramientas neumáticas o bien realizar múltiples tareas como inflar neumáticos de coches y bicicletas, limpiar o hasta rociar pintura."
-        }
-    };
+  const handleChange = (event) => {
+    setSelectedCategory(event.target.value);
+  };
+
+  console.log(categories);
+    const btnClick = async (event) => {
+        event.preventDefault();
+        const imagen = document.getElementById("product-image").files[0];
+        const name = document.getElementById("product-name").value;
+        const cost = document.getElementById("cost").value;
+        const categoria = document.getElementById("categoria").value;
+        const description = document.getElementById("description").value;
+         
     
-        const url = 'localhost:8080/api/producto/';
+        const responseElement = document.getElementById("response");
+    
+        const productData = {
+          nombre: name,
+          descripcion: description,
+          precio: cost,
+          categoria: {
+            id: categoria,
+          }
+        };
+    
+        const url = 'http://localhost:8080/api/producto/guardar';
         let formData = new FormData();
         formData.append('producto', JSON.stringify(productData));
         formData.append('imagen', imagen);
@@ -53,7 +66,6 @@ export const RegistrarProducto = () => {
         }
       }
     
-    
       return (
         <div className="registro-container">
           <div className="body-container">
@@ -73,13 +85,19 @@ export const RegistrarProducto = () => {
                 <label className='name-input' htmlFor="product-name">Nombre del Producto</label>
                 <input className='input-ingreso' type="text" id="product-name" name="product-name" />
     
-                <label className='name-input' htmlFor="product-code">Codigo</label>
-                <input className='input-ingreso' type="text" id="code" name="code" />
+                {/* <label className='name-input' htmlFor="product-code">Codigo</label>
+                <input className='input-ingreso' type="text" id="code" name="code" /> */}
     
-                {/* <label className='name-input' htmlFor="category">Categoría</label>
-                <select id="category" name="category">
-                  { Opciones de categoría }
-                </select> */}
+                <label  className='name-input' htmlFor="categoria">Categoría</label>
+                <select className='input-ingreso name-categoria' id="categoria" name="categoria" value={selectedCategory} onChange={handleChange}>
+                  <option value="">Select a category...</option>
+                  {categories.map((category) => (
+                    <option key={category.id} value={category.id}>
+                      {category.nombre}
+                    </option>
+                  ))}
+                </select> 
+      
     
                 <label className='name-input' htmlFor="cost">Costo</label>
                 <input className='input-ingreso' type="number" id="cost" name="cost" />

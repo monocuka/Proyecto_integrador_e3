@@ -37,6 +37,10 @@ header {
   align-items: center;
 }
 
+.name-categoria {
+  display: flex;
+}
+
 /* Logo de la empresa */
 .company-logo {
   width: 50px;
@@ -100,7 +104,7 @@ header {
 .product-form {
 
   background-color: unset;
-  padding: 80px 24px 0px 0;
+  padding: 80px 52px 66px 0px;
   border-radius: 50px;
   display: flex;
   flex-direction: column;
