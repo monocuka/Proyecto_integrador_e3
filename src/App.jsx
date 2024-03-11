@@ -3,6 +3,7 @@ import './App.css'
 import Buscador from './components/Buscador'
 import Categorias from './components/Categorias';
 import Card from './components/Card';
+import IdentificarUsuario from './components/IdentificarUsuario';
 
 export const App = () => {
   return (
@@ -11,6 +12,7 @@ export const App = () => {
       <Buscador />
       <AppRouter />
       <Card />
+      <IdentificarUsuario/>
     </>
   )
 }
