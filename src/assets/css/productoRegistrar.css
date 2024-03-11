@@ -10,6 +10,12 @@ body {
   background-color: #F1DFBE;
 }
 
+h2 {
+  margin-bottom: 18px;
+}
+/* .img-agregar {
+  display: none;
+} */
 /* Estilos para el encabezado */
 header {
   background-color: #F1DFBE;
@@ -56,6 +62,10 @@ header {
   font-size: 1em;
 }
 
+.img-agregar-tablet{
+  display: none;
+}
+
 /* Icono de usuario */
 .user-icon {
   width: 30px;
@@ -66,7 +76,7 @@ header {
 /* Contenedor del cuerpo */
 .body-container {
   display: flex;
-  padding: 20px;
+  justify-content: end;
 }
 
 /* Imagen de la empresa */
@@ -74,10 +84,27 @@ header {
   margin-right: 20px;
 }
 
+.product-form label{
+    border: none;
+    border-radius: 5px;
+    border-radius: none;
+}
+
+#description {
+  width: -webkit-fill-available;
+  height: 100px;
+
+}
+
 /* Formulario del producto */
 .product-form {
-  background-color: #F1DFBE;
-  padding: 20px;
+
+  background-color: unset;
+  padding: 80px 24px 0px 0;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  border: none;
 }
 
 .product-form form {
@@ -87,8 +114,11 @@ header {
 
 .product-form label {
   margin-bottom: 5px;
-  width: 100%; /* O ajusta según necesidades */
+  width: 100%; 
   box-sizing: border-box;
+  font-size: 12px;
+  border: none;
+  border-radius: 8px;
 }
 
 .product-form input,
@@ -97,44 +127,34 @@ header {
   margin-bottom: 10px;
   padding: 8px;
   box-sizing: border-box;
-}
-
-/* Imágenes del footer */
-.footer-images {
-  text-align: left;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-/* Footer */
-footer {
-  background-color: #342822;
-}
-
-/* Estilos para botones personalizados */
-.button-custom {
-  font-family: 'Roboto', sans-serif;
-  font-weight: bold;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.button-custom {
-  background-color: #DE8121;
-  color: #FFFFFF;
-  font-size: 14px;
-  padding: 10px 20px;
   border: none;
 }
 
-.button-custom1 {
+input {
+  width: -webkit-fill-available;
+}
+
+
+/* Estilos para botones personalizados */
+.button-custom {
+    background-color: #DE8121;
+    color: #FFFFFF;
+    border: none;
+    font-size: 14px;
+    font-weight: 300;
+    margin-right: 5px;
+    border-radius: 8px;
+    border: 1px transparent;
+}
+
+.button-custom-cancelar {
   background-color: #F1DFBE;
   color: #DE8121;
-  font-size: 14px;
-  padding: 10px 20px;
-  border: solid #DE8121;
-  border-radius: 5%;
+  border: 1px solid #DE8121;
+}
+
+.name-input {
+  font-size: 12px;
 }
 
 /* FontAwasome */
@@ -145,85 +165,6 @@ footer {
   font-size: 24px; /* Ajusta el tamaño según tus preferencias */
   margin-right: 10px; /* Ajusta el espacio a la derecha de los íconos según tus preferencias */
   margin-left: 10px; /* Nuevo margen izquierdo para separar los íconos */
-}
-
-/* Media query para pantallas más pequeñas */
-@media screen and (max-width: 768px) {
-  header {
-    flex-direction: column;
-    padding: 10px;
-  }
-
-  .logo-container, .slogan {
-    margin-bottom: 10px;
-  }
-
-  .user-icon {
-    margin-top: 10px;
-  }
-
-  .body-container {
-    flex-direction: row; /* Cambiado de column a row */
-  }
-
-  .company-image,
-  .product-form {
-    width: 50%; /* Cambiado a 50% para dividir en dos partes iguales */
-  }
-
-  .company-image {
-    display: block;
-    width: 100%; /* O ajusta según necesidades */
-    height: auto;
-    margin-right: 0;
-    margin-bottom: 20px; /* Puedes ajustar el espacio inferior si es necesario */
-  }
-
-  .product-form {
-    padding: 10px;
-    box-sizing: border-box;
-  }
-
-  .footer-images {
-    justify-content: space-between;
-    padding: 10px;
-  }
-
-  .slogan .line1 {
-    font-size: 16px;
-  }
-
-  .icon-white {
-    font-size: 20px;
-  }
-}
-
-/* Estilos para el formulario del producto en pantallas grandes */
-@media screen and (min-width: 769px) {
-  .product-form form {
-    justify-content: center;
-    align-items: center;
-  }
-
-  .product-form label {
-    width: 30%; /* Ancho reducido para etiquetas en pantallas grandes */
-  }
-
-  .product-form input,
-  .product-form select,
-  .product-form textarea {
-    width: 70%; /* Ancho aumentado para inputs en pantallas grandes */
-    margin-bottom: 15px; /* Mayor espacio entre inputs */
-  }
-
-  .button-container {
-    justify-content: center;
-  }
-
-  .button-custom,
-  .button-custom1 {
-    margin-right: 10px; /* Espacio entre los botones en pantallas grandes */
-  }
 }
 
 /* Estilos para botones personalizados */
@@ -247,9 +188,37 @@ footer {
   border-radius: 8px; /* Ajusta el border-radius para el botón de cancelar */
 }
 
-/* Estilos para el footer en pantallas grandes */
-@media screen and (min-width: 769px) {
-  .footer-images i {
-    margin-right: 10px; /* Ajusta el espacio entre los iconos del footer */
+.img-agregar{
+  clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
+  background-position: center;
+  overflow:hidden;
+  width: 790px;
+}
+
+/* Media query para pantallas más pequeñas */
+@media screen and (max-width: 768px) {
+  .img-agregar{
+    display: none;
+  }
+  .img-agregar-tablet{
+    display: flex;
+  }
+  .img-agregar{
+    width: 212px;
+  }
+}
+
+/* Estilos para el formulario del producto en pantallas grandes */
+@media screen and (max-width: 689px) {
+    h2{
+      display: flex;
+      justify-content: center;
+    }
+  .img-agregar{
+    display: none;
+  }
+
+  .body-container{
+    padding-bottom: 80px;
   }
 }

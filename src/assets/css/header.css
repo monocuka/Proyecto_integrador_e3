@@ -151,11 +151,13 @@ ul h2{
 .texto-logo h3{
     font-size: 22px;
     font-weight: bolder;
+    line-height: 1;
 }
 
 .texto-logo h5{
     font-size: 22px;
     font-weight: normal;
+    line-height: 1;
 }
 @media (min-width: 600px) {
     .menu-icon {
