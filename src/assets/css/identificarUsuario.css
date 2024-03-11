@@ -76,6 +76,5 @@
     font-size: 24px; /* Cambia el tamaño de la fuente */
     margin-bottom: 20px; /* Agrega espacio en la parte inferior */
     text-align: center; /* Centra el texto horizontalmente */
-    margin: 0 auto; /* Centra el elemento horizontalmente */
-    width: fit-content; /* Ajusta el ancho del elemento según su contenido */
+    width: 34%
   }

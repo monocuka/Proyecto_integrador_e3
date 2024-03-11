@@ -1,0 +1,30 @@
+.titulo-grande {
+    text-align: center; /* Centra el texto*/
+     margin-bottom: 20px; /* Margen inferior para separarlo del siguiente título */
+    font-size: 22px; /* Tamaño del texto */
+    color: white;
+  }
+  
+  .titulo {
+    text-align: center; /* Centra el texto horizontalmente */
+    color: white; /* Color del texto */
+    margin-bottom: 20px; /* Margen inferior para separarlo del contenedor de búsqueda */
+    font-size: 15px;
+  }
+
+.buscador {
+    text-align: center; /* Centra el contenido horizontalmente */
+    margin-top: 20px; /* Espacio superior */
+    background-color: rgb(52, 40, 34); /* Color de fondo café */
+    padding: 20px; /* Espaciado interno */
+  }
+  
+  .buscador input[type="text"] {
+    width: 600px; 
+    padding: 10px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 5px;
+    background-color: white; /* Fondo blanco */
+  }
+  
+  
