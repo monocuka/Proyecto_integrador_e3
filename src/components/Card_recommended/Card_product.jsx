@@ -9,7 +9,7 @@ const Card_product = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('http://localhost:8080/api/producto/productosRecomendados');
+        const res = await fetch('http://localhost:8080/api/producto/');
         if (!res.ok) {
           throw new Error('La solicitud no fue exitosa');
         }

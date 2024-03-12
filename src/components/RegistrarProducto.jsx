@@ -86,9 +86,6 @@ export const RegistrarProducto = () => {
                 <label className='name-input' htmlFor="product-name">Nombre del Producto</label>
                 <input className='input-ingreso' type="text" id="product-name" name="product-name" />
     
-                {/* <label className='name-input' htmlFor="product-code">Codigo</label>
-                <input className='input-ingreso' type="text" id="code" name="code" /> */}
-    
                 <label  className='name-input' htmlFor="categoria">Categoría</label>
                 <select className='input-ingreso name-categoria' id="categoria" name="categoria" value={selectedCategory} onChange={handleChange}>
                   <option value="">Select a category...</option>
