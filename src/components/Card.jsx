@@ -1,5 +1,6 @@
 import React from "react";
 import '../assets/css/card.css';
+import BotonDetalle from "./BotonDetalle";
 
 
 const Card = ({ product }) => {
@@ -19,7 +20,7 @@ const Card = ({ product }) => {
             <div className="infoCard">
                 <h5>{product.nombre}</h5>
                 <div className="btnDetalles">
-                    <button className="btnDetail">Detalle</button>
+                <BotonDetalle id={product.id} />
                 </div>
             </div>
         </div>
