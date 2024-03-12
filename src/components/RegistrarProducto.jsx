@@ -1,6 +1,5 @@
-import { Link } from 'react-router-dom';
-import '../assets/css/productoRegistrar.css'
-import { useState,  useEffect } from 'react';
+import '../assets/css/registrarProducto.css'
+import herrramienta from '../assets/img/mano-vista-lateral-herramienta-electrica 11.svg';
 
 export const RegistrarProducto = () => {
   const [selectedCategory, setSelectedCategory] = useState('');
@@ -113,6 +112,8 @@ export const RegistrarProducto = () => {
               </form>
             </div>
           </div>
+    
+          
         </div>
       );
 }
