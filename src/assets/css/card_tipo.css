@@ -30,13 +30,6 @@
     border: 0.5px var(--color-secondary) solid;
 }
 
-/* .container_tipo > div {
-    display: flex;
-    align-items: start;
-    flex-direction: column;
-    margin: 0.2em 0.6em;
-} */
-
 .titulo_card {
     font-weight: 700;
     color: #545776;

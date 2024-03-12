@@ -132,14 +132,14 @@ header {
   padding: 8px;
   box-sizing: border-box;
   border: none;
+  border-radius: 5px;
+  width: -webkit-fill-available;
 }
 
 input {
   width: -webkit-fill-available;
 }
 
-
-/* Estilos para botones personalizados */
 .button-custom {
     background-color: #DE8121;
     color: #FFFFFF;
@@ -149,6 +149,7 @@ input {
     margin-right: 5px;
     border-radius: 8px;
     border: 1px transparent;
+    text-decoration: none;
 }
 
 .button-custom-cancelar {

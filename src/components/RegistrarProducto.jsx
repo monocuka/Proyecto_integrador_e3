@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import '../assets/css/productoRegistrar.css'
 import { useState,  useEffect } from 'react';
 
@@ -21,7 +22,6 @@ export const RegistrarProducto = () => {
         event.preventDefault();
         const imagen = document.getElementById("product-image").files[0];
         const name = document.getElementById("product-name").value;
-        const cost = document.getElementById("cost").value;
         const categoria = document.getElementById("categoria").value;
         const description = document.getElementById("description").value;
          
@@ -51,7 +51,8 @@ export const RegistrarProducto = () => {
           const response = await fetch(url, settings);
           if (!response.ok) { // if HTTP-status is 200-299
             // get the error message from the body
-            const message = await response.text();
+            const errorData = await response.json(); // parse the response body as JSON
+            const message = errorData.message; // extract the error message
             responseElement.innerText = message;
             responseElement.style.color = 'red';
           } else {
@@ -102,16 +103,13 @@ export const RegistrarProducto = () => {
                 <label className='name-input' htmlFor="cost">Costo</label>
                 <input className='input-ingreso' type="number" id="cost" name="cost" />
     
-                <label className='name-input' htmlFor="quantity">Cantidad</label>
-                <input className='input-ingreso' type="number" id="quantity" name="quantity" />
-    
                 <label className='name-input' htmlFor="description">Descripción</label>
                 <textarea className='input-ingreso' id="description" name="description"></textarea>
     
                 </div>
                 <div>
                   <button className='button-custom' onClick={btnClick}>Agregar Producto</button>
-                  <button className='button-custom button-custom-cancelar' type="button">Cancelar</button>
+                  <Link to='/admin' className='button-custom button-custom-cancelar'>Cancelar</Link>
                 </div>
     
                 <p id= "response"></p>

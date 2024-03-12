@@ -1,36 +1,37 @@
-import React from 'react'
-import './../assets/css/card_tipo.css'
+import React, { useState, useEffect } from 'react';
+import './../assets/css/card_tipo.css';
 
-const Card_tipo = ({ categoria, imageurl }) => {
-  
-  //const [categoria, setCategoria] = useState([])
+const Card_tipo = () => {
+  const [categorias, setCategorias] = useState([]);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const res = await fetch('http://localhost:8080/api/producto/id/');
-  //       if (!res.ok) {
-  //         throw new Error('La solicitud no fue exitosa');
-  //       }
-  //       const jsonData = await res.json();
-  //       setCategoria(jsonData);
-  //     } catch (error) {
-  //       console.error('Error:', error);
-  //     }
-  //   };
-  //   fetchData();
-  // }, []);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch('http://localhost:8080/api/categoria');
 
-  // if (categoria.length === 0) {
-  //   return <div>Cargando...</div>;
-  // }
-  
+        if (!res.ok) {
+          throw new Error('La solicitud no fue exitosa');
+        }
+        const data = await res.json();
+        setCategorias(data);
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
-    <div className='container_tipo'>
-        <img className='container-tipo-img' src={imageurl} alt="foto" />
-        <h3 className='text-tipo'>{categoria}</h3>
+    <div>
+      {categorias.map((categoria) => (
+        <div key={categoria._id} className='container_tipo'>
+          <img className='container-tipo-img' src={categoria.imageUrl} alt={categoria.name} />
+          <h3 className='text-tipo'>{categoria.name}</h3>
+        </div>
+      ))}
     </div>
   );
 }
 
-export default Card_tipo
+export default Card_tipo;
