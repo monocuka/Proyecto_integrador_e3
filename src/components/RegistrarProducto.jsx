@@ -1,8 +1,9 @@
 import '../assets/css/registrarProducto.css'
-import herrramienta from '../assets/img/mano-vista-lateral-herramienta-electrica 11.svg';
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 export const RegistrarProducto = () => {
-  const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState("");
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -23,8 +24,6 @@ export const RegistrarProducto = () => {
         const name = document.getElementById("product-name").value;
         const categoria = document.getElementById("categoria").value;
         const description = document.getElementById("description").value;
-         
-    
         const responseElement = document.getElementById("response");
     
         const productData = {
@@ -37,6 +36,7 @@ export const RegistrarProducto = () => {
         };
     
         const url = 'http://localhost:8080/api/producto/guardar';
+
         let formData = new FormData();
         formData.append('producto', JSON.stringify(productData));
         formData.append('imagen', imagen);
@@ -65,7 +65,7 @@ export const RegistrarProducto = () => {
           responseElement.style.color = 'red';
         }
       }
-    
+
       return (
         <div className="registro-container">
           <div className="body-container">
@@ -87,7 +87,7 @@ export const RegistrarProducto = () => {
     
                 <label  className='name-input' htmlFor="categoria">Categoría</label>
                 <select className='input-ingreso name-categoria' id="categoria" name="categoria" value={selectedCategory} onChange={handleChange}>
-                  <option value="">Select a category...</option>
+                  <option value="">Selecciona categoria...</option>
                   {categories.map((category) => (
                     <option key={category.id} value={category.id}>
                       {category.nombre}
