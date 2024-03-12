@@ -1,4 +1,4 @@
-import '../assets/css/productoRegistrar.css';
+import '../assets/css/registrarProducto.css'
 import herrramienta from '../assets/img/mano-vista-lateral-herramienta-electrica 11.svg';
 
 export const RegistrarProducto = () => {
@@ -105,14 +105,7 @@ export const RegistrarProducto = () => {
             </div>
           </div>
     
-          <footer>
-            <div className="footer-images icon-white">
-              <i className="fa-brands fa-facebook"></i>
-              <i className="fa-brands fa-linkedin"></i>
-              <i className="fa-brands fa-twitter"></i>
-              <i className="fa-brands fa-instagram"></i>
-            </div>
-          </footer>
+          
         </div>
       );
 }
