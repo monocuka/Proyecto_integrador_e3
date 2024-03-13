@@ -4,6 +4,7 @@ import { Home } from '../pages/Home';
 import { Admin } from '../pages/Admin';
 import { AgregarProducto } from '../pages/AgregarProducto';
 import { Header } from '../components/Header';
+import { RegistrarUsuario } from '../pages/RegistrarUsuario'
 
 export const AppRouter = () => {
   return (
@@ -14,6 +15,7 @@ export const AppRouter = () => {
           <Route path="/" element={ <Navigate to="/home" /> } />
           <Route path="/admin" element={ <Admin /> } />
           <Route path="/agregarProducto" element={ <AgregarProducto /> } />
+          <Route path='/RegistrarUsuario' element={<RegistrarUsuario/>}/>
       </Routes>
     </>
   )

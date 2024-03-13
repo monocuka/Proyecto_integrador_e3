@@ -7,7 +7,7 @@ export const App = () => {
   return (
     <>
       <AppRouter />
-      <Buscador />
+      {/* <Buscador /> */}
       <Categorias />
       <RegistrarProducto />
     </>
