@@ -4,6 +4,7 @@ import Card_recommended from './Card_ recommended';
 import '../../assets/css/Card_recommendad.css';
 
 const Card_product = () => {
+  
   const [products, setProducts] = useState([]);
 
   useEffect(() => {

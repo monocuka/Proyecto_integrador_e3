@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 export const RegistrarProducto = () => {
+
   const [selectedCategory, setSelectedCategory] = useState("");
   const [categories, setCategories] = useState([]);
 
@@ -22,6 +23,7 @@ export const RegistrarProducto = () => {
         event.preventDefault();
         const imagen = document.getElementById("product-image").files[0];
         const name = document.getElementById("product-name").value;
+        const cost = document.getElementById("cost").value;
         const categoria = document.getElementById("categoria").value;
         const description = document.getElementById("description").value;
         const responseElement = document.getElementById("response");
@@ -52,17 +54,14 @@ export const RegistrarProducto = () => {
             // get the error message from the body
             const errorData = await response.json(); // parse the response body as JSON
             const message = errorData.message; // extract the error message
-            responseElement.innerText = message;
-            responseElement.style.color = 'red';
+            alert(message);
           } else {
             const data = await response.json();
-            responseElement.innerText = 'Product created successfully';
-            responseElement.style.color = 'green';
+            alert('Product created successfully');
           }
         } catch (error) {
           console.error('Error: ', error);
-          responseElement.innerText = 'An error occurred';
-          responseElement.style.color = 'red';
+          alert('An error occurred');
         }
       }
 
@@ -75,7 +74,7 @@ export const RegistrarProducto = () => {
             </div>
     
             <div className="product-form">
-              <h2>Agregar Producto</h2>
+              <h3 className='titulo-editar'>Agregar Producto</h3>
               <form className='form-agregar'>
                 <div className="form-input">
 

@@ -17,8 +17,18 @@ body {
   box-sizing: border-box;
 }
 
+.body-container {
+  height: 100vh;
+ 
+}
+
+.titulo-editar {
+  margin: 10px 0;
+}
+
 .registro-container {
   background-color: var(--color-tertiary);
+  width: 100vw;
 }
 
 h2 {
@@ -77,6 +87,8 @@ h2 {
   display: flex;
   flex-direction: column;
   border: none;
+  width: 629px;
+  height: auto;
 }
 
 .product-form form {
@@ -153,7 +165,7 @@ input {
   overflow:hidden;
   width: 790px;
 }
-/* Media query para pantallas más pequeñas */
+
 @media screen and (max-width: 768px) {
   .img-agregar{
     display: none;
@@ -165,7 +177,7 @@ input {
     width: 212px;
   }
 }
-/* Estilos para el formulario del producto en pantallas grandes */
+
 @media screen and (max-width: 689px) {
     h2{
       display: flex;
