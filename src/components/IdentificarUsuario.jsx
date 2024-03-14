@@ -39,9 +39,9 @@ const IdentificarUsuario = () => {
     });
   }
   useEffect(() => {
-    if (fetchResponse == null) {
+    if (fetchResponse && fetchResponse.token) {
       localStorage.setItem('usuario', JSON.stringify(fetchResponse));
-      //navigate('/home');
+      navigate('/home');
     }
   }, [fetchResponse]);
   
