@@ -1,6 +1,6 @@
-import '../assets/css/card.css';
 import '../assets/css/cardDetalle.css'
 import { Link } from 'react-router-dom';
+
 
 
 const CardDetalle = ({ product }) => {
@@ -8,27 +8,47 @@ const CardDetalle = ({ product }) => {
     if (!product) {
         return null; // O puedes devolver algún componente de carga o un mensaje de error
     }
-    console.log("Dentro de la card el producto es: ", product);
-    //console.log("el path de la imagen dentro del card: " + product.imagenes[0].urlImagen);
     // Ruta de la imagen
     const imagePath = product.imagenes && product.imagenes.length > 0 ? product.imagenes[0].urlImagen : null;
 
+    const caract = product.caracteristicas;
+    const listaCaracteristicas = caract.map((caracteristica, index) => (
+        <li key={index}>{caracteristica.nombre}</li>
+        ));
     return (
-        <div className="CardDetalleF">
+    <div className="CardDetalleF">
+            <div className='superiorDtalle'>
+                <div className="btnBack">
+                    <Link to="/home" className="btnGoback">
+                        <img src="/src/assets/img/back.png" alt="atras" className='imgback'/>
+                    </Link>
+                </div>
+                <h2 className='titleDetalle'>Detalle del Producto</h2>
+            </div>
+
             <div className="imagesP">
                 <img src={`http://${imagePath}`} alt="imagenproducto" />
             </div>
+            <div className='nombrePuntuacion'>
+                <h3>{product.nombre}</h3>
+                <p>⭐⭐⭐⭐</p>
+            </div>
             <div className="infoCardDetail">
-                    <h5>{product.nombre}</h5>
-                    {/* <p><strong>Código:</strong> {product.codigo}</p> */}
-                    <p><strong>Descripción:</strong> {product.descripcion}</p>
-                    <p><strong>Precio:</strong> {product.precio}</p>
-                    <p><strong>Categoría:</strong> {product.categoria.nombre}</p>
-                    <div className="btnBack">
-                        <Link to="/home" className="btnGoback">🔙</Link>
-                    </div>
+            <div className='precio'>
+            <p><strong>Precio: $</strong> {product.precio}</p>
+            </div>
+            <div className='InfoDetalle'>
+                <p><strong>Descripción:</strong> {product.descripcion}</p>
+                <p><strong>Categoría:</strong> {product.categoria.nombre}</p>
+            </div> 
+            </div>  
+            <div className='Caracteristicas'>
+                <h2><strong>Caracteristicas.</strong></h2>
+                <div>
+                <ul className='listCaracterisitcas'>{listaCaracteristicas}</ul>
                 </div>
-        </div>
+            </div>
+    </div>
     );
 };
 
