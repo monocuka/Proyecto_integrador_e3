@@ -14,7 +14,7 @@ h2.registrar {
 
 .img-agregar-tablet .img-agregar #imgtablet{
     display: none;
-}
+}   
 
 #boxInput {
     display: grid;
@@ -170,6 +170,11 @@ div.registro-container{
 
     .img-agregar {
         width: 100%;
-        height: 90vh;
+        height: 80vh;
     }
+
+    .img-agregar-tablet {
+        display: none;
+    }
+
 }

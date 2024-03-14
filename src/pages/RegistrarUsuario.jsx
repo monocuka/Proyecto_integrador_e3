@@ -1,5 +1,5 @@
 import '../styles/RegistrarUsuario.css'
-// import useInput from '../components/Registrar_Usuario/UseInput'
+import useInput from '../components/Registrar_Usuario/UseInput'
 import React, { useState } from 'react'
 
 export const RegistrarUsuario = () => {
@@ -31,10 +31,10 @@ export const RegistrarUsuario = () => {
 
         const nameRegex = /^[^\s]+(\s[^\s]+)*$/;
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
+       
         if (!nameRegex.test(formData.Name) ||
             formData.Name.length <= 5 || formData.pass.length <= 8 ||
-            formData.pass.value() == formData.pass2.value() ||
+            formData.pass !== formData.pass2 ||
             !emailRegex.test(formData.email)) {
             setSuccessMessage("");
             setError("ERROR EN LOS DATOS")
@@ -42,10 +42,7 @@ export const RegistrarUsuario = () => {
             setError(true);
         }
         console.log(
-            "Formulario enviado exitosamente!: "
-        );
-
-
+            "Formulario enviado exitosamente!: ");
     }
 
     return (
