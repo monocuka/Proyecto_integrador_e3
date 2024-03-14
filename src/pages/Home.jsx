@@ -10,7 +10,7 @@ export const Home = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('http://localhost:8080/products');
+                const response = await fetch('http://localhost:8080/api/producto/listar');
                 if (!response.ok) {
                     throw new Error('Error al obtener los datos');
                 }
