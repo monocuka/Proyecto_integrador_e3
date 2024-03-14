@@ -19,7 +19,7 @@ const Card = ({ product }) => {
             <div className="infoCard">
                 <h5>{product.nombre}</h5>
                 <div className="btnDetalles">
-                <BotonDetalle id={product.id} />
+                <BotonDetalle  product={product} />
                 </div>
             </div>
         </div>

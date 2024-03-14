@@ -15,7 +15,6 @@ export const Home = () => {
                     throw new Error('Error al obtener los datos');
                 }
                 const postsData = await response.json();
-                console.log(postsData);
                 setProductos(postsData);
             } catch (error) {
                 console.log(error);
