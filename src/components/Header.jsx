@@ -19,17 +19,17 @@ export const Header = () => {
     const [jwtKey, setJwtKey] = useState(null);
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
+
     useEffect(() => {
-        const token = localStorage.getItem('jwtKey');
+        //const token = localStorage.getItem('jwtKey');
         // const firstName = localStorage.getItem('nombre');
         // const lastName = localStorage.getItem('apellido');
-        //const usuario = localStorage.getItem('usuario');
-        const firstName = "Nahuel";
-        const lastName = "Curi";
-
-        setJwtKey(token);
-        setFirstName(firstName);
-        setLastName(lastName);
+        const usuario = JSON.parse(localStorage.getItem('usuario'));
+        if(usuario){
+            setJwtKey(usuario.token);
+            setFirstName(usuario.name);
+            setLastName(usuario.lastName);
+        }
     }, []);
 
     useEffect(() => {
