@@ -62,7 +62,7 @@ export const Header = () => {
             <img className="menu-icon" src={ (isBurger) ? menuHamburguesa : menuCerrar } title='Burger Menu' alt='Burger Menu'
                 onClick={ toggleMenu } />
             <div className="button-header">
-                <button className="button-iniciar">Inciar sesión</button>
+                <Link to="/iniciarSesion"  className="button-iniciar">Iniciar sesión</Link>
                 <button className="button-registrate">Regístrarse</button>
             </div>
             <ul className={`navigation ${navigationMobile}`}>

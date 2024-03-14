@@ -2,6 +2,35 @@ import React from 'react';
 import '../assets/css/identificarUsuario.css';
 
 const IdentificarUsuario = () => {
+  const btnClick=async (e) =>{
+    fetch('http://localhost:8080/api/auth/authenticate', {
+      method: 'POST', // o 'GET', 'PUT', 'DELETE', etc.
+      headers: {
+        'Content-Type': 'application/json' // Asegúrate de establecer el tipo de contenido adecuado si estás enviando datos en formato JSON
+        // Puedes incluir otras cabeceras si es necesario
+      },
+      // Puedes enviar datos en el cuerpo de la solicitud si es necesario
+      body: JSON.stringify({
+        email: "hjbbkjb",
+        password: "iohoib"
+    })
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Error al hacer la solicitud');
+      }
+      return response.json(); // Si esperas una respuesta en formato JSON
+    })
+    .then(data => {
+      // Manipula los datos recibidos aquí
+      console.log(data);
+    })
+    .catch(error => {
+      // Maneja cualquier error aquí
+      console.error('Se produjo un error:', error);
+    });
+  }
+  
   return (
     <div id="login-component">
       <h2 className='iniciar-sesion'>Iniciar Sesión</h2>
@@ -18,7 +47,7 @@ const IdentificarUsuario = () => {
         <a href="#">Olvidé contraseña</a>
       </div>
         <div className="form-group">
-          <button type="submit">Iniciar Sesión</button>
+          <button onClick={btnClick} type="submit">Iniciar Sesión</button>
           <button type="button" onClick={cancelLogin}>Cancelar</button>
         </div>
       </form>

@@ -8,12 +8,11 @@ import { RegistrarProducto } from './components/RegistrarProducto.jsx';
 export const App = () => {
   return (
     <>
-      <Categorias />
-      <Buscador />
       <AppRouter />
-      <Card />
-      <IdentificarUsuario/>
-      <RegistrarProducto />
+      {/* <Buscador /> /}
+      {/ <Categorias /> /}
+      {/ <RegistrarProducto /> */}
+      
     </>
   )
 }
