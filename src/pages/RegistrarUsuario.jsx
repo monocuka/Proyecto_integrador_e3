@@ -6,6 +6,7 @@ export const RegistrarUsuario = () => {
 
     const [formData, setFormData] = useState({
         Name: "",
+        lastName: "", 
         email: "",
         pass: "",
         pass2: ""
@@ -26,9 +27,9 @@ export const RegistrarUsuario = () => {
         setError("");
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-
+    
         const nameRegex = /^[^\s]+(\s[^\s]+)*$/;
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
        
@@ -39,11 +40,35 @@ export const RegistrarUsuario = () => {
             setSuccessMessage("");
             setError("ERROR EN LOS DATOS")
         } else {
+            
+            const data = {
+                name: formData.Name,
+                lastName: formData.lastName, 
+                email: formData.email,
+                password: formData.pass
+            };
+            fetch('http://localhost:8080/api/auth/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                setSuccessMessage("User registered successfully!");
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                setError("Failed to register user");
+            });
+    
             setError(true);
         }
-        console.log(
-            "Formulario enviado exitosamente!: ");
+        console.log("Formulario enviado exitosamente!: ");
     }
+    
 
     return (
         <div >
@@ -62,13 +87,25 @@ export const RegistrarUsuario = () => {
                         <div id="contenedorForm">
                             <div id="name"></div>
                             <div id="boxInput">
-                                <label >Nombre completo: </label>
+                                <label >Nombre: </label>
                                 <input
                                     type='text'
                                     id='Name'
                                     className="form-control"
                                     name="Name"
                                     value={formData.Name}
+                                    onChange={handleInputChange}
+                                    onFocus={handleFocus}
+                                />
+                            </div>
+                            <div id="boxInput">
+                                <label >Apellido: </label>
+                                <input
+                                    type='text'
+                                    className="form-control"
+                                    name="lastName"
+                                    id='lastName'
+                                    value={formData.lastName}
                                     onChange={handleInputChange}
                                     onFocus={handleFocus}
                                 />
