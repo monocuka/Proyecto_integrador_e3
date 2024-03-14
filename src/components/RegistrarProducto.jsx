@@ -1,5 +1,7 @@
 import '../assets/css/registrarProducto.css'
 import herrramienta from '../assets/img/mano-vista-lateral-herramienta-electrica 11.svg';
+import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom';
 
 export const RegistrarProducto = () => {
   const [selectedCategory, setSelectedCategory] = useState('');
