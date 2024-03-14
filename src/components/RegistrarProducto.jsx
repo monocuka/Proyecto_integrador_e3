@@ -34,13 +34,16 @@ export const RegistrarProducto = () => {
           precio: cost,
           categoria: {
             id: categoria,
-          }
+          },
+          caracteristicas: []
         };
     
         const url = 'http://localhost:8080/api/producto/guardar';
         let formData = new FormData();
         formData.append('producto', JSON.stringify(productData));
+        console.log(imagen);
         formData.append('imagen', imagen);
+        
     
         const settings = {
           method: 'POST',
@@ -48,18 +51,20 @@ export const RegistrarProducto = () => {
         };
         try {
           const response = await fetch(url, settings);
-          if (!response.ok) { // if HTTP-status is 200-299
-            // get the error message from the body
-            const errorData = await response.json(); // parse the response body as JSON
-            const message = errorData.message; // extract the error message
-            //alert(message);
+          if (!response.ok) { 
+            const errorData = await response.json(); 
+            const message = errorData.message; 
+            responseElement.innerText = message;
+            responseElement.style.color = 'red';
           } else {
             const data = await response.json();
-            alert('Product created successfully');
+            responseElement.innerText = 'Product created successfully';
+            responseElement.style.color = 'green';
           }
         } catch (error) {
           console.error('Error: ', error);
-          alert('An error occurred');
+          responseElement.innerText = 'An error occurred';
+          responseElement.style.color = 'red';
         }
       }
       return (

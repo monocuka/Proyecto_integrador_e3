@@ -7,9 +7,9 @@ import '../assets/css/home.css';
 const ListarProducto = () => {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
-  
-  const imagenUrl = products.length > 0 && products[0].imagenes.length > 0 ? products[0].imagenes[0].urlImagen : null;
-  console.log(imagenUrl)
+  const [isLoading, setIsLoading] = useState(true);
+  //const imagenUrl = products.length > 0 && products[0].imagenes.length > 0 ? products[0].imagenes[0].urlImagen : null;
+ // console.log(imagenUrl)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,8 +18,10 @@ const ListarProducto = () => {
         if (!res.ok) {
           throw new Error('La solicitud no fue exitosa');
         }
+        
         const jsonData = await res.json();
         setProducts(jsonData);
+        setIsLoading(false);
       } catch (error) {
         console.error('Error:', error);
         setError('Error al cargar los productos. Por favor, inténtalo de nuevo más tarde.');
@@ -31,11 +33,17 @@ const ListarProducto = () => {
   }, []);
 
   useEffect(() => {
-    console.log("adsas: ", products);
+    console.log("Los productos: ", products);
+    const imagenUrl = products.length > 0 && products[0].imagenes.length > 0 ? products[0].imagenes[0].urlImagen : null;
+  console.log("insdide console log: " + imagenUrl)
   }, [products]);
 
   if (error) {
     return <div className="error-message">{error}</div>;
+  }
+
+  if (isLoading) { 
+    return <div>Loading...</div>;
   }
   
   return (
