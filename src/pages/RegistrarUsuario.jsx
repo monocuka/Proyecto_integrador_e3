@@ -1,4 +1,4 @@
-import '../styles/RegistrarUsuario.css'
+import '../assets/css/RegistrarUsuario.css'
 //import useInput from '../components/Registrar_Usuario/UseInput'
 import React, { useState } from 'react'
 
