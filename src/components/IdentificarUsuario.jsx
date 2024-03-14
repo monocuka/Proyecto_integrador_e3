@@ -1,7 +1,7 @@
 import React from 'react';
 import '../assets/css/identificarUsuario.css';
 
-function IdentificarUsuario() {
+const IdentificarUsuario = () => {
   return (
     <div id="login-component">
       <h2 className='iniciar-sesion'>Iniciar Sesión</h2>
