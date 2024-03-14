@@ -16,6 +16,22 @@ export const Header = () => {
     
     const toggleMenu = () => setIsBurger(!isBurger);
 
+    const [jwtKey, setJwtKey] = useState(null);
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    useEffect(() => {
+        const token = localStorage.getItem('jwtKey');
+        // const firstName = localStorage.getItem('nombre');
+        // const lastName = localStorage.getItem('apellido');
+        //const usuario = localStorage.getItem('usuario');
+        const firstName = "Nahuel";
+        const lastName = "Curi";
+
+        setJwtKey(token);
+        setFirstName(firstName);
+        setLastName(lastName);
+    }, []);
+
     useEffect(() => {
         
         const cambiarLogo = () => setLogoMobile(window.innerWidth < 690 ? logoMobile : logo );
@@ -62,12 +78,33 @@ export const Header = () => {
             <img className="menu-icon" src={ (isBurger) ? menuHamburguesa : menuCerrar } title='Burger Menu' alt='Burger Menu'
                 onClick={ toggleMenu } />
             <div className="button-header">
-                <Link to="/identificar-usuario">
-                        <button className="button-iniciar">Iniciar sesión</button>
-                    </Link>
-                    <Link to="/registrar-usuario">
-                        <button className="button-registrate">Registrarse</button>
-                    </Link>
+            {jwtKey ? (
+                        <div className="white-circle" style={{
+                            backgroundColor: 'white', 
+                            color: 'black', 
+                            display: 'flex', 
+                            justifyContent: 'center', 
+                            alignItems: 'center',
+                            width: '50px',  
+                            height: '50px',  
+                            borderRadius: '50%',
+                            lineHeight: '50px',  
+                            textAlign: 'center'
+                        }}>
+                            {firstName[0]}{lastName[0]}  
+                        </div>
+                      
+                    ) : (
+                        <>
+                            <Link to="/iniciarSesion">
+                                <button className="button-iniciar">Iniciar sesión</button>
+                            </Link>
+                            <Link to="/RegistrarUsuario">
+                                <button className="button-registrate">Regístrarse</button>
+                            </Link>
+                            
+                        </>
+                    )}
             </div>
             <ul className={`navigation ${navigationMobile}`}>
                 <h2>Menú</h2>
