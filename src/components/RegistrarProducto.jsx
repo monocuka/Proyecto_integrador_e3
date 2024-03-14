@@ -39,7 +39,6 @@ export const RegistrarProducto = () => {
         };
     
         const url = 'http://localhost:8080/api/producto/guardar';
-
         let formData = new FormData();
         formData.append('producto', JSON.stringify(productData));
         console.log(imagen);
