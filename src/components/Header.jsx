@@ -79,6 +79,7 @@ export const Header = () => {
                 onClick={ toggleMenu } />
             <div className="button-header">
             {jwtKey ? (
+                        
                         <div className="white-circle" style={{
                             backgroundColor: 'white', 
                             color: 'black', 
