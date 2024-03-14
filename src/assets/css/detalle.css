@@ -1,0 +1,25 @@
+.detalle-container {
+    width: 100%;
+    max-width: 600px; /* Puedes ajustar el ancho máximo según tus necesidades */
+    margin: 0 auto;   /* Centrar el contenido */
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ccc; /* Color de fondo del header */
+    padding: 10px;
+  }
+  
+  .header h2 {
+    margin: 0; /* Elimina el margen del h2 */
+  }
+  
+  .back-arrow {
+    cursor: pointer; /* Cambia el cursor al pasar sobre la flecha */
+  }
+  
+  .body {
+    padding: 20px;
+  }

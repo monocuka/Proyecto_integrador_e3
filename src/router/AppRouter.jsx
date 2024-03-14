@@ -1,9 +1,13 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-
-import { Home } from '../pages/Home';
+import { Home } from '../pages/Home.jsx';
 import { Admin } from '../pages/Admin';
 import { AgregarProducto } from '../pages/AgregarProducto';
 import { Header } from '../components/Header';
+import { Detalle } from '../pages/Detalle.jsx'
+import ListarProducto from "../components/ListarProdcuto";
+import EditarProducto from "../pages/EditarProducto";
+import { AgregarCategoria } from "../components/AgregarCategoria";
+import IniciarSesion from '../pages/IniciarSesion';
 import { RegistrarUsuario } from '../pages/RegistrarUsuario'
 import { UsuarioDetalle } from "../pages/UsuarioDetalle";
 
@@ -18,7 +22,14 @@ export const AppRouter = () => {
           <Route path="/agregarProducto" element={ <AgregarProducto /> } />
           <Route path='/RegistrarUsuario' element={<RegistrarUsuario/>}/>
           <Route path='/UsuarioDetalle' element={<UsuarioDetalle/>}/>
+          <Route path="/detalle/:id" element={<Detalle />} />
+          <Route path="/listarProducto" element={ <ListarProducto /> } />
+          <Route path="/editarProducto" element={ <EditarProducto/> }/>
+          <Route path="/agregarCategoria" element={ <AgregarCategoria/> }/>
+          <Route path="/iniciarSesion" element={ <IniciarSesion /> } />
       </Routes>
     </>
   )
 }
+
+

@@ -1,14 +1,12 @@
-import React from 'react'
-import Card_tipo from './Card_tipo'
-import { categoria } from './data-categorias'
-import '../assets/css/card_tipo.css'
+import React from 'react';
+import Card_tipo from './Card_tipo';
 
 export const Card_categoria = () => {
-   return (
-        <div className='card-tipo'>
-          {categoria.map((item) => (
-            <Card_tipo key={item.id} categoria={item.categoria} imageurl={item.imageurl} />
-          ))}
-        </div>
-  )
-}
+  const cantidadMaxima = 5; // Puedes ajustar este valor según tus necesidades
+  
+  return (
+    <div className='card-tipo'>
+      <Card_tipo cantidadMaxima={cantidadMaxima} />
+    </div>
+  );
+};
