@@ -1,30 +1,83 @@
-.titulo-grande {
-    text-align: center; /* Centra el texto*/
-     margin-bottom: 20px; /* Margen inferior para separarlo del siguiente título */
-    font-size: 22px; /* Tamaño del texto */
-    color: white;
-  }
-  
-  .titulo {
-    text-align: center; /* Centra el texto horizontalmente */
-    color: white; /* Color del texto */
-    margin-bottom: 20px; /* Margen inferior para separarlo del contenedor de búsqueda */
-    font-size: 15px;
-  }
+:root {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    --color-primary: #ffffff;
+    --color-secondary: #DE8121;
+    --color-tertiary: #F1DFBE;
+    --color-quaternary: #E5E5E5;
+    --color-quinary: #342822;
+    --color-senary: black;
+}
 
 .buscador {
-    text-align: center; /* Centra el contenido horizontalmente */
-    margin-top: 20px; /* Espacio superior */
-    background-color: rgb(52, 40, 34); /* Color de fondo café */
-    padding: 20px; /* Espaciado interno */
-  }
-  
-  .buscador input[type="text"] {
-    width: 600px; 
-    padding: 10px; /* Espaciado interno */
-    border: none; /* Sin borde */
+    background-color: var(--color-quinary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 7rem 0px 26px 0px;
+    color: var(--color-tertiary);
+}
+
+.titulo-buscador{
+    text-align: center;
+    font-size: 2rem;
+}
+
+.parrafo-buscador {
+    font-size: 1rem;
+    font-weight: 300;
+    text-align: center;
+}
+
+
+.input-buscador {
+    width: 650px;
+    height: 40px;
     border-radius: 5px;
-    background-color: white; /* Fondo blanco */
-  }
-  
-  
+    /* border: 1px solid var(--color-secondary); */
+    margin: 0.8rem;
+    padding-left: 10px;
+    border: none;
+}
+
+.btn-buscar {
+    border-radius: 5px;
+    padding: 0.8rem;
+    border: none;
+    /* margin-left: 10px; */
+    background-color: #DE8121;
+    color: var(--color-primary);
+    cursor: pointer;
+}
+
+.btn-buscar:hover{
+    background-color: var(--color-tertiary);
+    color: var(--color-secondary);
+}
+
+@media screen and (max-width: 768px) {
+    .input-buscador {
+        width: 400px;
+    }
+
+    .titulo-buscador{
+        font-size: 1.5rem;
+    }
+}
+@media screen and (max-width: 600px){
+    .input-buscador {
+        width: 260px;
+    }
+    
+    .titulo-buscador{
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+
+    .parrafo-buscador {
+        font-size: 0.7rem;
+        font-weight: 300;
+    }
+}
+    

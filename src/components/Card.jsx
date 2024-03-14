@@ -1,5 +1,5 @@
-import React from "react";
 import '../assets/css/card.css';
+import BotonDetalle from "./BotonDetalle";
 
 
 const Card = ({ product }) => {
@@ -9,17 +9,17 @@ const Card = ({ product }) => {
     }
 
     // Ruta de la imagen
-    const imagePath = "../src/assets/img/apisonadosHonda.jpeg";
+    const imagePath = product.imagenes[0].urlImagen;
 
     return (
         <div className="Cards">
             <div className="imagesP">
-
+                <img src={`http://${imagePath}`} alt="imagenproducto" />
             </div>
             <div className="infoCard">
                 <h5>{product.nombre}</h5>
                 <div className="btnDetalles">
-                    <button className="btnDetail">Detalle</button>
+                <BotonDetalle  product={product} />
                 </div>
             </div>
         </div>

@@ -7,7 +7,7 @@
     justify-content: center;
 }
 .Cards{
-    background-image: url('../src/assets/img/apisonadosHonda.jpeg');
+    
     background-size: cover; /* Otra opción: contain */
     background-repeat: no-repeat; /* Asegura que no se repita */
     display: flex; 
