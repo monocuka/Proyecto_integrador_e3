@@ -26,8 +26,8 @@ export const Header = () => {
         window.addEventListener('resize', cambiarLogo);
     
         return () => {
-          window.removeEventListener('resize', cambiarLogo);
-          window.removeEventListener('load', cambiarLogo);
+            window.removeEventListener('resize', cambiarLogo);
+            window.removeEventListener('load', cambiarLogo);
         };
 
     }, []); 
