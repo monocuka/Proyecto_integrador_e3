@@ -115,7 +115,10 @@ const ProductoEditar = () => {
               <input className='input-ingreso' type="text" id="product-id" name="product-id" value={productId} onChange={handleProductIdChange} />
             </div>
             {showShowProductButton && (
-              <button className='button-custom' onClick={cargarProducto}>Mostrar producto</button>
+              <div>
+                <button className='button-custom' onClick={cargarProducto}>Mostrar producto</button>
+                <Link to='/admin' className='button-custom button-custom-cancelar'>Cancelar</Link>
+              </div>
             )}
           </div>
           {producto !== null && (

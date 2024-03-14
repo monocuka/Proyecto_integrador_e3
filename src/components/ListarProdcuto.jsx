@@ -37,9 +37,10 @@ const ListarProducto = () => {
       <div className='container-listar'>
       {products.map(product => (
         <div key={product.id} className="container_tipo-listar">
-          <img className='container-listar-img' src={`http://localhost:8080/api/producto/imagenes/${product.imagenUrl}`} alt={product.nombre} />
+          <img className='container-listar-img' src={`http://${product.imagenUrl}`} alt={product.nombre} />
 
           <h4 className='text-listar'>{product.nombre}</h4>
+          <h4 className='text-listar'>Id: {product.id}</h4>
           <div className="btn">
             <div className="columna-izquierda">
               <Link className="btn-detalle">Detalles</Link>
