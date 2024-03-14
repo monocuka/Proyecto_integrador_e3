@@ -23,14 +23,14 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
-  }
-  
-  .registro-container {
+}
+
+.registro-container {
     background-color: #F1DFBE;
-  }
-  
-  /* Estilos para el encabezado */
-  header {
+}
+
+/* Estilos para el encabezado */
+header {
     background-color: #F1DFBE;
     position: fixed;
     top: 0;
@@ -42,53 +42,84 @@ body {
     padding: 10px 20px;
     color: white;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Contenedor del logo y el eslogan */
-  .logo-container, .slogan {
+}
+
+/* Contenedor del logo y el eslogan */
+.logo-container,
+.slogan {
     display: flex;
     align-items: center;
-  }
-  
-  /* Logo de la empresa */
-  .company-logo {
+}
+
+/* Logo de la empresa */
+.company-logo {
     width: 50px;
     height: auto;
     margin-right: 10px;
-  }
-  
-  /* Eslogan de la empresa */
-  .slogan {
+}
+
+/* Eslogan de la empresa */
+.slogan {
     text-align: left;
     color: #342822;
     font-weight: bold;
     display: flex;
     flex-direction: column;
-  }
-  
-  .slogan .line1 {
+}
+
+.slogan .line1 {
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
-  }
-  
-  .slogan .line2 {
+}
+
+.slogan .line2 {
     font-size: 1em;
-  }
-  
-  /* Icono de usuario */
-  .user-icon {
+}
+
+/* Icono de usuario */
+.user-icon {
     width: 30px;
     height: auto;
     margin-right: 10px;
-  }
-  
-  /* Contenedor del cuerpo */
-  .body-container {
+}
+
+/* Contenedor del cuerpo */
+.body-container {
     display: flex;
     padding: 20px;
-  }
-  
-  /* Imagen de la empresa */
-  .company-image {
-    margin-right: 20px;
-  }
+}
+
+/* Imagen de la empresa */
+.company-image {
+    display: none;
+}
+
+h2.h2usuarioDetalle {
+    margin-top: 3%;
+    text-align: left;
+    margin-left: 5%;
+    margin-bottom: 2%;
+    font-size: larger;
+}
+
+#cardUsuDetalle {
+    background-color: coral;
+    height: 300px;
+    justify-content: center;
+    display: flex;
+    align-content: center;
+}
+
+.avatar{
+    background-color: skyblue;
+    height: 200px;
+    width: 200px;
+    margin-top: 10px;
+}
+
+.tituloMiCuenta{
+    margin-top: 8%;
+    text-align: center;
+    font-size:x-large;
+    font-weight: bolder;
+}

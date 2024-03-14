@@ -1,21 +1,40 @@
 import '../assets/css/usuarioDetalle.css';
 import '../pages/RegistrarUsuario';
 
+import '../assets/css/usuarioDetalle.css';
+import '../pages/RegistrarUsuario';
+
+import { useState, useEffect } from 'react';
+
 export const UsuarioDetalle = () => {
+    const [usuario, setUsuario] = useState(null);
+    
+    useEffect(() => {
+        const usuarioData = JSON.parse(localStorage.getItem('usuario'));
+        setUsuario(usuarioData);
+    }, []);
+
+    if (!usuario) {
+        return null; // or some loading state
+    }
+   
+
     return (
-        <div>     
-            <h2 className='h2usuarioDetalle'>Hola formData.Name </h2>
-            <div >
-                <div className="company-image">
-                    <div className='img-agregar'>
-                        <img src='/src/assets/img/foto registrar.png' alt="Imagen de la empresa" />
-                    </div>
-                    <div className='img-agregar-tablet'>
-                        <img id='imgtablet' src='/src/assets/img/foto fondo.png' alt="Imagen de la empresa" />
-                    </div>
+        <>
+            <p className='tituloMiCuenta'>Mi cuenta</p>
+            <h2 className='h2usuarioDetalle'>¡Hola {usuario.name} {usuario.lastName}!</h2> 
+            <div id='cardUsuDetalle'>
+                
+                <div>
+                    <p>Name: {usuario.name}</p>
+                    <p>Last Name: {usuario.lastName}</p> 
                 </div>
-                    
             </div>
-        </div>
+            <BtnCerrarSesion></BtnCerrarSesion>
+        </>
     )
 }
+
+// const usuarioRecuperadoJSON = localStorage.getItem('usuario') || null;
+//     const usuarioRecuperado = usuarioRecuperadoJSON ? JSON.parse(usuarioRecuperadoJSON) : null;
+//     return usuarioRecuperado;
