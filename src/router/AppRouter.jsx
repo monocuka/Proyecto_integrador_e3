@@ -1,5 +1,4 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-
 import { Home } from '../pages/Home.jsx';
 import { Admin } from '../pages/Admin';
 import { AgregarProducto } from '../pages/AgregarProducto';
@@ -8,6 +7,7 @@ import { Detalle } from '../pages/Detalle.jsx'
 import ListarProducto from "../components/ListarProdcuto";
 import EditarProducto from "../pages/EditarProducto";
 import { AgregarCategoria } from "../components/AgregarCategoria";
+import IniciarSesion from '../pages/IniciarSesion';
 
 export const AppRouter = () => {
   return (
@@ -22,6 +22,7 @@ export const AppRouter = () => {
           <Route path="/listarProducto" element={ <ListarProducto /> } />
           <Route path="/editarProducto" element={ <EditarProducto/> }/>
           <Route path="/agregarCategoria" element={ <AgregarCategoria/> }/>
+          <Route path="/iniciarSesion" element={ <IniciarSesion /> } />
       </Routes>
     </>
   )
