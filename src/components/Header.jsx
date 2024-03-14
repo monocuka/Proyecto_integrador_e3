@@ -63,7 +63,7 @@ export const Header = () => {
                 onClick={ toggleMenu } />
             <div className="button-header">
                 <button className="button-iniciar">Inciar sesión</button>
-                <button className="button-registrate">Regístrarse</button>
+                <Link to={'/RegistrarUsuario'} className="button-registrate">Regístrarse</Link>
             </div>
             <ul className={`navigation ${navigationMobile}`}>
                 <h2>Menú</h2>

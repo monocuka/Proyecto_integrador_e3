@@ -1,4 +1,20 @@
+:root {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    --color-primary: #ffffff;
+    --color-secondary: #DE8121;
+    --color-tertiary: #F1DFBE;
+    --color-quaternary: #E5E5E5;
+    --color-quinary: #342822;
+    --color-senary: black;
+}
+
 body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
     background-color: #f1dfbe;
 }
 
@@ -12,9 +28,9 @@ h2.registrar {
     margin-bottom: 30px;
 }
 
-.img-agregar-tablet .img-agregar #imgtablet{
+.img-agregar-tablet .img-agregar #imgtablet {
     display: none;
-}   
+}
 
 #boxInput {
     display: grid;
@@ -86,28 +102,29 @@ div.buttonsRegCan {
     border: 1px solid #DE8121;
 }
 
-div.categorias{
+div.categorias {
     display: none;
 
 }
 
-div.registro-container{
+div.registro-container {
     display: none;
 
 }
 
 /* Media query para tablets */
-@media all and (min-width: 480px) and (max-width: 1024px){
+@media all and (min-width: 480px) and (max-width: 1024px) {
     #imagenPlusCont {
         display: flex;
         justify-content: space-between;
 
     }
-    .company-image{
+
+    .company-image {
         margin: 0px;
     }
 
-    #imgtablet{
+    #imgtablet {
         height: 90vh;
         width: 40vw;
     }
@@ -123,7 +140,7 @@ div.registro-container{
         display: flex;
     }
 
-    div.terminos{
+    div.terminos {
         margin-right: 20px;
         margin-left: 20px;
 
@@ -132,14 +149,15 @@ div.registro-container{
     .img-agregar-tablet {
         display: flex;
         width: min-content;
-        height: auto;   
+        height: auto;
     }
 
-    #registry{
+    #registry {
         display: none;
     }
-    
+
 }
+
 /* Estilos para el formulario del producto en pantallas grandes */
 @media all and (min-width: 1024px) {
     #imagenPlusCont {
