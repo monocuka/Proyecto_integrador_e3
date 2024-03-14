@@ -28,8 +28,11 @@ export const Detalle = () => {
         };
         obtenerDetallesProducto();
     }, [id]);
-
+    useEffect(() =>{
+        console.log(product);
+    }, product);
     if (!product) {
+    
         return <div>Cargando...</div>;
     }
 
@@ -41,7 +44,7 @@ export const Detalle = () => {
             </div>
             <div className="infoCardDetail">
                 <h5>{product.nombre}</h5>
-                <p><strong>Código:</strong> {product.codigo}</p>
+                {/* <p><strong>Código:</strong> {product.codigo}</p> */}
                 <p><strong>Descripción:</strong> {product.descripcion}</p>
                 <p><strong>Precio:</strong> {product.precio}</p>
                 <p><strong>Categoría:</strong> {product.categoria}</p>

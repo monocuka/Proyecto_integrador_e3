@@ -1,0 +1,194 @@
+:root {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  --color-primary: #ffffff;
+  --color-secondary: #DE8121;
+  --color-tertiary: #F1DFBE;
+  --color-quaternary: #E5E5E5;
+  --color-quinary: #342822;
+  --color-senary: black;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+}
+
+.body-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.titulo-editar {
+  margin: 10px 0;
+}
+
+.registro-container {
+  background-color: var(--color-tertiary);
+  width: 100vw;
+}
+
+h2 {
+  margin-bottom: 18px;
+}
+
+.logo-container, .slogan {
+  display: flex;
+  align-items: center;
+}
+
+.name-categoria {
+  display: flex;
+}
+
+.company-logo {
+  width: 50px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.img-agregar-tablet{
+  display: none;
+}
+
+.user-icon {
+  width: 30px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.body-container {
+  display: flex;
+  justify-content: end;
+}
+
+.company-image {
+  margin-right: 20px;
+}
+
+.product-form label{
+    border: none;
+    border-radius: 5px;
+    border-radius: none;
+}
+
+#description {
+  width: -webkit-fill-available;
+  height: 100px;
+}
+
+.product-form {
+  background-color: unset;
+  padding: 80px 52px 66px 0px;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  border: none;
+  width: 629px;
+  height: auto;
+}
+
+.product-form form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product-form label {
+  margin-bottom: 5px;
+  width: 100%; 
+  box-sizing: border-box;
+  font-size: 12px;
+  border: none;
+  border-radius: 8px;
+}
+
+.product-form input,
+.product-form select,
+.product-form textarea {
+  margin-bottom: 10px;
+  padding: 8px;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 5px;
+  width: -webkit-fill-available;
+}
+
+input {
+  width: -webkit-fill-available;
+}
+
+.button-custom {
+    background-color: #DE8121;
+    color: #FFFFFF;
+    border: none;
+    font-size: 14px;
+    font-weight: 300;
+    margin-right: 5px;
+    border-radius: 8px;
+    border: 1px transparent;
+    text-decoration: none;
+}
+
+.button-custom-cancelar {
+  background-color: #F1DFBE;
+  color: #DE8121;
+  border: 1px solid #DE8121;
+}
+.name-input {
+  font-size: 12px;
+}
+
+.button-custom,
+.button-custom1 {
+  font-size: 14px;
+  padding: 10px 20px;
+  border-radius: 5px; /* Añade border-radius común a ambos botones */
+}
+.button-custom {
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  border: none;
+  cursor: pointer;
+}
+
+.button-custom:hover {
+  background-color: var(--color-quinary);
+  color: var(--color-quaternary);
+}
+
+.img-agregar{
+  clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
+  background-position: center;
+  overflow:hidden;
+  width: 790px;
+}
+
+@media screen and (max-width: 768px) {
+  .img-agregar{
+    display: none;
+  }
+  .img-agregar-tablet{
+    display: flex;
+  }
+  .img-agregar{
+    width: 212px;
+  }
+}
+
+@media screen and (max-width: 689px) {
+    h2{
+      display: flex;
+      justify-content: center;
+    }
+  .img-agregar{
+    display: none;
+  }
+  .body-container{
+    padding-bottom: 80px;
+  }
+}
