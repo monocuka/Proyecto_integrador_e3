@@ -72,8 +72,8 @@ export const RegistrarUsuario = () => {
 
     return (
         <div id='Registro'>
-            <h2 className='resgistar'>Registrarse</h2>
             <div id='imagenPlusCont'>
+            <h2 className='registrar'>Registrarse</h2>
                 <div className="company-image">
                     <div className='img-agregar'>
                         <img src='/src/assets/img/foto registrar.png' alt="Imagen de la empresa" />
