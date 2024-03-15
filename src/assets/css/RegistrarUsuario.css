@@ -25,7 +25,7 @@ body {
 }
 
 h2.registrar {
-    margin-bottom: 30px;
+    text-align: center;
 }
 
 .img-agregar-tablet .img-agregar #imgtablet {
@@ -82,6 +82,7 @@ div.buttonsRegCan {
     justify-content: center;
     margin-bottom: 30px;
     display: flex;
+    justify-content: flex-start;
 }
 
 /* Estilos para botones personalizados */
@@ -157,6 +158,11 @@ div.registro-container {
         display: none;
     }
 
+}
+#Registro{
+    display: flex;
+    padding:10% 3%;
+    justify-content: center;
 }
 
 /* Estilos para el formulario del producto en pantallas grandes */

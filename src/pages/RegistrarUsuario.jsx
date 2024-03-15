@@ -71,7 +71,7 @@ export const RegistrarUsuario = () => {
     
 
     return (
-        <div >
+        <div id='Registro'>
             <h2 className='resgistar'>Registrarse</h2>
             <div id='imagenPlusCont'>
                 <div className="company-image">
