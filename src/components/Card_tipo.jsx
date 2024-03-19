@@ -7,7 +7,7 @@ const Card_tipo = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('http://localhost:8080/api/categoria/listar');
+        const res = await fetch('http://localhost:8080/api/categorias/listar');
 
         if (!res.ok) {
           throw new Error('La solicitud no fue exitosa');
