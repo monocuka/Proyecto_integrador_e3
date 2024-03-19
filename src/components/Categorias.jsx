@@ -7,7 +7,7 @@ const Categorias = ({ onSelectCategoria }) => {
         { id: 3, nombre: 'Categoria 3' },
         { id: 4, nombre: 'Categoria 4' },
         { id: 5, nombre: 'Categoria 5' },
-        // Puedes agregar más categorías según sea necesario
+        
     ];
 
     return (

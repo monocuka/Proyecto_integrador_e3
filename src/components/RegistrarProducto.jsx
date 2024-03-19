@@ -4,11 +4,12 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 
 export const RegistrarProducto = () => {
-  const [selectedCategory, setSelectedCategory] = useState('');
+
+  const [selectedCategory, setSelectedCategory] = useState("");
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:8080/api/categoria/')
+    fetch('http://localhost:8080/api/categorias/listar')
       .then(response => response.json())
       .then(data => setCategories(data))
       .catch(error => console.error('Error:', error));
@@ -23,10 +24,9 @@ export const RegistrarProducto = () => {
         event.preventDefault();
         const imagen = document.getElementById("product-image").files[0];
         const name = document.getElementById("product-name").value;
+        const cost = document.getElementById("cost").value;
         const categoria = document.getElementById("categoria").value;
         const description = document.getElementById("description").value;
-         
-    
         const responseElement = document.getElementById("response");
     
         const productData = {
@@ -35,25 +35,26 @@ export const RegistrarProducto = () => {
           precio: cost,
           categoria: {
             id: categoria,
-          }
+          },
+          caracteristicas: []
         };
     
         const url = 'http://localhost:8080/api/producto/guardar';
         let formData = new FormData();
         formData.append('producto', JSON.stringify(productData));
+        console.log(imagen);
         formData.append('imagen', imagen);
+        
     
         const settings = {
           method: 'POST',
           body: formData
         };
-    
         try {
           const response = await fetch(url, settings);
-          if (!response.ok) { // if HTTP-status is 200-299
-            // get the error message from the body
-            const errorData = await response.json(); // parse the response body as JSON
-            const message = errorData.message; // extract the error message
+          if (!response.ok) { 
+            const errorData = await response.json(); 
+            const message = errorData.message; 
             responseElement.innerText = message;
             responseElement.style.color = 'red';
           } else {
@@ -67,7 +68,6 @@ export const RegistrarProducto = () => {
           responseElement.style.color = 'red';
         }
       }
-    
       return (
         <div className="registro-container">
           <div className="body-container">
@@ -77,7 +77,7 @@ export const RegistrarProducto = () => {
             </div>
     
             <div className="product-form">
-              <h2>Agregar Producto</h2>
+              <h3 className='titulo-editar'>Agregar Producto</h3>
               <form className='form-agregar'>
                 <div className="form-input">
 
@@ -89,7 +89,7 @@ export const RegistrarProducto = () => {
     
                 <label  className='name-input' htmlFor="categoria">Categoría</label>
                 <select className='input-ingreso name-categoria' id="categoria" name="categoria" value={selectedCategory} onChange={handleChange}>
-                  <option value="">Select a category...</option>
+                  <option value="">Selecciona categoria...</option>
                   {categories.map((category) => (
                     <option key={category.id} value={category.id}>
                       {category.nombre}

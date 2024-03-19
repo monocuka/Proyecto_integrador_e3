@@ -1,5 +1,5 @@
-import '../styles/RegistrarUsuario.css'
-import useInput from '../components/Registrar_Usuario/UseInput'
+import '../assets/css/RegistrarUsuario.css'
+//import useInput from '../components/Registrar_Usuario/UseInput'
 import React, { useState } from 'react'
 
 export const RegistrarUsuario = () => {

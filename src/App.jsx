@@ -1,16 +1,16 @@
 import { AppRouter } from './router/AppRouter';
 import './App.css'
-import Categorias from './components/Categorias';
-import { RegistrarProducto } from './components/RegistrarProducto.jsx';
+import Card from './components/Card';
+import Footer from './components/Footer.jsx';
 
 export const App = () => {
   return (
     <>
       <AppRouter />
-      {/* <Buscador /> */}
-      <Categorias />
-      <RegistrarProducto />
+      <Card />
+      <Footer />
     </>
   )
 }
+
 
