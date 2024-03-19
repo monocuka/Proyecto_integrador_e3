@@ -8,7 +8,7 @@
 body, html {
     margin: 0;
     padding: 0;
-  }
+}
 
 .menu__wrapper {
     display: flex;
@@ -159,6 +159,124 @@ ul h2{
     font-weight: normal;
     line-height: 1;
 }
+
+/* MENU USUARIO LOGUEADO */
+.white-circle {
+    background-color: white;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    line-height: 50px;
+    text-align: center;
+}
+
+.divider {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown__wrapper {
+    width: 240px;
+    top: 88px;
+    right: 16px;
+    position: absolute;
+    border-radius: 8px;
+    border: 1px solid var(--text-gray);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    animation: fadeOutAnimation ease-in-out 0.3s forwards;
+    background: white;
+}
+
+.dropdown__wrapper--fade-in {
+    animation: fadeInAnimation ease-in-out 0.3s forwards;
+}
+
+.dropdown__group {
+    padding: 12px;
+}
+
+.user-name {
+    font-size: 14px;
+    font-weight: 700;
+    text-align: left;
+    color: #0F192D;
+}
+
+.email {
+    color: #5A678C;
+}
+
+nav > ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    gap: 4px;
+}
+
+nav > ul > li {
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    padding-left: 8px;
+    width: 100%;
+}
+
+nav > ul > li > img {
+    height: 24px;
+    width: 24px;
+}
+
+nav > ul > li:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+        width: 160px;
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+        width: 240px;
+    }
+}
+
+@keyframes fadeOutAnimation {
+    0% {
+        opacity: 1;
+        width: 240px;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        width: 160px;
+        visibility: hidden;
+    }
+}
+/* .hide {
+    opacity: 0;
+    visibility: hidden;
+    animation: fadeOutAnimation ease-in-out 0.3s forwards;
+}
+
+.none {
+    display: none;
+}
+*/
+
+
 @media (min-width: 600px) {
     .menu-icon {
         display: none;
@@ -167,7 +285,9 @@ ul h2{
 
 @media (max-width: 689px) {
 
-    .navigation, .button-header, .texto-logo{
+    .navigation, 
+    /* .button-header,  */
+    .texto-logo{
         display: none;
     }
 
