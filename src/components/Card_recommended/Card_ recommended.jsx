@@ -9,7 +9,6 @@ const Card_recommended = ({ product }) => {
   const { nombre, descripcion, precio, id } = product;
 
   const imagenUrl = product.imagenes && product.imagenes.length > 0 ? product.imagenes[0].urlImagen : null;
-  console.log(imagenUrl)
 
   return (
     <section className="container-card">

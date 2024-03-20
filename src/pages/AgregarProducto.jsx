@@ -1,6 +1,8 @@
+import { useEffect } from 'react';
 import '../assets/css/agregarProducto.css';
 import { RegistrarProducto } from '../components/RegistrarProducto'
 import { useNavigate } from 'react-router-dom';
+
 export const AgregarProducto = () => {
   const navigate = useNavigate();
 
@@ -10,6 +12,7 @@ export const AgregarProducto = () => {
             navigate('/home');
         }
     }, []);
+    
     return (
       <RegistrarProducto/>
     )

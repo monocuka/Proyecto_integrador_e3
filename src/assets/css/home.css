@@ -8,8 +8,12 @@
 #hCard {
     text-align: center;
 }
+
 .HomeCards{
     width: 80%;
     text-align: center;
     padding-top: 3%;
+}
+body{
+    background: white;
 }
