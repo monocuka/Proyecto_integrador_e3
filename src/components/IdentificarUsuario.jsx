@@ -2,12 +2,10 @@ import React,  { useEffect, useState } from 'react';
 import '../assets/css/identificarUsuario.css';
 import { useNavigate } from 'react-router-dom';
 
-const IdentificarUsuario = () => {
+export const IdentificarUsuario = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState(''); // Add this line
-
-  const [fetchResponse, setFetchResponse] = useState(null);
 
   const navigate = useNavigate();
 
@@ -69,10 +67,3 @@ const IdentificarUsuario = () => {
     </div>
   );
 }
-
-function cancelLogin() {
-  // Función para cancelar el inicio de sesión
-  // lógica necesaria aquí
-}
-
-export default IdentificarUsuario;

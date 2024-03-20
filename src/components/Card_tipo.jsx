@@ -24,8 +24,8 @@ const Card_tipo = () => {
 
   return (
     <div>
-      {categorias.map((categoria) => (
-        <div key={categoria._id} className='container_tipo'>
+      {categorias.map((categoria, key) => (
+        <div key={key} className='container_tipo'>
           <img className='container-tipo-img' src={categoria.imagenUrl} alt={categoria.nombre} />
           <h3 className='text-tipo'>{categoria.nombre}</h3>
         </div>
