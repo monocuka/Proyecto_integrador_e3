@@ -1,55 +1,55 @@
-import React, { useState, useEffect } from 'react';
-import '../assets/css/listarProducto.css'; // Importa los estilos del componente ListarProducto
-
+import '../assets/css/cardDetalle.css'
 import { Link } from 'react-router-dom';
 
-const ListarDisponibilidad = () => {
-  const [products, setProducts] = useState([]);
-  const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch('http://localhost:8080/api/producto/disponibilidad');
-        if (!res.ok) {
-          throw new Error('La solicitud no fue exitosa');
-        }
-        
-        const jsonData = await res.json();
-        setProducts(jsonData);
-        setIsLoading(false);
-      } catch (error) {
-        console.error('Error:', error);
-        setError('Error al cargar la disponibilidad de productos. Por favor, inténtalo de nuevo más tarde.');
-      }
-    };
+
+const CardDetalle = ({ product }) => {
     
-    fetchData();
-    
-  }, []);
+    if (!product) {
+        return null; // O puedes devolver algún componente de carga o un mensaje de error
+    }
+    // Ruta de la imagen
+    const imagePath = product.imagenes && product.imagenes.length > 0 ? product.imagenes[0].urlImagen : null;
 
-  if (error) {
-    return <div className="error-message">{error}</div>;
-  }
+    const caract = product.caracteristicas;
+    const listaCaracteristicas = caract.map((caracteristica, index) => (
+        <li key={index}>{caracteristica.nombre}</li>
+        ));
+    return (
+    <div className="CardDetalleF">
+            <div className='superiorDtalle'>
+                <div className="btnBack">
+                    <Link to="/home" className="btnGoback">
+                        <img src="/src/assets/img/back.png" alt="atras" className='imgback'/>
+                    </Link>
+                </div>
+                <h2 className='titleDetalle'>Detalle del Producto</h2>
+            </div>
 
-  if (isLoading) { 
-    return <div>Loading...</div>;
-  }
-  
-  return (
-    <div className="container-lista-admin">
-      <h3 className="texto-titulo">Listado de Disponibilidad de Productos</h3>
-      <div className='bodyCard cardCentral'>
-        <div id='hCard' className="HomeCards">
-          {products.map(product => ( 
-            <Card key={product.id} product={product} />
-          ))}
-        </div>
-      </div>
-      <Link to='/admin' className="btn-atras btn btn-detalle">Volver</Link>
+            <div className="imagesP">
+                <img src={`http://${imagePath}`} alt="imagenproducto" />
+            </div>
+            <div className='nombrePuntuacion'>
+                <h3>{product.nombre}</h3>
+                <p>⭐⭐⭐⭐</p>
+            </div>
+            <div className="infoCardDetail">
+            <div className='precio'>
+            <p><strong>Precio: $</strong> {product.precio}</p>
+            </div>
+            <div className='InfoDetalle'>
+                <p><strong>Descripción:</strong> {product.descripcion}</p>
+                <p><strong>Categoría:</strong> {product.categoria.nombre}</p>
+            </div> 
+            </div>  
+            <div className='Caracteristicas'>
+                <h2><strong>Caracteristicas.</strong></h2>
+                <div>
+                <ul className='listCaracterisitcas'>{listaCaracteristicas}</ul>
+                </div>
+            </div>
     </div>
-  );
+    );
 };
 
 export default ListarDisponibilidad;
