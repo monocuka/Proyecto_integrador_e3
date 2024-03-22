@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 
 
-const CardDetalle = ({ product }) => {
+const CardDetalle = ({ produccleat }) => {
     
     if (!product) {
         return null; // O puedes devolver algún componente de carga o un mensaje de error
