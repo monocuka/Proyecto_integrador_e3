@@ -1,3 +1,19 @@
+
+*{
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+#hCard {
+    text-align: center;
+}
+
+.HomeCards{
+    width: 80%;
+    text-align: center;
+    padding-top: 3%;
+}
 body{
-    margin-top: 100px;
+    background: white;
 }

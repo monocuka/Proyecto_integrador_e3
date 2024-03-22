@@ -1,11 +1,18 @@
 import '../assets/css/admin.css';
+import '../assets/css/panelAdmin.css'
+import PanelAdmin from '../components/PanelAdmin';
 
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export const Admin = () => {
+        
     return (
-      <>
-       <h1>Admin Page</h1> 
-      </>
+        <div className='img-fondo'>
+            <PanelAdmin/> 
+        </div>
     )
-  }
+}
+
+
   
