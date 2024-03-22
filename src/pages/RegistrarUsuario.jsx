@@ -11,6 +11,7 @@ export const RegistrarUsuario = () => {
         pass: "",
         pass2: ""
     });
+    
     const [error, setError] = useState("");
     const [successMessage, setSuccessMessage] = useState(false);
 

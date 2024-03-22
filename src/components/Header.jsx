@@ -125,7 +125,7 @@ const AuthButtons = ({ displayMenuBurguer }) => {
   };
     return (
       <div className="button-header" style={{ display: !displayMenuBurguer ? 'block' : 'none'}}>
-          {authState.logged ? (
+          {logged ? (
               <div className='login-name'>
                 <div className='info-user-header'>
                   <p>{usuario?.name} {usuario?.lastName}</p>
@@ -150,30 +150,33 @@ const AuthButtons = ({ displayMenuBurguer }) => {
                             </Link>
                           </li>
                         </ul>
-                        <hr className="divider" />
-                          <ul>
-                              <li>
-                                <Link to={'/agregarProducto'} >
-                                  <FontAwesomeIcon icon="fa-solid fa-circle-plus" size="lg"/>
-                                  Agregar Producto
-                                </Link>
-                              </li>
-                              <li>
-                                <Link to={'/editarProducto'} >
-                                  <FontAwesomeIcon icon="fa-solid fa-pen-to-square" size='lg'/>
-                                  Editar Producto
-                                </Link>
-                              </li>
-                          </ul>
-                          <hr className="divider" />
-                          <ul>
-                              <li>
-                                <Link to={'/agregarCategoria'} >
-                                  <FontAwesomeIcon icon="fa-solid fa-circle-plus" size="lg"/>
-                                  Agregar Categoria
-                                </Link>
-                              </li>
-                          </ul>
+                        {(usuario?.roles[0]?.nombreRol === "ROLE_ADMIN") ? (
+                                    <>
+                                      <hr className="divider" />
+                                      <ul>
+                                          <li>
+                                            <Link to={'/agregarProducto'} >
+                                              <FontAwesomeIcon icon="fa-solid fa-circle-plus" size="lg"/>
+                                              Agregar Producto
+                                            </Link>
+                                          </li>
+                                          <li>
+                                            <Link to={'/editarProducto'} >
+                                              <FontAwesomeIcon icon="fa-solid fa-pen-to-square" size='lg'/>
+                                              Editar Producto
+                                            </Link>
+                                          </li>
+                                      </ul>
+                                      <hr className="divider" />
+                                      <ul>
+                                          <li>
+                                            <Link to={'/agregarCategoria'} >
+                                              <FontAwesomeIcon icon="fa-solid fa-circle-plus" size="lg"/>
+                                              Agregar Categoria
+                                            </Link>
+                                          </li>
+                                      </ul> 
+                                    </>) : (null) }
                           <hr className="divider" />
                           <ul>
                               <li style={{ color: '#720000' }} onClick={handleLogout}>
