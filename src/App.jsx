@@ -3,6 +3,7 @@ import './App.css'
 import Buscador from './components/Buscador'
 import Categorias from './components/Categorias';
 import { RegistrarProducto } from './components/RegistrarProducto.jsx';
+import { ListarDisponibilidad } from './components/ListarDisponibilidad.jsx';
 
 export const App = () => {
   return (
@@ -11,6 +12,7 @@ export const App = () => {
       <Buscador />
       <Categorias />
       <RegistrarProducto />
+      <ListarDisponibilidad />
     </>
   )
 }
