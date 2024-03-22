@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../assets/css/listarProducto.css'; // Importa los estilos del componente ListarProducto
-import Card from '../components/Card';
+
 import { Link } from 'react-router-dom';
 
 const ListarDisponibilidad = () => {
