@@ -1,16 +1,17 @@
 import { AppRouter } from './router/AppRouter';
 import './App.css'
-//import Buscador from './components/Buscador'
-import Categorias from './components/Categorias';
+import { AuthProvider } from './context/AuthProvider.jsx';
 import Card from './components/Card';
 import Footer from './components/Footer.jsx';
 
 export const App = () => {
   return (
     <>
+    <AuthProvider>
       <AppRouter />
       <Card />
       <Footer />
+    </AuthProvider>
     </>
   )
 }

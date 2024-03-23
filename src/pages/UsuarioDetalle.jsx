@@ -34,7 +34,3 @@ export const UsuarioDetalle = () => {
         </>
     )
 }
-
-// const usuarioRecuperadoJSON = localStorage.getItem('usuario') || null;
-//     const usuarioRecuperado = usuarioRecuperadoJSON ? JSON.parse(usuarioRecuperadoJSON) : null;
-//     return usuarioRecuperado;
