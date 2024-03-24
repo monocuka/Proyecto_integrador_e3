@@ -1,6 +1,10 @@
-import '../assets/css/registrarProducto.css'
+// import '../assets/css/registrarProducto.css'
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import imagenRegistrar from '../assets/img/foto registrar.png';
+import imagenFondo from '../assets/img/foto fondo.png';
+
+'/src/assets/img/foto fondo.png'
 
 export const RegistrarProducto = () => {
 
@@ -8,7 +12,7 @@ export const RegistrarProducto = () => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:8080/api/categoria/')
+    fetch('http://localhost:8080/api/categorias/listar')
       .then(response => response.json())
       .then(data => setCategories(data))
       .catch(error => console.error('Error:', error));
@@ -17,8 +21,6 @@ export const RegistrarProducto = () => {
   const handleChange = (event) => {
     setSelectedCategory(event.target.value);
   };
-
-  console.log(categories);
     const btnClick = async (event) => {
         event.preventDefault();
         const imagen = document.getElementById("product-image").files[0];
@@ -34,7 +36,8 @@ export const RegistrarProducto = () => {
           precio: cost,
           categoria: {
             id: categoria,
-          }
+          },
+          caracteristicas: []
         };
     
         const url = 'http://localhost:8080/api/producto/guardar';
@@ -42,35 +45,34 @@ export const RegistrarProducto = () => {
         let formData = new FormData();
         formData.append('producto', JSON.stringify(productData));
         formData.append('imagen', imagen);
+        
     
         const settings = {
           method: 'POST',
           body: formData
         };
-    
         try {
           const response = await fetch(url, settings);
-          if (!response.ok) { // if HTTP-status is 200-299
-            // get the error message from the body
-            const errorData = await response.json(); // parse the response body as JSON
-            const message = errorData.message; // extract the error message
-            alert(message);
+          if (!response.ok) { 
+            const errorData = await response.json(); 
+            const message = errorData.message; 
+            responseElement.innerText = message;
+            responseElement.style.color = 'red';
           } else {
             const data = await response.json();
             alert('Product created successfully');
           }
         } catch (error) {
-          console.error('Error: ', error);
-          alert('An error occurred');
+          responseElement.innerText = 'An error occurred';
+          responseElement.style.color = 'red';
         }
       }
-
       return (
         <div className="registro-container">
           <div className="body-container">
             <div className="company-image">
-            <img className='img-agregar' src='/src/assets/img/foto registrar.png' alt="Imagen de la empresa" />
-            <img className='img-agregar-tablet img-agregar' src='/src/assets/img/foto fondo.png' alt="Imagen de la empresa" />
+            <img className='img-agregar' src={imagenRegistrar} alt="Imagen de la empresa" />
+            <img className='img-agregar-tablet img-agregar' src={imagenFondo} alt="Imagen de la empresa" />
             </div>
     
             <div className="product-form">
@@ -112,7 +114,7 @@ export const RegistrarProducto = () => {
             </div>
           </div>
     
-          
+          <h1>Holamjundo</h1>
         </div>
       );
 }

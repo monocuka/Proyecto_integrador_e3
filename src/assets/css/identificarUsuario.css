@@ -1,0 +1,105 @@
+:root {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  --color-primary: #ffffff;
+  --color-secondary: #DE8121;
+  --color-tertiary: #F1DFBE;
+  --color-quaternary: #E5E5E5;
+  --color-quinary: #342822;
+  --color-senary: black;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+}
+
+#login-component {
+    display: flex;
+  flex-direction: column;
+  align-items: end;
+  }
+  
+  form {
+    width: 100%;
+  max-width: 400px;
+  padding: 30px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 0px;
+    color: black; /* Color de texto negro */
+    font-size: 15px;
+  }
+  
+  input[type="email"],
+  input[type="password"] {
+    width: 99%;
+    padding: 8px;
+    border: none;
+    border-radius: 5px; 
+    margin-top: 5px;
+  }
+
+  #forgot-password {
+        display: block;
+        margin-top: -15px;
+        text-align: left;
+        font-size: 16px;
+        margin-bottom: 17px;
+
+  }
+  
+  input[type="email"],
+  input[type="password"] {
+    background-color: rgb(222, 129, 33); /* Fondo blanco */
+    pading:8px
+  }
+  
+  button[type="submit"] {
+    background-color: rgb(222, 129, 33); /* Botón de inicio de sesión naranja */
+    color: white; /* Texto blanco */
+    border: 2px solid rgb(222, 129, 33);
+    padding: 6px 39px;
+     border-radius: 5px;
+     font-size: 15px;
+     margin: 2px;
+  }
+  
+  button[type="button"] {
+    background-color: transparent;
+     border: 2px solid rgb(222, 129, 33);
+    color: rgb(222, 129, 33);
+    padding: 6px 30px;
+     border-radius: 5px;
+     
+     font-size: 15px;
+     padding: 6px 51px;
+  }
+  
+  #forgot-password a {
+    color: blue; /* Color de enlace azul */
+  }
+
+  .iniciar-sesion {
+    /* Estilos para el título "Iniciar Sesión" */
+    color: #333; /* Cambia el color del texto */
+    font-size: 24px; /* Cambia el tamaño de la fuente */
+    margin-bottom: 20px; /* Agrega espacio en la parte inferior */
+    text-align: center; /* Centra el texto horizontalmente */
+    width: 34%
+  }
+
+#login-component{
+  display: flex;
+  padding: 7%;
+  align-items: center;
+}
