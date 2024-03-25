@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import '../assets/css/home.css'
+// import '../assets/css/home.css'
 import Card from '../components/Card';
 import Buscador from '../components/Buscador';
 import Recommended from '../components/Card_recommended/Recommended';
 import { Card_categoria } from '../components/Card_categoria';
-import '../assets/css/card_tipo.css'
+// import '../assets/css/card_tipo.css'
 
 export const Home = () => {
 
