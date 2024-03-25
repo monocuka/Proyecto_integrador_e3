@@ -54,7 +54,7 @@ const CardDetalle = ({ product }) => {
             <Calendario />
             </div>
             <div className='BtnReserva'>
-            /* Aca renderizo el boton para las reservas  */
+            
 
             </div>
     </div>
