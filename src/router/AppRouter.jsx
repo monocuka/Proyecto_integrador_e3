@@ -35,6 +35,7 @@ const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/home" element={<Home />} />
+      <Route path="/" element={<Home />} />
       <Route path="/listarProducto" element={<RoleBasedRoute allowedRoles={['ROLE_USER', 'ROLE_ADMIN']}><ListarProducto /></RoleBasedRoute>} /> 
       <Route path="/usuarioDetalle" element={<RoleBasedRoute allowedRoles={['ROLE_USER', 'ROLE_ADMIN']}><UsuarioDetalle /></RoleBasedRoute>} /> 
       <Route path="/detalle/:id" element={<RoleBasedRoute allowedRoles={['ROLE_USER', 'ROLE_ADMIN']}><Detalle /></RoleBasedRoute>} />
