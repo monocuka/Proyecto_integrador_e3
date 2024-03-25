@@ -5,7 +5,7 @@ import { Admin } from '../pages/Admin';
 import { AgregarProducto } from '../pages/AgregarProducto';
 import { Header } from '../components/Header.jsx';
 import { Detalle } from '../pages/Detalle.jsx'
-import ListarProducto from "../components/ListarProdcuto";
+import ListarProducto from "../components/ListarProducto.jsx";
 import EditarProducto from "../pages/EditarProducto";
 import { AgregarCategoria } from "../components/AgregarCategoria";
 import { IniciarSesion } from '../pages/IniciarSesion';
