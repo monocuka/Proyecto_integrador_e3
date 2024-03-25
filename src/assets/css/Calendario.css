@@ -1,7 +1,8 @@
-.calendario {
+.cal-container {
+    margin: 0;
     display: flex;
-    justify-content: space-around;
-    margin-top: 50px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .mes {
@@ -10,27 +11,7 @@
     border: 1px solid #ccc;
 }
 
-table {
+.title-container {
     width: 100%;
-    border-collapse: collapse;
-}
-
-th,
-td {
-    border: 1px solid #ccc;
-    padding: 10px;
     text-align: center;
-}
-
-h2 {
-    margin: 0;
-    font-size: 1.2em;
-    font-weight: bold;
-}
-
-/* Estilos para el cuerpo del documento */
-html {
-    font-family: Arial, sans-serif;
-    background-color: #ffffff; /* Fondo blanco */
-    color: #000000; /* Letras negras */
 }

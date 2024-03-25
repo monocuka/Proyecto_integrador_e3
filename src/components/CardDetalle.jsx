@@ -1,8 +1,7 @@
 import '../assets/css/cardDetalle.css'
 import { Link } from 'react-router-dom';
-
-
-
+import Calendario from '../components/Calendario'; 
+import BotonReservas from '../components/BotonReservas'; 
 
 const CardDetalle = ({ product }) => {
     
@@ -50,8 +49,12 @@ const CardDetalle = ({ product }) => {
                 </div>
             </div>
             <div className='CalendarioReserva'>
-            <Calendario />
+            <Calendario/>
             </div>
+            <div className='BotonReservas'>
+            <BotonReservas/>
+            </div>
+         
             
     </div>
     );

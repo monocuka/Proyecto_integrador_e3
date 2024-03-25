@@ -1,40 +1,70 @@
-import React from 'react';
-import "../assets/css/Calendario.css";
+import React, { useState } from 'react';
+import Calendar from 'react-calendar';
+import '../assets/css/Calendario.css';
+//import 'react-calendar/dist/Calendar.css';
 
 const Calendario = () => {
-    // Función para generar los días de un mes dado
-    const generarDiasMes = (nombreMes, dias) => {
-        return (
-            <div className="mes">
-                <h2>{nombreMes}</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Domingo</th>
-                            <th>Lunes</th>
-                            <th>Martes</th>
-                            <th>Miércoles</th>
-                            <th>Jueves</th>
-                            <th>Viernes</th>
-                            <th>Sábado</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {/* Aquí puedes generar dinámicamente los días del mes */}
-                        {/* Por ejemplo, podrías utilizar un bucle para generar las filas y las celdas */}
-                        {/* Ten en cuenta la cantidad de días del mes y qué día de la semana comienza */}
-                    </tbody>
-                </table>
-            </div>
-        );
+    const [date, setDate] = useState(new Date());
+
+    const siguienteMes = new Date(date);
+    siguienteMes.setMonth(siguienteMes.getMonth() + 1);
+
+    const onChange = (date) => {
+        setDate(date);
+    };
+
+    const marcarFechasSeleccionadas = ({ date }) => {
+        if (date.getDate() <= 5) {
+            return <div className="selected-date">❌</div>;
+        }
+    };
+
+    const marcarFechasSeleccionadas1 = ({ date }) => {
+        if (date.getDate() <= 10) {
+            return <div className="selected-date">❌</div>;
+        }
     };
 
     return (
-        <div className="calendario">
-            {generarDiasMes("Marzo", 31)}
-            {generarDiasMes("Abril", 30)}
+        <div className="cal-container">
+            <div className="title-container">
+                <h2>Calendario</h2>
+                <div></div>
+                <h3><div className="selected-date">❌Días No disponibles</div></h3>
+                <h1></h1>
+            </div>
+            <div className="mes">
+                <h3>{nombreMes(date.getMonth())} {date.getFullYear()}</h3>
+                <Calendar
+                    onChange={onChange}
+                    value={date}
+                    calendarType="gregory"
+                    showNavigation={true}
+                    tileContent={marcarFechasSeleccionadas}
+                    minDetail="year"
+                />
+            </div>
+            <div className="mes">
+                <h3>{nombreMes(siguienteMes.getMonth())} {siguienteMes.getFullYear()}</h3>
+                <Calendar
+                    onChange={() => {}}
+                    value={siguienteMes}
+                    calendarType="gregory"
+                    showNavigation={true}
+                    tileContent={marcarFechasSeleccionadas1}
+                    minDetail="year"
+                />
+            </div>
         </div>
     );
+};
+
+const nombreMes = (mes) => {
+    const nombresMeses = [
+        "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+        "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+    ];
+    return nombresMeses[mes];
 };
 
 export default Calendario;

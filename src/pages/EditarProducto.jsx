@@ -1,4 +1,4 @@
-import ProductoEditar from '../components/ProductoEditar'
+import ProductoEditar from '../components/CardDetalle'
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 const EditarProducto = () => {
