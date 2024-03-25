@@ -49,7 +49,7 @@ const CardDetalle = ({ product }) => {
                 </div>
             </div>
             <div className='CalendarioReserva'>
-                /*Daniela aca puedes renderizar el calendario */
+            <Calendario />
             </div>
             <div className='BtnReserva'>
             /* Aca renderizo el boton para las reservas  */
