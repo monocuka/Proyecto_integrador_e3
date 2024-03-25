@@ -1,5 +1,7 @@
 import '../assets/css/cardDetalle.css'
 import { Link } from 'react-router-dom';
+import Calendario from './Calendario'; // Asegúrate de proporcionar la ruta correcta al archivo Calendario.jsx
+
 
 
 
