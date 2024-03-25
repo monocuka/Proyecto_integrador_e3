@@ -48,13 +48,6 @@ const CardDetalle = ({ product }) => {
                 <ul className='listCaracterisitcas'>{listaCaracteristicas}</ul>
                 </div>
             </div>
-            <div className='CalendarioReserva'>
-                /*Daniela aca puedes renderizar el calendario */
-            </div>
-            <div className='BtnReserva'>
-            /* Aca renderizo el boton para las reservas  */
-
-            </div>
     </div>
     );
 };
