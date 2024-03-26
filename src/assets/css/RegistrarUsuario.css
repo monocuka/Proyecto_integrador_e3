@@ -1,199 +1,27 @@
-:root {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    line-height: 1.5;
-    font-weight: 400;
-    --color-primary: #ffffff;
-    --color-secondary: #DE8121;
-    --color-tertiary: #F1DFBE;
-    --color-quaternary: #E5E5E5;
-    --color-quinary: #342822;
-    --color-senary: black;
+
+#Registro{
+    width: 100%;
+    padding:30% 10%;
 }
-
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto', sans-serif;
-    box-sizing: border-box;
-    background-color: #f1dfbe;
-}
-
-#contenedorForm {
-    display: grid;
-    align-content: center;
-    margin-top: 110px;
-}
-
-h2.registrar {
-    margin-bottom: 30px;
-}
-
-.img-agregar-tablet .img-agregar #imgtablet {
-    display: none;
-}
-
-
-#boxInput {
-    display: grid;
-    margin-right: 18px;
-    margin-left: 18px;
-    margin-top: 12px;
-}
-
-#boxInput input {
-    border: none;
-    border-radius: 5px;
-    border-radius: none;
-    height: 28px;
-}
-
-div.buttonsRegCan {
-    display: inline-flex;
-}
-
-div.recibirnot {
+#imagenPlusCont{
+    width: 90%;
+    padding:1%;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-around;
-    margin-right: 30px;
-    margin-left: 30px;
-    column-gap: 10px;
-    font-size: 12px;
-    margin-top: 50px;
 }
-
-#cbox1 {
-    width: 15px;
-    height: 15px;
+.registrar{
+    padding:4% 2% 4% 2%;
 }
-
-div.terminos {
-    margin-right: 60px;
-    margin-left: 60px;
-    column-gap: 10px;
-    font-size: 12px;
-    margin-top: 50px;
-    align-self: center;
-    text-align: center;
-    margin-bottom: 70px;
+.formregistrarusu{
+    width: 100%;
 }
-
-div.buttonsRegCan {
-    justify-content: center;
-    margin-bottom: 30px;
+#formplusbuttons{
     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2%;
 }
-
-/* Estilos para botones personalizados */
-.button-custom {
-    background-color: #DE8121;
-    color: #FFFFFF;
-    border: none;
-    font-size: 14px;
-    font-weight: 300;
-    margin-right: 5px;
-    border-radius: 8px;
-    border: 1px transparent;
-    width: 40%;
-}
-
-.button-custom-cancelar {
-    background-color: #F1DFBE;
-    color: #DE8121;
-    border: 1px solid #DE8121;
-}
-
-div.categorias {
-    display: none;
-
-}
-
-div.registro-container {
-    display: none;
-
-}
-
-/* Media query para tablets */
-@media all and (min-width: 480px) and (max-width: 1024px) {
-    #imagenPlusCont {
-        display: flex;
-        justify-content: space-between;
-
-    }
-
-    .company-image {
-        margin: 0px;
-    }
-
-    #imgtablet {
-        height: 90vh;
-        width: 40vw;
-    }
-
-    #formplusbuttons {
-        margin: 0px;
-        width: 50%;
-        margin-right: 25px;
-    }
-
-    div.buttonsRegCan {
-        margin-top: 30px;
-        display: flex;
-    }
-
-    div.terminos {
-        margin-right: 20px;
-        margin-left: 20px;
-
-    }
-
-    .img-agregar-tablet {
-        display: flex;
-        width: min-content;
-        height: auto;
-    }
-
-    #registry {
-        display: none;
-    }
-
-}
-
-/* Estilos para el formulario del producto en pantallas grandes */
-@media all and (min-width: 1024px) {
-    #imagenPlusCont {
-        display: flex;
-        max-width: fit-content;
-        justify-content: end;
-    }
-
-    #formplusbuttons {
-        margin: 0px;
-        height: fit-content;
-    }
-
-    div.terminos {
-        width: 30vw;
-        margin: 30px;
-    }
-
-    div.buttonsRegCan {
-        margin-top: 20px;
-        display: flex;
-    }
-
-    .company-image {
-        margin-right: 0;
-        max-width: min-content;
-    }
-
-    .img-agregar {
-        width: 100%;
-        height: 80vh;
-    }
-
-    .img-agregar-tablet {
-        display: none;
-    }
-
+#contenedorForm{
+    width: 90%;
 }

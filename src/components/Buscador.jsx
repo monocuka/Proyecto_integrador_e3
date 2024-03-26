@@ -12,7 +12,6 @@ const Buscador = () => {
     setFetchStatus('loading');
     try {
       const res = await fetch(`http://localhost:8080/api/producto/buscarNombre/${busqueda}`);
-      console.log(busqueda)
       if (!res.ok) {
         if (res.status === 404 || res.status === 500) {
           setError('Product not found');
@@ -38,7 +37,7 @@ const Buscador = () => {
   };
   
   useEffect(() => {
-    console.log(resultados);
+    
   }, [resultados]);
   
   

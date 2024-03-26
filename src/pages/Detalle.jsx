@@ -1,5 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import CardDetalle from '../components/CardDetalle';
+
+
 
 export const Detalle = () => {
     
@@ -28,32 +31,18 @@ export const Detalle = () => {
         };
         obtenerDetallesProducto();
     }, [id]);
-    useEffect(() =>{
-        console.log(product);
-    }, product);
+
     if (!product) {
-    
         return <div>Cargando...</div>;
     }
 
     return (
-        <div className="CardsDetails">
+        <div id="bodyCardDetalle">
             <div className="imagesDetail">
-                {/* Muestra solo la primera imagen del producto */}
-                <img src={product.imagenes[0].url} alt={`imagen-0`} />
-            </div>
-            <div className="infoCardDetail">
-                <h5>{product.nombre}</h5>
-                {/* <p><strong>Código:</strong> {product.codigo}</p> */}
-                <p><strong>Descripción:</strong> {product.descripcion}</p>
-                <p><strong>Precio:</strong> {product.precio}</p>
-                <p><strong>Categoría:</strong> {product.categoria}</p>
-                <div className="btnBack">
-                    <button className="btnGoback">🔙</button>
+                <div id='dCard' className="DetailCard">
+                    <CardDetalle product={product} />
                 </div>
             </div>
         </div>
     );
 };
-
-

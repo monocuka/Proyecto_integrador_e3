@@ -1,35 +1,47 @@
-import React from 'react';
+import React,  { useEffect, useState } from 'react';
 import '../assets/css/identificarUsuario.css';
+import { useNavigate } from 'react-router-dom';
 
-const IdentificarUsuario = () => {
+export const IdentificarUsuario = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState(''); // Add this line
+
+  const navigate = useNavigate();
+
   const btnClick=async (e) =>{
+    e.preventDefault();
     fetch('http://localhost:8080/api/auth/authenticate', {
-      method: 'POST', // o 'GET', 'PUT', 'DELETE', etc.
+      method: 'POST',
       headers: {
-        'Content-Type': 'application/json' // Asegúrate de establecer el tipo de contenido adecuado si estás enviando datos en formato JSON
-        // Puedes incluir otras cabeceras si es necesario
+        'Content-Type': 'application/json'
       },
-      // Puedes enviar datos en el cuerpo de la solicitud si es necesario
       body: JSON.stringify({
-        email: "hjbbkjb",
-        password: "iohoib"
-    })
+        email: email,
+        password: password
+      })
     })
     .then(response => {
       if (!response.ok) {
-        throw new Error('Error al hacer la solicitud');
+        throw new Error('Credenciales incorrectas'); // Change the error message here
       }
-      return response.json(); // Si esperas una respuesta en formato JSON
+      return response.json();
     })
     .then(data => {
-      // Manipula los datos recibidos aquí
+      setFetchResponse(data);
       console.log(data);
     })
     .catch(error => {
-      // Maneja cualquier error aquí
       console.error('Se produjo un error:', error);
+      setErrorMessage(error.message); // Set the error message when an error occurs
     });
   }
+  useEffect(() => {
+    if (fetchResponse && fetchResponse.token) {
+      localStorage.setItem('usuario', JSON.stringify(fetchResponse));
+      navigate('/home');
+    }
+  }, [fetchResponse]);
   
   return (
     <div id="login-component">
@@ -37,15 +49,16 @@ const IdentificarUsuario = () => {
       <form id="login-form">
         <div className="form-group">
           <label htmlFor="email">E-mail:</label>
-          <input type="email" id="email" name="email" required />
+          <input type="email" id="email" name="email" required onChange={e => setEmail(e.target.value)} />
         </div>
         <div className="form-group">
           <label htmlFor="password">Contraseña:</label>
-          <input type="password" id="password" name="password" required />
+          <input type="password" id="password" name="password" required onChange={e => setPassword(e.target.value)} />
         </div>
         <div id="forgot-password">
-        <a href="#">Olvidé contraseña</a>
-      </div>
+          <a href="#">Olvidé contraseña</a>
+          <p>{errorMessage}</p> {/* Display the error message here */}
+        </div>
         <div className="form-group">
           <button onClick={btnClick} type="submit">Iniciar Sesión</button>
           <button type="button" onClick={cancelLogin}>Cancelar</button>
@@ -54,10 +67,3 @@ const IdentificarUsuario = () => {
     </div>
   );
 }
-
-function cancelLogin() {
-  // Función para cancelar el inicio de sesión
-  // lógica necesaria aquí
-}
-
-export default IdentificarUsuario;

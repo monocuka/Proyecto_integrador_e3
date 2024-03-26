@@ -61,7 +61,7 @@ body {
   input[type="email"],
   input[type="password"] {
     background-color: rgb(222, 129, 33); /* Fondo blanco */
-    pading:8px
+    padding:8px
   }
   
   button[type="submit"] {
@@ -97,3 +97,9 @@ body {
     text-align: center; /* Centra el texto horizontalmente */
     width: 34%
   }
+
+#login-component{
+  display: flex;
+  padding: 7%;
+  align-items: center;
+}
