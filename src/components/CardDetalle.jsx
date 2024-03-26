@@ -1,10 +1,10 @@
-import '../assets/css/cardDetalle.css'
+import '../assets/css/cardDetalle.css';
 import { Link } from 'react-router-dom';
-import Calendario from '../components/Calendario'; 
-import BotonReservas from '../components/BotonReservas'; 
+import Calendario from '../components/Calendario';
+import BotonReservas from '../components/BotonReservas';
 
 const CardDetalle = ({ product }) => {
-    
+
     if (!product) {
         return null; // O puedes devolver algún componente de carga o un mensaje de error
     }
@@ -14,13 +14,14 @@ const CardDetalle = ({ product }) => {
     const caract = product.caracteristicas;
     const listaCaracteristicas = caract.map((caracteristica, index) => (
         <li key={index}>{caracteristica.nombre}</li>
-        ));
+    ));
+
     return (
-    <div className="CardDetalleF">
+        <div className="CardDetalleF">
             <div className='superiorDtalle'>
                 <div className="btnBack">
                     <Link to="/home" className="btnGoback">
-                        <img src="/src/assets/img/back.png" alt="atras" className='imgback'/>
+                        <img src="/src/assets/img/back.png" alt="atras" className='imgback' />
                     </Link>
                 </div>
                 <h2 className='titleDetalle'>Detalle del Producto</h2>
@@ -34,29 +35,29 @@ const CardDetalle = ({ product }) => {
                 <p>⭐⭐⭐⭐</p>
             </div>
             <div className="infoCardDetail">
-            <div className='precio'>
-            <p><strong>Precio: $</strong> {product.precio}</p>
+                <div className='precio'>
+                    <p><strong>Precio: $</strong> {product.precio}</p>
+                </div>
+                <div className='InfoDetalle'>
+                    <p><strong>Descripción:</strong> {product.descripcion}</p>
+                    <p><strong>Categoría:</strong> {product.categoria.nombre}</p>
+                </div>
             </div>
-            <div className='InfoDetalle'>
-                <p><strong>Descripción:</strong> {product.descripcion}</p>
-                <p><strong>Categoría:</strong> {product.categoria.nombre}</p>
-            </div> 
-            </div>  
             <div className='Caracteristicas'>
                 <h2><strong>Caracteristicas.</strong></h2>
                 <div>
-                <ul className='listCaracterisitcas'>{listaCaracteristicas}</ul>
+                    <ul className='listCaracterisitcas'>{listaCaracteristicas}</ul>
                 </div>
             </div>
             <div className='CalendarioReserva'>
-            <Calendario/>
+                <Calendario />
             </div>
-            <div className='BotonReservas'>
-            <BotonReservas/>
+            <div className='btnDetalles'>
+                <BotonReservas product={product} />
             </div>
-         
-            
-    </div>
+
+
+        </div>
     );
 };
 

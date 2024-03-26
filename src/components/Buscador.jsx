@@ -1,17 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import '../assets/css/buscador.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
+import Calendario from './Calendario'; // Importa tu componente de Calendario
+import 'react-calendar/dist/Calendar.css';
 
 const Buscador = () => {
-  const [busqueda, setBusqueda] = useState('');
+  const [nombreBusqueda, setNombreBusqueda] = useState('');
+  const [fechaBusqueda, setFechaBusqueda] = useState('');
   const [resultados, setResultados] = useState([]);
   const [error, setError] = useState(null);
   const [fetchStatus, setFetchStatus] = useState('idle');
-
+  const [mostrarCalendario, setMostrarCalendario] = useState(false); // Estado para controlar la visibilidad del componente de Calendario
 
   const fetchData = async () => {
     setFetchStatus('loading');
     try {
-      const res = await fetch(`http://localhost:8080/api/producto/buscarNombre/${busqueda}`);
+      const res = await fetch(`http://localhost:8080/api/producto/buscarNombre/${nombreBusqueda}`);
       if (!res.ok) {
         if (res.status === 404 || res.status === 500) {
           setError('Product not found');
@@ -35,36 +40,48 @@ const Buscador = () => {
       setFetchStatus('error');
     }
   };
-  
-  useEffect(() => {
-    
-  }, [resultados]);
-  
-  
 
-  const handleInputChange = (event) => {
-      setBusqueda(event.target.value);
+  const toggleCalendario = () => {
+    setMostrarCalendario(!mostrarCalendario); // Cambia el estado de visibilidad del componente de Calendario
   };
-  
+
+  const handleNombreInputChange = (event) => {
+    setNombreBusqueda(event.target.value);
+  };
+
+  const handleFechaInputChange = (event) => {
+    setFechaBusqueda(event.target.value);
+  };
+
   return (
     <div className="buscador-input">
+      <input 
+        className='input-buscador' 
+        type="text" 
+        placeholder="Escribe el nombre de la maquinaria..." 
+        value={nombreBusqueda}
+        onChange={handleNombreInputChange}
+      />
+      <div  onClick={toggleCalendario}>
         <input 
-            className='input-buscador' 
-            type="text" 
-            placeholder="Escribe el nombre de la maquinaria.." 
-            value={busqueda}
-            onChange={handleInputChange}
+          className='input-buscador' 
+          type="date" 
+          placeholder="En qué fecha lo necesitas" 
+          value={fechaBusqueda}
+          onChange={handleFechaInputChange}
         />
-        <button 
-            className='btn-buscar'
-            onClick={fetchData}
-        >
-            Buscar
-        </button>
+        <FontAwesomeIcon icon={faCalendarAlt} />
+      </div>
+      <button 
+        className='btn-buscar'
+        onClick={fetchData}
+      >
+        Buscar
+      </button>
 
-        {/* {error && <p className="error-message">Error: {error}</p>} */}
-        {fetchStatus == "success" && resultados != null && resultados.length > 0 && <p>Found products: {resultados.map(resultado => resultado.nombre).join(', ')}</p>}
-        {fetchStatus == "error"  && <p>No products found</p>}
+      {fetchStatus === 'success' && resultados != null && resultados.length > 0 && <p>Productos encontrados: {resultados.map(resultado => resultado.nombre).join(', ')}</p>}
+      {fetchStatus === 'error' && <p>Error: {error}</p>}
+      {mostrarCalendario && <Calendario />} {/* Muestra el componente de Calendario si mostrarCalendario es true */}
     </div>
   );
 };
