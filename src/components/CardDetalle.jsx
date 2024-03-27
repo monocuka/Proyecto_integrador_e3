@@ -1,4 +1,4 @@
-import React from 'react';;
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Calendario from '../components/Calendario';
 import BotonReservas from '../components/BotonReservas';
