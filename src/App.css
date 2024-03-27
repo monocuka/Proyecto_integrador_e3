@@ -35,7 +35,14 @@ section {
     display: flex;
     justify-content: center;
 }
-
+a {
+    text-decoration: none; /* Elimina el subrayado */
+    color: black; 
+}
+Link{
+    text-decoration: none; /* Elimina el subrayado */
+    color: black; 
+}
 
 @media (max-width: 918px) {
 
