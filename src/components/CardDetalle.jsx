@@ -58,6 +58,7 @@ const CardDetalle = ({ product }) => {
 
 
         </div>
+    
     );
 };
 
