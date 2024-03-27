@@ -1,17 +1,16 @@
 import { useContext } from 'react';
 import { Routes, Route, Navigate } from "react-router-dom";
 import { Home } from '../pages/Home.jsx';
-import { Admin } from '../pages/Admin';
 import { AgregarProducto } from '../pages/AgregarProducto';
 import { Header } from '../components/Header.jsx';
 import { Detalle } from '../pages/Detalle.jsx'
-import ListarProducto from "../components/ListarProducto.jsx";
-import EditarProducto from "../pages/EditarProducto";
+import { EditarProducto } from "../pages/EditarProducto";
 import { AgregarCategoria } from "../components/AgregarCategoria";
 import { IniciarSesion } from '../pages/IniciarSesion';
 import { RegistrarUsuario } from "../pages/RegistrarUsuario.jsx";
 import { UsuarioDetalle } from "../pages/UsuarioDetalle.jsx";
 import { AuthContext } from '../context/AuthContext';
+import { ListarProductos } from '../pages/ListarProductos.jsx';
 import ListarFavoritos from '../components/favoritos/Favoritos.jsx'
 import ProductosPorCategoriaPage from '../pages/ProductosPorCategoriaPage.jsx';
 import { Politicas } from '../pages/Politicas.jsx';
@@ -40,15 +39,11 @@ const AppRoutes = () => {
     <Routes>
       <Route path="/home" element={<Home />} />
       <Route path="/" element={<Home />} />
-      <Route path="/politicas" element={<Politicas />} />
       <Route path="/listarProducto" element={<RoleBasedRoute allowedRoles={['ROLE_USER', 'ROLE_ADMIN']}><ListarProducto /></RoleBasedRoute>} /> 
       <Route path="/usuarioDetalle" element={<RoleBasedRoute allowedRoles={['ROLE_USER', 'ROLE_ADMIN']}><UsuarioDetalle /></RoleBasedRoute>} /> 
       <Route path="/detalle/:id" element={<Detalle />} />
       <Route path="/agregarProducto" element={<RoleBasedRoute allowedRoles={['ROLE_ADMIN']}><AgregarProducto /></RoleBasedRoute>} /> 
       <Route path="/editarProducto" element={<RoleBasedRoute allowedRoles={['ROLE_ADMIN']}><EditarProducto /></RoleBasedRoute>} /> 
-      <Route path="/agregarCategoria" element={<RoleBasedRoute allowedRoles={['ROLE_ADMIN']}><AgregarCategoria /></RoleBasedRoute>} />
-      <Route path="/listarFavoritos" element={<ListarFavoritos/>}/>  
-      <Route path="/productosPorCategoriaPage/:categoriaId" element={<ProductosPorCategoriaPage />} />
       <Route path="/agregarCategoria" element={<RoleBasedRoute allowedRoles={['ROLE_ADMIN']}><AgregarCategoria /></RoleBasedRoute>} /> 
       
 
