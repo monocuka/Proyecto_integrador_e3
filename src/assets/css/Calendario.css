@@ -1,0 +1,18 @@
+
+.cal-container {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.mes {
+    width: 45%;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+.title-container {
+    width: 100%;
+    text-align: center;
+}
