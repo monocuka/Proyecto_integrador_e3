@@ -10,11 +10,19 @@
   align-items: center;
 }
 
+.name-categoria {
+  display: flex;
+}
+
 /* Logo de la empresa */
 .company-logo {
   width: 50px;
   height: auto;
   margin-right: 10px;
+}
+
+.img-agregar-tablet{
+  display: none;
 }
 
 /* Eslogan de la empresa */
@@ -209,6 +217,45 @@ footer {
   padding: 10px 20px;
   border-radius: 5px; /* Añade border-radius común a ambos botones */
 }
+.button-custom {
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  border: none;
+  cursor: pointer;
+}
+
+.button-custom:hover {
+  background-color: var(--color-quinary);
+  color: var(--color-quaternary);
+}
+
+.img-agregar{
+  clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
+  background-position: center;
+  overflow:hidden;
+  width: 790px;
+}
+
+@media screen and (max-width: 768px) {
+  .img-agregar{
+    display: none;
+  }
+  .img-agregar-tablet{
+    display: flex;
+  }
+  .img-agregar{
+    width: 212px;
+  }
+}
+
+@media screen and (max-width: 689px) {
+    h2{
+      display: flex;
+      justify-content: center;
+    }
+  .img-agregar{
+    display: none;
+  }
 
 .button-custom {
   background-color: #DE8121;
@@ -228,4 +275,5 @@ footer {
   .footer-images i {
     margin-right: 10px; /* Ajusta el espacio entre los iconos del footer */
   }
+}
 }

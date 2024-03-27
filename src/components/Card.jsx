@@ -1,15 +1,40 @@
+import React, { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart as solidHeart } from '@fortawesome/free-solid-svg-icons';
+import { faHeart as regularHeart } from '@fortawesome/free-regular-svg-icons';
+import { isFavorited, removeFavInStorage, setFavInStorage } from './favoritos/favs'; 
+import BotonDetalle from './BotonDetalle'; 
 import '../assets/css/card.css';
-import BotonDetalle from "./BotonDetalle";
 
-
-const Card = ({ product }) => {
-    
+const Card = ({ product, onRemoveFav, onUpdateFavorites }) => { // Recibe onUpdateFavorites como prop
     if (!product) {
-        return null; // O puedes devolver algún componente de carga o un mensaje de error
+        return null;
     }
-    //console.log("Dentro de la card el producto es: ", product);
-    //console.log("el path de la imagen dentro del card: " + product.imagenes[0].urlImagen);
-    // Ruta de la imagen
+
+    const [isFavorite, setIsFavorite] = useState(isFavorited(product.id));
+
+    useEffect(() => {
+        setIsFavorite(isFavorited(product.id));
+    }, [product.id]);
+
+    const toggleFavorite = () => {
+        if (isFavorite) {
+            removeFavInStorage(product.id)
+                .then(() => {
+                    setIsFavorite(false);
+                    onUpdateFavorites();
+                })
+                .catch(error => console.error("Error al eliminar de favoritos:", error));
+        } else {
+            setFavInStorage(product)
+                .then(() => {
+                    setIsFavorite(true);
+                    onUpdateFavorites();
+                })
+                .catch(error => console.error("Error al agregar a favoritos:", error));
+        }
+    };
+    
     const imagePath = product.imagenes && product.imagenes.length > 0 ? product.imagenes[0].urlImagen : null;
 
     return (
@@ -20,7 +45,12 @@ const Card = ({ product }) => {
             <div className="infoCard">
                 <h5>{product.nombre}</h5>
                 <div className="btnDetalles">
-                <BotonDetalle  product={product} />
+                    <FontAwesomeIcon 
+                        icon={isFavorite ? solidHeart : regularHeart} 
+                        className="favorite-icon" 
+                        onClick={toggleFavorite} 
+                    />
+                    <BotonDetalle product={product} />
                 </div>
             </div>
         </div>
