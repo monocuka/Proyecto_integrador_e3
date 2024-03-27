@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import '../assets/css/buscador.css';
+import CalendarioHome from "./CalendarioHome";
 
 const Buscador = () => {
   const [busqueda, setBusqueda] = useState('');
   const [resultados, setResultados] = useState([]);
   const [error, setError] = useState(null);
   const [fetchStatus, setFetchStatus] = useState('idle');
-
 
   const fetchData = async () => {
     setFetchStatus('loading');
@@ -35,37 +35,53 @@ const Buscador = () => {
       setFetchStatus('error');
     }
   };
-  
+
   useEffect(() => {
-    
+
   }, [resultados]);
-  
-  
+
+
 
   const handleInputChange = (event) => {
-      setBusqueda(event.target.value);
+    setBusqueda(event.target.value);
   };
-  
+
   return (
     <div className="buscador-input">
-        <input 
-            className='input-buscador' 
-            type="text" 
-            placeholder="Escribe el nombre de la maquinaria.." 
+      <div id='buscadores-home'>
+        <div id='div-buscador-nombre-pro'>
+          <input
+            className='input-buscador'
+            type="text"
+            placeholder="Escribe el nombre de la maquinaria.."
             value={busqueda}
             onChange={handleInputChange}
-        />
-        <button 
-            className='btn-buscar'
+          />
+          <button
+            className='btn-buscar-pro'
             onClick={fetchData}
-        >
+          >
             Buscar
-        </button>
+          </button>
+        </div>
+          <div id='div-buscador-nombre-pro'>
+            <input
+              className='input-buscador'
+              type="text"
+              placeholder="¿En qué fechas lo necesitas?"
+              value={busqueda}
+              onChange={handleInputChange}
+            />
 
-        {/* {error && <p className="error-message">Error: {error}</p>} */}
-        {fetchStatus == "success" && resultados != null && resultados.length > 0 && <p>Found products: {resultados.map(resultado => resultado.nombre).join(', ')}</p>}
-        {fetchStatus == "error"  && <p>No products found</p>}
-    </div>
+          <CalendarioHome />
+        </div >
+      </div >
+
+
+      {/* {error && <p className="error-message">Error: {error}</p>} */}
+      {fetchStatus == "success" && resultados != null && resultados.length > 0 && <p className='mensaje-buscar'>Found products: {resultados.map(resultado => resultado.nombre).join(', ')}</p>}
+      {fetchStatus == "error" && <p>No products found</p>}
+    </div >
   );
 };
 

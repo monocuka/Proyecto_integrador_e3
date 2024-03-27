@@ -1,0 +1,7 @@
+.calendars-container {
+    display: flex;
+  }
+  
+  .calendar {
+    margin-right: 10px; /* Adjust spacing between calendars */
+  }

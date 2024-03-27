@@ -10,6 +10,15 @@
     --color-senary: black;
 }
 
+#div-buscador-nombre-pro{
+    display: flex;
+    flex-direction: row;
+    border: 1px;
+    padding: 1px;
+    position: relative;
+  width: 600px;
+}
+
 .buscador {
     background-color: var(--color-quinary);
     display: flex;
@@ -17,6 +26,24 @@
     align-items: center;
     padding: 7rem 0px 26px 0px;
     color: var(--color-tertiary);
+}
+
+.buscador-input{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+#buscadores-home{
+    display: flex;
+    align-items: end;
+}
+
+/*.calendars-container {
+  display: flex;
+}*/
+
+.calendar {
+  margin-right: 10px; /* Adjust spacing between calendars */
 }
 
 .titulo-buscador{
@@ -28,28 +55,46 @@
     font-size: 1rem;
     font-weight: 300;
     text-align: center;
+    margin-bottom: 10px;
 }
 
 
 .input-buscador {
     width: 650px;
-    height: 40px;
     border-radius: 5px;
+    
     /* border: 1px solid var(--color-secondary); */
-    margin: 0.8rem;
     padding-left: 10px;
     border: none;
+    border: 1px solid #ccc;
+    border-radius: 100px;
+    padding: 10px 100px 10px 20px; 
+    line-height: 1;
+    box-sizing: border-box;
+    outline: none;
+ 
 }
 
-.btn-buscar {
-    border-radius: 5px;
-    padding: 0.8rem;
-    border: none;
+.btn-buscar-pro {
     /* margin-left: 10px; */
     background-color: #DE8121;
     color: var(--color-primary);
     cursor: pointer;
+    position: absolute;
+    right: 3px; 
+    top: 3px;
+    bottom: 3px;
+    border: 0;
+    background: #342822;
+    color: #fff;
+    outline: none;
+    margin: 0;
+    padding: 0 10px;
+    border-radius: 50px;
+    z-index: 2;
+    width: 110px;
 }
+ 
 
 .btn-buscar:hover{
     background-color: var(--color-tertiary);
