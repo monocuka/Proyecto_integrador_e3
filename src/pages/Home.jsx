@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import '../assets/css/home.css'
+// import '../assets/css/home.css'
 import Card from '../components/Card';
 import Buscador from '../components/Buscador';
 import Recommended from '../components/Card_recommended/Recommended';
@@ -51,7 +51,6 @@ export const Home = () => {
 
             <div className='card-recomendado'>
                 <Card_categoria/>
-                {/* <Link to='/home' className="btn-atras btn btn-detalle">Volver</Link> */}
             </div>
             <div className="fondo-recomendado">
             <h3 className='titulo_tipo'>Lo más recomendado</h3>

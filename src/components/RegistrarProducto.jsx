@@ -12,7 +12,7 @@ export const RegistrarProducto = () => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:8080/api/categorias/listar')
+    fetch('http://localhost:8080/api/categoria/listar')
       .then(response => response.json())
       .then(data => setCategories(data))
       .catch(error => console.error('Error:', error));
@@ -112,7 +112,6 @@ export const RegistrarProducto = () => {
             </div>
           </div>
     
-          <h1>Holamjundo</h1>
         </div>
       );
 }

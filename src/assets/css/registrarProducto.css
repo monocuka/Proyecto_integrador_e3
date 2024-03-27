@@ -1,40 +1,10 @@
-:root {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  --color-primary: #ffffff;
-  --color-secondary: #DE8121;
-  --color-tertiary: #F1DFBE;
-  --color-quaternary: #E5E5E5;
-  --color-quinary: #342822;
-  --color-senary: black;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Roboto', sans-serif;
-  box-sizing: border-box;
-}
-
-.body-container {
-  height: 100vh;
- 
-}
-
-.titulo-editar {
-  margin: 10px 0;
-}
+/* Estilos generales que se aplican a todas las pantallas */
 
 .registro-container {
-  background-color: var(--color-tertiary);
-  width: 100vw;
+  background-color: #F1DFBE;
 }
 
-h2 {
-  margin-bottom: 18px;
-}
-
+/* Contenedor del logo y el eslogan */
 .logo-container, .slogan {
   display: flex;
   align-items: center;
@@ -44,6 +14,7 @@ h2 {
   display: flex;
 }
 
+/* Logo de la empresa */
 .company-logo {
   width: 50px;
   height: auto;
@@ -54,41 +25,46 @@ h2 {
   display: none;
 }
 
+/* Eslogan de la empresa */
+.slogan {
+  text-align: left;
+  color: #342822;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+}
+
+.slogan .line1 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+}
+
+.slogan .line2 {
+  font-size: 1em;
+}
+
+/* Icono de usuario */
 .user-icon {
   width: 30px;
   height: auto;
   margin-right: 10px;
 }
 
+/* Contenedor del cuerpo */
 .body-container {
   display: flex;
-  justify-content: end;
+  padding: 20px;
 }
 
+/* Imagen de la empresa */
 .company-image {
   margin-right: 20px;
 }
 
-.product-form label{
-    border: none;
-    border-radius: 5px;
-    border-radius: none;
-}
-
-#description {
-  width: -webkit-fill-available;
-  height: 100px;
-}
-
+/* Formulario del producto */
 .product-form {
-  background-color: unset;
-  padding: 80px 52px 66px 0px;
-  border-radius: 50px;
-  display: flex;
-  flex-direction: column;
-  border: none;
-  width: 629px;
-  height: auto;
+  background-color: #F1DFBE;
+  padding: 20px;
 }
 
 .product-form form {
@@ -98,11 +74,8 @@ h2 {
 
 .product-form label {
   margin-bottom: 5px;
-  width: 100%; 
+  width: 100%; /* O ajusta según necesidades */
   box-sizing: border-box;
-  font-size: 12px;
-  border: none;
-  border-radius: 8px;
 }
 
 .product-form input,
@@ -111,36 +84,133 @@ h2 {
   margin-bottom: 10px;
   padding: 8px;
   box-sizing: border-box;
-  border: none;
-  border-radius: 5px;
-  width: -webkit-fill-available;
 }
 
-input {
-  width: -webkit-fill-available;
+/* Imágenes del footer */
+.footer-images {
+  text-align: left;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* Footer */
+footer {
+  background-color: #342822;
+}
+
+/* Estilos para botones personalizados */
+.button-custom {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .button-custom {
-    background-color: #DE8121;
-    color: #FFFFFF;
-    border: none;
-    font-size: 14px;
-    font-weight: 300;
-    margin-right: 5px;
-    border-radius: 8px;
-    border: 1px transparent;
-    text-decoration: none;
+  background-color: #DE8121;
+  color: #FFFFFF;
+  font-size: 14px;
+  padding: 10px 20px;
+  border: none;
 }
 
-.button-custom-cancelar {
+.button-custom1 {
   background-color: #F1DFBE;
   color: #DE8121;
-  border: 1px solid #DE8121;
-}
-.name-input {
-  font-size: 12px;
+  font-size: 14px;
+  padding: 10px 20px;
+  border: solid #DE8121;
+  border-radius: 5%;
 }
 
+/* FontAwasome */
+
+/* Estilos para íconos más grandes y con más espacio */
+.icon-white {
+  color: #ffffff;
+  font-size: 24px; /* Ajusta el tamaño según tus preferencias */
+  margin-right: 10px; /* Ajusta el espacio a la derecha de los íconos según tus preferencias */
+  margin-left: 10px; /* Nuevo margen izquierdo para separar los íconos */
+}
+
+/* Media query para pantallas más pequeñas */
+@media screen and (max-width: 768px) {
+
+
+  .logo-container, .slogan {
+    margin-bottom: 10px;
+  }
+
+  .user-icon {
+    margin-top: 10px;
+  }
+
+  .body-container {
+    flex-direction: row; /* Cambiado de column a row */
+  }
+
+  .company-image,
+  .product-form {
+    width: 50%; /* Cambiado a 50% para dividir en dos partes iguales */
+  }
+
+  .company-image {
+    display: block;
+    width: 100%; /* O ajusta según necesidades */
+    height: auto;
+    margin-right: 0;
+    margin-bottom: 20px; /* Puedes ajustar el espacio inferior si es necesario */
+  }
+
+  .product-form {
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  .footer-images {
+    justify-content: space-between;
+    padding: 10px;
+  }
+
+  .slogan .line1 {
+    font-size: 16px;
+  }
+
+  .icon-white {
+    font-size: 20px;
+  }
+}
+
+/* Estilos para el formulario del producto en pantallas grandes */
+@media screen and (min-width: 769px) {
+  .product-form form {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .product-form label {
+    width: 30%; /* Ancho reducido para etiquetas en pantallas grandes */
+  }
+
+  .product-form input,
+  .product-form select,
+  .product-form textarea {
+    width: 70%; /* Ancho aumentado para inputs en pantallas grandes */
+    margin-bottom: 15px; /* Mayor espacio entre inputs */
+  }
+
+  .button-container {
+    justify-content: center;
+  }
+
+  .button-custom,
+  .button-custom1 {
+    margin-right: 10px; /* Espacio entre los botones en pantallas grandes */
+  }
+}
+
+/* Estilos para botones personalizados */
 .button-custom,
 .button-custom1 {
   font-size: 14px;
@@ -186,4 +256,24 @@ input {
   .img-agregar{
     display: none;
   }
+
+.button-custom {
+  background-color: #DE8121;
+  color: #FFFFFF;
+  border: none;
+}
+
+.button-custom1 {
+  background-color: #F1DFBE;
+  color: #DE8121;
+  border: solid #DE8121;
+  border-radius: 8px; /* Ajusta el border-radius para el botón de cancelar */
+}
+
+/* Estilos para el footer en pantallas grandes */
+@media screen and (min-width: 769px) {
+  .footer-images i {
+    margin-right: 10px; /* Ajusta el espacio entre los iconos del footer */
+  }
+}
 }
