@@ -44,11 +44,7 @@ export const Home = () => {
                     ))}
                 </div>
             </div>
-            <div className="container-titulo-categoria">
                 <h3 className='titulo_tipo background-tittle'>Busqueda por tipo de maquinaria</h3>
-                <Link to='/agregarCategoria' className='agregar-categoria'>Agregar categoría</Link>
-            </div>
-
             <div className='card-recomendado'>
                 <Card_categoria/>
             </div>
