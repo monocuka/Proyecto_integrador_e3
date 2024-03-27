@@ -12,11 +12,14 @@ const Buscador = () => {
   const [error, setError] = useState(null);
   const [fetchStatus, setFetchStatus] = useState('idle');
   const [mostrarCalendario, setMostrarCalendario] = useState(false); // Estado para controlar la visibilidad del componente de Calendario
+  const [startDate, setStartDate] = useState(null); //fecha inicial 
+  const [endDate, setEndDate] = useState(null); //fecha final
+  const [busqueda, setBusqueda] = useState('');
 
   const fetchData = async () => {
     setFetchStatus('loading');
     try {
-      const res = await fetch(`http://localhost:8080/api/producto/buscarNombre/${nombreBusqueda}`);
+      const res = await fetch(`http://localhost:8080/api/producto/disponibilidad/fechainicial/${startDate}/fechafinal/${endDate}?busqueda=${nombreBusqueda}`);
       if (!res.ok) {
         if (res.status === 404 || res.status === 500) {
           setError('Product not found');
@@ -38,6 +41,18 @@ const Buscador = () => {
       console.error('Error:', error);
       setError(error.message); // Guardar el mensaje de error
       setFetchStatus('error');
+    }
+  };
+  //_________
+  const onChange = (date) => {
+    const formattedDate = date.toISOString().split('T')[0];
+    if (!startDate) {
+        setStartDate(formattedDate);
+    } else if (!endDate) {
+        setEndDate(formattedDate);
+    } else {
+        setStartDate(formattedDate);
+        setEndDate(null);
     }
   };
 
@@ -62,16 +77,17 @@ const Buscador = () => {
         value={nombreBusqueda}
         onChange={handleNombreInputChange}
       />
-      <div  onClick={toggleCalendario}>
+      <div>
         <input 
           className='input-buscador' 
-          type="date" 
-          placeholder="En qué fecha lo necesitas" 
-          value={fechaBusqueda}
-          onChange={handleFechaInputChange}
+          type="text" 
+          placeholder={`Fecha inicial: ${startDate ? startDate : 'Not selected'} | Fecha Final: ${endDate ? endDate : 'Not selected'}`}
+          onChange={onChange}
         />
-        <FontAwesomeIcon icon={faCalendarAlt} />
-      </div>
+        <div onClick={toggleCalendario}>
+          <FontAwesomeIcon icon={faCalendarAlt} />
+        </div>
+    </div>
       <button 
         className='btn-buscar'
         onClick={fetchData}
@@ -81,7 +97,7 @@ const Buscador = () => {
 
       {fetchStatus === 'success' && resultados != null && resultados.length > 0 && <p>Productos encontrados: {resultados.map(resultado => resultado.nombre).join(', ')}</p>}
       {fetchStatus === 'error' && <p>Error: {error}</p>}
-      {mostrarCalendario && <Calendario />} {/* Muestra el componente de Calendario si mostrarCalendario es true */}
+      {mostrarCalendario && <Calendario onChange={onChange} />} {/* Muestra el componente de Calendario si mostrarCalendario es true */}
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import '../assets/css/RegistrarUsuario.css'
 //import useInput from '../components/Registrar_Usuario/UseInput'
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 
 export const RegistrarUsuario = () => {
 
@@ -33,7 +34,7 @@ export const RegistrarUsuario = () => {
     
         const nameRegex = /^[^\s]+(\s[^\s]+)*$/;
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-       
+
         if (!nameRegex.test(formData.Name) ||
             formData.Name.length <= 5 || formData.pass.length <= 8 ||
             formData.pass !== formData.pass2 ||
@@ -149,11 +150,11 @@ export const RegistrarUsuario = () => {
                             </div>
                         </div>
 
-                        <div className='recibirnot'>
-                            <div>
+                        <div className='recibirNotificacion'>
+                            <div className='notifi1'>
                                 <input type="checkbox" id="cbox1" value="first_checkbox" />
                             </div>
-                            <div>
+                            <div className='notifi2'> 
                                 <p>No quiero recibir notificaciones con promociones de Equipa Obra por email.</p>
                             </div>
                         </div>
@@ -166,9 +167,9 @@ export const RegistrarUsuario = () => {
                                     type='submit' >
                                     Registrarse
                                 </button>
-                                <button className='button-custom button-custom-cancelar' type="button">
-                                    Cancelar
-                                </button>
+                                <Link to="/home">
+                                    <button className='btnIndetificar' type="button">Cancelar</button>
+                                </Link>
                             </div>
                         </div>
                     </div>

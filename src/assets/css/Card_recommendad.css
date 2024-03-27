@@ -10,11 +10,6 @@
     --color-senary: black;
 }
 
-*{
-    margin: 0;
-    box-sizing: border-box;
-    padding: 0;
-}
 
 h1.recommended-tittle {
     color: var(--color-quinary);

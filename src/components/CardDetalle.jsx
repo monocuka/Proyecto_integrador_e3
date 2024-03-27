@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Calendario from '../components/Calendario';
 import BotonReservas from '../components/BotonReservas';
 import Gallery from '../components/Gallery'
+import { useEffect, useState } from 'react'; 
 import '../assets/css/cardDetalle.css'
 
 
@@ -14,6 +15,21 @@ const CardDetalle = ({ product }) => {
         return null; 
     }
 
+    const [reserva, setReserva] = useState(null);
+
+    useEffect(() => {
+        if (product && product.id) {
+            fetch(`http://localhost:8080/api/reserva/producto/${product.id}`)
+                .then(response => response.json())
+                .then(data => {
+                    setReserva(data);
+                    console.log(JSON.stringify(data, null, 2));
+                })
+                .catch(error => {
+                    console.error('There was an error!', error);
+                });
+        }
+    }, [product]);
 
     const caract = product.caracteristicas;
 
@@ -54,7 +70,13 @@ const CardDetalle = ({ product }) => {
                 </div>
                 <div className='Calendario'>
                     <h2>Visualiza la Disponibilidad de el producto</h2>
-                </div>
+                        <div className='CalendarioReserva'>
+                            <Calendario reserva={reserva} />
+                        </div>
+                        <div className='btnDetalles'>
+                            <BotonReservas product={product} />
+                        </div>
+                    </div>
                 <div className='poliDiv'>
                     <div className='Politicas'> <h2><strong>Politicas de uso y alquiler</strong></h2></div>
                     <div>
@@ -78,14 +100,6 @@ const CardDetalle = ({ product }) => {
 
                     </div>
                 </div>
-                    <div className='CalendarioReserva'>
-                <Calendario />
-            </div>
-            <div className='btnDetalles'>
-                <BotonReservas product={product} />
-            </div>
-
-
         </div>
         
     );

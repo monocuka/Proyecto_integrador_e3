@@ -12,6 +12,7 @@ import { IniciarSesion } from '../pages/IniciarSesion';
 import { RegistrarUsuario } from "../pages/RegistrarUsuario.jsx";
 import { UsuarioDetalle } from "../pages/UsuarioDetalle.jsx";
 import { AuthContext } from '../context/AuthContext';
+import { Politicas } from '../pages/Politicas.jsx';
 
 
 // Componente de alto orden para el layout con encabezado y pie de página
@@ -37,9 +38,10 @@ const AppRoutes = () => {
     <Routes>
       <Route path="/home" element={<Home />} />
       <Route path="/" element={<Home />} />
+      <Route path="/politicas" element={<Politicas />} />
       <Route path="/listarProducto" element={<RoleBasedRoute allowedRoles={['ROLE_USER', 'ROLE_ADMIN']}><ListarProducto /></RoleBasedRoute>} /> 
       <Route path="/usuarioDetalle" element={<RoleBasedRoute allowedRoles={['ROLE_USER', 'ROLE_ADMIN']}><UsuarioDetalle /></RoleBasedRoute>} /> 
-      <Route path="/detalle/:id" element={<RoleBasedRoute allowedRoles={['ROLE_USER', 'ROLE_ADMIN']}><Detalle /></RoleBasedRoute>} />
+      <Route path="/detalle/:id" element={<Detalle />} />
       <Route path="/agregarProducto" element={<RoleBasedRoute allowedRoles={['ROLE_ADMIN']}><AgregarProducto /></RoleBasedRoute>} /> 
       <Route path="/editarProducto" element={<RoleBasedRoute allowedRoles={['ROLE_ADMIN']}><EditarProducto /></RoleBasedRoute>} /> 
       <Route path="/agregarCategoria" element={<RoleBasedRoute allowedRoles={['ROLE_ADMIN']}><AgregarCategoria /></RoleBasedRoute>} /> 
