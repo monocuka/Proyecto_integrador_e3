@@ -111,7 +111,6 @@ export const RegistrarProducto = () => {
               </form>
             </div>
           </div>
-    
         </div>
       );
 }

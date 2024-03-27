@@ -1,11 +1,12 @@
-import ProductoEditar from '../components/CardDetalle'
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-const EditarProducto = () => {
-  
+import { FormEditarProducto } from '../components/FormEditarProducto';
+import { useParams } from 'react-router-dom';
+import '../assets/css/formEditarArchivo.css'
+
+export const EditarProducto = () => {
+  const { id } = useParams();
+
   return (
-    <ProductoEditar />
+    // <ProductoEditar />
+    <FormEditarProducto id={ id }/>
   )
 }
-
-export default EditarProducto
