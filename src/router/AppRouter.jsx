@@ -39,14 +39,15 @@ const AppRoutes = () => {
     <Routes>
       <Route path="/home" element={<Home />} />
       <Route path="/" element={<Home />} />
-      <Route path="/listarProducto" element={<RoleBasedRoute allowedRoles={['ROLE_USER', 'ROLE_ADMIN']}><ListarProducto /></RoleBasedRoute>} /> 
+      <Route path="/politicas" element={<Politicas />} />
+      <Route path="/listarProductos" element={<RoleBasedRoute allowedRoles={['ROLE_USER', 'ROLE_ADMIN']}><ListarProductos /></RoleBasedRoute>} /> 
       <Route path="/usuarioDetalle" element={<RoleBasedRoute allowedRoles={['ROLE_USER', 'ROLE_ADMIN']}><UsuarioDetalle /></RoleBasedRoute>} /> 
       <Route path="/detalle/:id" element={<Detalle />} />
       <Route path="/agregarProducto" element={<RoleBasedRoute allowedRoles={['ROLE_ADMIN']}><AgregarProducto /></RoleBasedRoute>} /> 
-      <Route path="/editarProducto" element={<RoleBasedRoute allowedRoles={['ROLE_ADMIN']}><EditarProducto /></RoleBasedRoute>} /> 
+      <Route path="/editarProducto/:id" element={<RoleBasedRoute allowedRoles={['ROLE_ADMIN']}><EditarProducto /></RoleBasedRoute>} /> 
       <Route path="/agregarCategoria" element={<RoleBasedRoute allowedRoles={['ROLE_ADMIN']}><AgregarCategoria /></RoleBasedRoute>} /> 
-      
-
+      <Route path="/listarFavoritos" element={<ListarFavoritos/>}/> 
+      <Route path="/productosPorCategoriaPage/:categoriaId" element={<ProductosPorCategoriaPage />} />
     </Routes>
   )
 }

@@ -4,7 +4,7 @@ const Gallery = ({ imageUrls }) => {
     return(
         <div className="gallery">
             {imageUrls.map((url, index) => (
-                <img key={index} src={`http://${url}`} alt={`image-${index}`} />
+                <img key={index} src={url} alt={`image-${index}`} />
             ) )}
         </div>
     )
