@@ -15,7 +15,7 @@ const Card = ({ product }) => {
     return (
         <div className="Cards">
             <div className="imagesP">
-                <img src={`http://${imagePath}`} alt="imagenproducto" />
+                <img src={imagePath} alt="imagenproducto" />
             </div>
             <div className="infoCard">
                 <h5>{product.nombre}</h5>

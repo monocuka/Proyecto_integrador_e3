@@ -149,6 +149,12 @@ const AuthButtons = ({ displayMenuBurguer }) => {
                               Home
                             </Link>
                           </li>
+                          <li>
+                            <Link to={'/listarProductos'} >
+                              <FontAwesomeIcon icon="fa-solid fa-pen-to-square" size='lg'/>
+                              Listar Productos
+                            </Link>
+                          </li>
                         </ul>
                         {(usuario?.roles[0]?.nombreRol === "ROLE_ADMIN") ? (
                                     <>
@@ -158,12 +164,6 @@ const AuthButtons = ({ displayMenuBurguer }) => {
                                             <Link to={'/agregarProducto'} >
                                               <FontAwesomeIcon icon="fa-solid fa-circle-plus" size="lg"/>
                                               Agregar Producto
-                                            </Link>
-                                          </li>
-                                          <li>
-                                            <Link to={'/editarProducto'} >
-                                              <FontAwesomeIcon icon="fa-solid fa-pen-to-square" size='lg'/>
-                                              Editar Producto
                                             </Link>
                                           </li>
                                       </ul>
