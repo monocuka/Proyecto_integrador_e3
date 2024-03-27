@@ -1,7 +1,10 @@
-import '../assets/css/registrarProducto.css'
-import herrramienta from '../assets/img/mano-vista-lateral-herramienta-electrica 11.svg';
-import React, { useState, useEffect } from 'react'
+// import '../assets/css/registrarProducto.css'
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import imagenRegistrar from '../assets/img/foto registrar.png';
+import imagenFondo from '../assets/img/foto fondo.png';
+
+'/src/assets/img/foto fondo.png'
 
 export const RegistrarProducto = () => {
 
@@ -18,8 +21,6 @@ export const RegistrarProducto = () => {
   const handleChange = (event) => {
     setSelectedCategory(event.target.value);
   };
-
-  console.log(categories);
     const btnClick = async (event) => {
         event.preventDefault();
         const imagen = document.getElementById("product-image").files[0];
@@ -42,7 +43,6 @@ export const RegistrarProducto = () => {
         const url = 'http://localhost:8080/api/producto/guardar';
         let formData = new FormData();
         formData.append('producto', JSON.stringify(productData));
-        console.log(imagen);
         formData.append('imagen', imagen);
         
     
@@ -63,7 +63,6 @@ export const RegistrarProducto = () => {
             responseElement.style.color = 'green';
           }
         } catch (error) {
-          console.error('Error: ', error);
           responseElement.innerText = 'An error occurred';
           responseElement.style.color = 'red';
         }
@@ -72,8 +71,8 @@ export const RegistrarProducto = () => {
         <div className="registro-container">
           <div className="body-container">
             <div className="company-image">
-            <img className='img-agregar' src='/src/assets/img/foto registrar.png' alt="Imagen de la empresa" />
-            <img className='img-agregar-tablet img-agregar' src='/src/assets/img/foto fondo.png' alt="Imagen de la empresa" />
+            <img className='img-agregar' src={imagenRegistrar} alt="Imagen de la empresa" />
+            <img className='img-agregar-tablet img-agregar' src={imagenFondo} alt="Imagen de la empresa" />
             </div>
     
             <div className="product-form">
@@ -115,7 +114,7 @@ export const RegistrarProducto = () => {
             </div>
           </div>
     
-          
+          <h1>Holamjundo</h1>
         </div>
       );
 }

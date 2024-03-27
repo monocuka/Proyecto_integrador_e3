@@ -38,9 +38,7 @@ section {
 
 
 @media (max-width: 918px) {
-.bodyCrad{
 
-}
 #hCard {
     display: flex;
     flex-direction: column;

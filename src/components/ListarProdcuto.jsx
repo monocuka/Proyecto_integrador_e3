@@ -52,7 +52,10 @@ const ListarProducto = () => {
   <div className='bodyCard cardCentral'>
     <div id='hCard' className="HomeCards">
     {products.map(product => ( 
-      <Card key={product.id} product={product} />
+      <>
+        <Card key={product.id} product={product} />
+      </>
+      
     ))}
     </div>
     
