@@ -1,5 +1,5 @@
-
 .cal-container {
+    width: 100%;
     margin: 0;
     display: flex;
     justify-content: center;
@@ -10,9 +10,48 @@
     width: 45%;
     padding: 20px;
     border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 10px;
 }
 
 .title-container {
     width: 100%;
     text-align: center;
+    margin-bottom: 20px;
+}
+
+.react-calendar {
+    width: 100%;
+    border: none;
+    font-family: Arial, sans-serif;
+}
+
+.react-calendar__navigation {
+    width: 80%;
+    background-color: #f0f0f0;
+    border: none;
+}
+
+.react-calendar__navigation__label {
+    color: #333;
+}
+
+.react-calendar__month-view__days__day {
+    padding: 10px;
+    text-align: center;
+}
+
+.react-calendar__month-view__days__day--neighboringMonth {
+    color: #ccc;
+}
+
+.react-calendar__tile--active {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.selected-date {
+    color: #f00;
+    font-weight: bold;
 }

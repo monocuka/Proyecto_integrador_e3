@@ -3,13 +3,15 @@ import { useEffect, useState } from 'react';
 import Card from '../components/Card';
 import Buscador from '../components/Buscador';
 import Recommended from '../components/Card_recommended/Recommended';
-import { Card_categoria } from '../components/Card_categoria';
-// import '../assets/css/card_tipo.css'
+import Card_categoria from '../components/Card_categoria';
+import '../assets/css/card_tipo.css'
+import { Link } from 'react-router-dom';
 
 export const Home = () => {
 
     const [productos, setProductos] = useState([]);
-
+    const updateProductos = (newProductos) => setProductos(newProductos);
+    
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -18,7 +20,7 @@ export const Home = () => {
                     throw new Error('Error al obtener los datos');
                 }
                 const postsData = await response.json();
-                setProductos(postsData);
+                setProductos(postsData.slice(0, 8));
             } catch (error) {
                 console.log(error);
             }
@@ -27,26 +29,27 @@ export const Home = () => {
     }, []);
 
     // Mostrar máximo 8 productos
-    const productosMostrados = productos.slice(0, 8);
+    // const productosMostrados = productos.slice(0, 8);
 
     return (
         <>
             <div className='buscador'>
             <h1 className='titulo-buscador'>Encuentra de forma fácil tus herramientas</h1>
             <p className="parrafo-buscador">Motoniveladoras, retroexcavadoras, tractores topadores y muchas más herramientas.</p>
-            <Buscador/>
+            <Buscador updateProductos={updateProductos}/>
             </div>
             <div id='bodyCard'>
                 <div id='hCard' className="HomeCards">
-                    {productosMostrados.map(producto => (
+                    {productos.map(producto => (
                         <Card key={producto.id} product={producto} />
                     ))}
                 </div>
             </div>
-            { /*<h3 className='titulo_tipo background-tittle'>Busqueda por tipo de maquinaria</h3>
-            <div className='card-tipo card-recomendado'>
-            <Card_categoria/>
-                    </div> */}
+                <h3 className='titulo_tipo background-tittle'>Busqueda por tipo de maquinaria</h3>
+            </div>
+            <div className='card-recomendado'>
+                <Card_categoria/>
+            </div>
             <div className="fondo-recomendado">
             <h3 className='titulo_tipo'>Lo más recomendado</h3>
             <div className='card-tipo card-recomendado'>

@@ -6,25 +6,43 @@ import '../assets/css/Calendario.css';
 //import 'react-calendar/dist/Calendar.css';
 import '../assets/css/Calendario.css';
 
-const Calendario = () => {
+const Calendario = ({ reserva, onChange }) => {
     const [date, setDate] = useState(new Date());
 
     const siguienteMes = new Date(date);
     siguienteMes.setMonth(siguienteMes.getMonth() + 1);
 
-    const onChange = (date) => {
-        setDate(date);
-    };
+    // const onChange = (date) => {
+    //     setDate(date);
+    // };
 
     const marcarFechasSeleccionadas = ({ date }) => {
-        if (date.getDate() <= 5) {
-            return <div className="selected-date">❌</div>;
+        if (reserva) {
+            for (let i = 0; i < reserva.length; i++) {
+                const fecha_desde = new Date(...reserva[i].fecha_desde);
+                const fecha_hasta = new Date(...reserva[i].fecha_hasta);
+    
+                if (date.getMonth() === fecha_desde.getMonth() && date.getFullYear() === fecha_desde.getFullYear()) {
+                    if (date.getDate() >= fecha_desde.getDate() && date.getDate() <= fecha_hasta.getDate()) {
+                        return <div className="selected-date">❌</div>;
+                    }
+                }
+            }
         }
     };
 
     const marcarFechasSeleccionadas1 = ({ date }) => {
-        if (date.getDate() <= 10) {
-            return <div className="selected-date">❌</div>;
+        if (reserva) {
+            for (let i = 0; i < reserva.length; i++) {
+                const fecha_desde = new Date(...reserva[i].fecha_desde);
+                const fecha_hasta = new Date(...reserva[i].fecha_hasta);
+    
+                if (date.getMonth() === fecha_desde.getMonth() && date.getFullYear() === fecha_desde.getFullYear()) {
+                    if (date.getDate() >= fecha_desde.getDate() && date.getDate() <= fecha_hasta.getDate()) {
+                        return <div className="selected-date">❌</div>;
+                    }
+                }
+            }
         }
     };
 
@@ -33,7 +51,6 @@ const Calendario = () => {
             <div className="title-container">
                 <h2>Calendario</h2>
                 <div></div>
-                <h3><div className="selected-date">❌Días No disponibles</div></h3>
                 <h1></h1>
             </div>
             <div className="mes">
@@ -50,7 +67,7 @@ const Calendario = () => {
             <div className="mes">
                 <h3>{nombreMes(siguienteMes.getMonth())} {siguienteMes.getFullYear()}</h3>
                 <Calendar
-                    onChange={() => {}}
+                    onChange={onChange}
                     value={siguienteMes}
                     calendarType="gregory"
                     showNavigation={true}

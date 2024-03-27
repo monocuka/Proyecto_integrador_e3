@@ -68,7 +68,9 @@ export const AgregarCategoria = () => {
                 </div>
                 <div>
                   <button className='button-custom' onClick={btnClick}>Agregar Categoría</button>
-                  <Link to='/admin' className='button-custom button-custom-cancelar'>Cancelar</Link>
+                  <Link to="/home">
+                      <button className='btnIndetificar' type="button">Cancelar</button>
+                  </Link>
                 </div>
     
                 <p id= "response"></p>

@@ -41,6 +41,7 @@ export const RegistrarProducto = () => {
         };
     
         const url = 'http://localhost:8080/api/producto/guardar';
+
         let formData = new FormData();
         formData.append('producto', JSON.stringify(productData));
         formData.append('imagen', imagen);
@@ -55,16 +56,13 @@ export const RegistrarProducto = () => {
           if (!response.ok) { 
             const errorData = await response.json(); 
             const message = errorData.message; 
-            responseElement.innerText = message;
-            responseElement.style.color = 'red';
+            alert(message);
           } else {
             const data = await response.json();
-            responseElement.innerText = 'Product created successfully';
-            responseElement.style.color = 'green';
+            alert('Producto creado exitosamente');
           }
         } catch (error) {
-          responseElement.innerText = 'An error occurred';
-          responseElement.style.color = 'red';
+          alert('Ocurrio un error');
         }
       }
       return (
@@ -113,7 +111,6 @@ export const RegistrarProducto = () => {
               </form>
             </div>
           </div>
-    
         </div>
       );
 }

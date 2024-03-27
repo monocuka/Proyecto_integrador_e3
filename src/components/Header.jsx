@@ -142,11 +142,25 @@ const AuthButtons = ({ displayMenuBurguer }) => {
                       </div>
                       <hr className="divider" />
                       <nav>
-                        <ul>
+                      <ul>
                           <li>
                             <Link to={'/home'} >
                               <FontAwesomeIcon icon="fa-solid fa-house" />
                               Home
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to={'/listarProductos'} >
+                              <FontAwesomeIcon icon="fa-solid fa-pen-to-square" size='lg'/>
+                              Listar Productos
+                            </Link>
+                          </li>
+                        </ul>
+                        <ul>
+                          <li>
+                            <Link to={'/listarFavoritos'} >
+                              <FontAwesomeIcon icon="fa-solid fa-heart" />
+                              Favoritos
                             </Link>
                           </li>
                         </ul>
@@ -158,12 +172,6 @@ const AuthButtons = ({ displayMenuBurguer }) => {
                                             <Link to={'/agregarProducto'} >
                                               <FontAwesomeIcon icon="fa-solid fa-circle-plus" size="lg"/>
                                               Agregar Producto
-                                            </Link>
-                                          </li>
-                                          <li>
-                                            <Link to={'/editarProducto'} >
-                                              <FontAwesomeIcon icon="fa-solid fa-pen-to-square" size='lg'/>
-                                              Editar Producto
                                             </Link>
                                           </li>
                                       </ul>

@@ -1,6 +1,7 @@
 import React,  { useEffect, useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import { AuthContext } from '../context/AuthContext';
+import { Link } from 'react-router-dom';
 import '../assets/css/identificarUsuario.css'
 
 export const IniciarSesion = () => {
@@ -56,8 +57,10 @@ export const IniciarSesion = () => {
           <p>{userLogin.messageLogin}</p>
         </div>
         <div className="form-group">
-          <button  type="submit">Iniciar Sesión</button>
-          <button type="button">Cancelar</button>
+          <button className='.btnIndetificar' type="submit">Iniciar Sesión</button>
+          <Link to="/home">
+            <button className='btnIndetificar' type="button">Cancelar</button>
+        </Link>
         </div>
       </form>
     </div>

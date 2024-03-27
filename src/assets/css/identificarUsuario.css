@@ -1,21 +1,4 @@
-:root {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  --color-primary: #ffffff;
-  --color-secondary: #DE8121;
-  --color-tertiary: #F1DFBE;
-  --color-quaternary: #E5E5E5;
-  --color-quinary: #342822;
-  --color-senary: black;
-}
 
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Roboto', sans-serif;
-  box-sizing: border-box;
-}
 
 #login-component {
     display: flex;
@@ -74,15 +57,14 @@ body {
      margin: 2px;
   }
   
-  button[type="button"] {
+  .btnIndetificar{
     background-color: transparent;
-     border: 2px solid rgb(222, 129, 33);
+    border: 2px solid rgb(222, 129, 33);
     color: rgb(222, 129, 33);
     padding: 6px 30px;
-     border-radius: 5px;
-     
-     font-size: 15px;
-     padding: 6px 51px;
+    border-radius: 5px;
+    font-size: 15px;
+    padding: 6px 51px;
   }
   
   #forgot-password a {

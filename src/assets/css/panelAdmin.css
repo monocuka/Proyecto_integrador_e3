@@ -10,11 +10,6 @@
     --color-senary: black;
 }
 
-*{
-    margin: 0;
-    box-sizing: border-box;
-    padding: 0;
-}
 
 .btn-panel {
     text-align: center; /* Centrado horizontal */
