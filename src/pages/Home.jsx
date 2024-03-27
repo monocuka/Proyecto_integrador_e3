@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
-import '../assets/css/home.css'
+// import '../assets/css/home.css'
 import Card from '../components/Card';
 import Buscador from '../components/Buscador';
 import Recommended from '../components/Card_recommended/Recommended';
-import { Card_categoria } from '../components/Card_categoria';
+import Card_categoria from '../components/Card_categoria';
 import '../assets/css/card_tipo.css'
+import { Link } from 'react-router-dom';
 
 export const Home = () => {
 
@@ -43,9 +44,13 @@ export const Home = () => {
                     ))}
                 </div>
             </div>
-            <h3 className='titulo_tipo background-tittle'>Busqueda por tipo de maquinaria</h3>
-            <div className='card-tipo card-recomendado'>
-            <Card_categoria/>
+            <div className="container-titulo-categoria">
+                <h3 className='titulo_tipo background-tittle'>Busqueda por tipo de maquinaria</h3>
+                <Link to='/agregarCategoria' className='agregar-categoria'>Agregar categoría</Link>
+            </div>
+
+            <div className='card-recomendado'>
+                <Card_categoria/>
             </div>
             <div className="fondo-recomendado">
             <h3 className='titulo_tipo'>Lo más recomendado</h3>

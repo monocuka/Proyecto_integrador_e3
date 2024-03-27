@@ -1,7 +1,8 @@
 :root {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    line-height: 1.5;
-    font-weight: 400;
+    --font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --line-height: 1.5;
+    --font-weight-normal: 400;
+    --font-weight-bold: 700;
     --color-primary: #ffffff;
     --color-secondary: #DE8121;
     --color-tertiary: #F1DFBE;
@@ -10,28 +11,67 @@
     --color-senary: black;
 }
 
-*{
-    margin: 0;
-    box-sizing: border-box;
-    padding: 0;
-}
-
-.container-tipo-img{
+/* Contenedor general */
+.container-tipo {
+    position: relative;
     border-radius: 10px;
-    width: 306px;
+    width: 80%;
     height: 200px;
     margin: 5px;
     cursor: pointer;
-    border:  0.5px solid transparent;
-
+    border: 0.5px solid var(--color-quinary);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
-.container-tipo-img:hover {
+/* Fondo con efecto desenfocado */
+.container-tipo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/excavator.jpg');
+    background-size: cover; 
+    background-position: center;
+    filter: blur(5px); 
+    z-index: -1;
+}
+
+/* Efecto de desenfoque en hover */
+.container-tipo:hover::before {
+    filter: blur(1);
+}
+
+/* Efecto de sombra en hover */
+.container-tipo:hover {
+    width: 100%;
     border: 0.5px var(--color-secondary) solid;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); 
 }
 
+/* Texto en el contenedor */
+.text-tipo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(52, 40, 34, 0.7);
+    color: var(--color-quaternary);
+    font-size: 1.3rem;
+    font-weight: var(--font-weight-bold);
+    padding: 0 5px;
+    border-radius: 8px;
+}
+
+/* Reglas adicionales para títulos y otros elementos */
 .titulo_card {
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
     color: #545776;
 }
 
@@ -53,35 +93,46 @@
     color: var(--color-senary);
 }
 
-.text-tipo {
+.container-titulo-categoria{
     display: flex;
-    justify-content: center;
+    align-items: center;
+    justify-content:space-evenly;
+    padding: 1% 0;
 }
 
-@media screen and (max-width: 1270px) {
-    .card-tipo {
-        justify-content: start;
-    }
+.agregar-categoria{   
+    border-radius: 5px;
+    padding: 0.8rem;
+    border: none;
+    /* margin-left: 10px; */
+    background-color: #DE8121;
+    color: var(--color-primary);
+    cursor: pointer;
+    text-decoration: none;
+
+}
+.agregar-categoria:hover{
+    background-color: var(--color-tertiary);
+    color: var(--color-secondary);
 }
 
 @media screen and (max-width: 768px) {
     .titulo_tipo {
         font-size: 18px;
     }
-
-    .text-tipo{
-        font-size: 12px;
-    }
-    
-}
-
-@media screen and (max-width: 480px) {
     .card-tipo {
         text-align: center;
         padding: 1em;
-    }
+        flex-direction: column;
 
-    .container-tipo-img{
-        width: 250px;
+    }
+    .text-tipo{
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container-tipo {
+        width: 90%;
     }
 }

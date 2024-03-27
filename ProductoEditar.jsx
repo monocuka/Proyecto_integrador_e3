@@ -11,7 +11,7 @@ const ProductoEditar = () => {
   const [showShowProductButton, setShowShowProductButton] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:8080/api/categoria/')
+    fetch('http://localhost:8080/api/categorias/')
       .then(response => response.json())
       .then(data => setCategories(data))
       .catch(error => console.error('Error:', error));
@@ -27,7 +27,7 @@ const ProductoEditar = () => {
 
   const cargarProducto = async () => {
     try {
-      const res = await fetch(`http://localhost:8080/api/producto/${productId}`);
+      const res = await fetch(`http://localhost:8080/api/producto/id/${productId}`);
       if (!res.ok) {
         throw new Error('La solicitud no fue exitosa');
       }
@@ -37,6 +37,7 @@ const ProductoEditar = () => {
     } catch (error) {
       console.error('Error:', error);
       setProducto(null);
+      setShowShowProductButton(false);
     }
   };
 

@@ -1,17 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import '../assets/css/buscador.css';
-import CalendarioHome from "./CalendarioHome";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
+import Calendario from './Calendario'; // Importa tu componente de Calendario
+import 'react-calendar/dist/Calendar.css';
 
 const Buscador = () => {
-  const [busqueda, setBusqueda] = useState('');
+  const [nombreBusqueda, setNombreBusqueda] = useState('');
+  const [fechaBusqueda, setFechaBusqueda] = useState('');
   const [resultados, setResultados] = useState([]);
   const [error, setError] = useState(null);
   const [fetchStatus, setFetchStatus] = useState('idle');
+  const [mostrarCalendario, setMostrarCalendario] = useState(false); // Estado para controlar la visibilidad del componente de Calendario
+  const [startDate, setStartDate] = useState(null); //fecha inicial 
+  const [endDate, setEndDate] = useState(null); //fecha final
+  const [busqueda, setBusqueda] = useState('');
 
   const fetchData = async () => {
     setFetchStatus('loading');
     try {
-      const res = await fetch(`http://localhost:8080/api/producto/buscarNombre/${busqueda}`);
+      const res = await fetch(`http://localhost:8080/api/producto/disponibilidad/fechainicial/${startDate}/fechafinal/${endDate}?busqueda=${nombreBusqueda}`);
       if (!res.ok) {
         if (res.status === 404 || res.status === 500) {
           setError('Product not found');
@@ -35,53 +43,62 @@ const Buscador = () => {
       setFetchStatus('error');
     }
   };
+  //_________
+  const onChange = (date) => {
+    const formattedDate = date.toISOString().split('T')[0];
+    if (!startDate) {
+        setStartDate(formattedDate);
+    } else if (!endDate) {
+        setEndDate(formattedDate);
+    } else {
+        setStartDate(formattedDate);
+        setEndDate(null);
+    }
+  };
 
-  useEffect(() => {
+  const toggleCalendario = () => {
+    setMostrarCalendario(!mostrarCalendario); // Cambia el estado de visibilidad del componente de Calendario
+  };
 
-  }, [resultados]);
+  const handleNombreInputChange = (event) => {
+    setNombreBusqueda(event.target.value);
+  };
 
-
-
-  const handleInputChange = (event) => {
-    setBusqueda(event.target.value);
+  const handleFechaInputChange = (event) => {
+    setFechaBusqueda(event.target.value);
   };
 
   return (
     <div className="buscador-input">
-      <div id='buscadores-home'>
-        <div id='div-buscador-nombre-pro'>
-          <input
-            className='input-buscador'
-            type="text"
-            placeholder="Escribe el nombre de la maquinaria.."
-            value={busqueda}
-            onChange={handleInputChange}
-          />
-          <button
-            className='btn-buscar-pro'
-            onClick={fetchData}
-          >
-            Buscar
-          </button>
+      <input 
+        className='input-buscador' 
+        type="text" 
+        placeholder="Escribe el nombre de la maquinaria..." 
+        value={nombreBusqueda}
+        onChange={handleNombreInputChange}
+      />
+      <div>
+        <input 
+          className='input-buscador' 
+          type="text" 
+          placeholder={`Fecha inicial: ${startDate ? startDate : 'Not selected'} | Fecha Final: ${endDate ? endDate : 'Not selected'}`}
+          onChange={onChange}
+        />
+        <div onClick={toggleCalendario}>
+          <FontAwesomeIcon icon={faCalendarAlt} />
         </div>
-          <div id='div-buscador-nombre-pro'>
-            <input
-              className='input-buscador'
-              type="text"
-              placeholder="¿En qué fechas lo necesitas?"
-              value={busqueda}
-              onChange={handleInputChange}
-            />
+    </div>
+      <button 
+        className='btn-buscar'
+        onClick={fetchData}
+      >
+        Buscar
+      </button>
 
-          <CalendarioHome />
-        </div >
-      </div >
-
-
-      {/* {error && <p className="error-message">Error: {error}</p>} */}
-      {fetchStatus == "success" && resultados != null && resultados.length > 0 && <p className='mensaje-buscar'>Found products: {resultados.map(resultado => resultado.nombre).join(', ')}</p>}
-      {fetchStatus == "error" && <p>No products found</p>}
-    </div >
+      {fetchStatus === 'success' && resultados != null && resultados.length > 0 && <p>Productos encontrados: {resultados.map(resultado => resultado.nombre).join(', ')}</p>}
+      {fetchStatus === 'error' && <p>Error: {error}</p>}
+      {mostrarCalendario && <Calendario onChange={onChange} />} {/* Muestra el componente de Calendario si mostrarCalendario es true */}
+    </div>
   );
 };
 

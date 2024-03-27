@@ -95,3 +95,9 @@
     background-color: var(--color-tertiary);
     color: var(--color-secondary);
   }
+
+  .cardPorCategoria{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+  }

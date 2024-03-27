@@ -141,11 +141,19 @@ const AuthButtons = ({ displayMenuBurguer }) => {
                       </div>
                       <hr className="divider" />
                       <nav>
-                        <ul>
+                      <ul>
                           <li>
                             <Link to={'/home'} >
                               <FontAwesomeIcon icon="fa-solid fa-house" />
                               Home
+                            </Link>
+                          </li>
+                        </ul>
+                        <ul>
+                          <li>
+                            <Link to={'/listarFavoritos'} >
+                              <FontAwesomeIcon icon="fa-solid fa-heart" />
+                              Favoritos
                             </Link>
                           </li>
                         </ul>
