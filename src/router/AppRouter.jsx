@@ -12,7 +12,8 @@ import { IniciarSesion } from '../pages/IniciarSesion';
 import { RegistrarUsuario } from "../pages/RegistrarUsuario.jsx";
 import { UsuarioDetalle } from "../pages/UsuarioDetalle.jsx";
 import { AuthContext } from '../context/AuthContext';
-
+import ListarFavoritos from '../components/favoritos/Favoritos.jsx'
+import ProductosPorCategoriaPage from '../pages/ProductosPorCategoriaPage.jsx';
 // Componente de alto orden para el layout con encabezado y pie de página
 const WithHeaderAndFooter = ({ children }) => (
   <>
@@ -40,7 +41,9 @@ const AppRoutes = () => {
       <Route path="/detalle/:id" element={<RoleBasedRoute allowedRoles={['ROLE_USER', 'ROLE_ADMIN']}><Detalle /></RoleBasedRoute>} />
       <Route path="/agregarProducto" element={<RoleBasedRoute allowedRoles={['ROLE_ADMIN']}><AgregarProducto /></RoleBasedRoute>} /> 
       <Route path="/editarProducto" element={<RoleBasedRoute allowedRoles={['ROLE_ADMIN']}><EditarProducto /></RoleBasedRoute>} /> 
-      <Route path="/agregarCategoria" element={<RoleBasedRoute allowedRoles={['ROLE_ADMIN']}><AgregarCategoria /></RoleBasedRoute>} /> 
+      <Route path="/agregarCategoria" element={<RoleBasedRoute allowedRoles={['ROLE_ADMIN']}><AgregarCategoria /></RoleBasedRoute>} />
+      <Route path="/listarFavoritos" element={<ListarFavoritos/>}/>  
+      <Route path="/productosPorCategoriaPage/:categoriaId" element={<ProductosPorCategoriaPage />} />
     </Routes>
   )
 }

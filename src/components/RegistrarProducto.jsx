@@ -56,15 +56,13 @@ export const RegistrarProducto = () => {
           if (!response.ok) { 
             const errorData = await response.json(); 
             const message = errorData.message; 
-            responseElement.innerText = message;
-            responseElement.style.color = 'red';
+            alert(message);
           } else {
             const data = await response.json();
-            alert('Product created successfully');
+            alert('Producto creado exitosamente');
           }
         } catch (error) {
-          responseElement.innerText = 'An error occurred';
-          responseElement.style.color = 'red';
+          alert('Ocurrio un error');
         }
       }
       return (

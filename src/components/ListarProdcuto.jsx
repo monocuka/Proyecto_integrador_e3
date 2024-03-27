@@ -8,8 +8,7 @@ const ListarProducto = () => {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  //const imagenUrl = products.length > 0 && products[0].imagenes.length > 0 ? products[0].imagenes[0].urlImagen : null;
- // console.log(imagenUrl)
+
 
   useEffect(() => {
     const fetchData = async () => {
