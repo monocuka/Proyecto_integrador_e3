@@ -1,18 +1,37 @@
-.container-form-editar{
-    margin-top: 60px;
+/* Estilos para el encabezado del menú */
+.espacio-menu-header {
+    width: 100%;
+    height: 80px;
+}
+
+/* Estilos para el pie de página del menú */
+.espacio-menu-footer {
+    width: 100%;
+    height: 30px;
+}
+
+.titulo-modificar-producto{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+/* Estilos para el contenedor del formulario de edición */
+.container-form-editar {
     font-family: 'Work Sans', sans-serif;
     background-color: white;
     display: flex;
     justify-content: center;
+    width: 100%;
     align-items: center;
-    height: 90%;
     padding: 1rem;
 }
 
+/* Estilos para el contenedor de la zona de arrastrar y soltar */
 .dropzone-box {
     border-radius: 2rem;
     padding: 2rem;
-    box-shadow: rgb(144, 145, 146) 0px 8px 24px;
+    box-shadow: 0px 8px 24px rgb(144, 145, 146);
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -26,13 +45,13 @@
     margin-bottom: 0.5rem;
 }
 
+/* Estilos para la zona de arrastrar y soltar */
 .dropzone-area {
     padding: 1rem;
     position: relative;
     margin-top: 1rem;
     min-height: 19rem;
     display: flex;
-    text-align: center;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -64,6 +83,7 @@
     background-color: #F8F8FF;
 }
 
+/* Estilos para las acciones de la zona de arrastrar y soltar */
 .dropzone-actions {
     display: flex;
     justify-content: space-between;
@@ -74,17 +94,11 @@
     flex-wrap: wrap;
 }
 
-.dropzone-actions button {
+.dropzone-actions button,
+.dropzone-actions a {
     flex-grow: 1;
     min-height: 3rem;
     font-size: 1.2rem;
-}
-
-.dropzone-actions button:hover {
-    text-decoration: underline;
-}
-
-.dropzone-actions a {
     background-color: transparent;
     border: 1px solid #DE8121;
     border-radius: 0.5rem;
@@ -92,44 +106,41 @@
     color: #DE8121;
     cursor: pointer;
     text-decoration: none;
-    width: 50%;
-    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.dropzone-actions a:hover{
-    background-color: #342822;  
+.dropzone-actions button:hover,
+.dropzone-actions a:hover {
+    background-color: #342822;
     border-color: #342822;
-    color: white;  
+    color: white;
 }
 
-.dropzone-actions button[type='submit']:hover{
-    background-color: #342822;  
-    border-color: #342822;
-    color: white;  
-}
-
-.dropzone-actions button[type='submit'] {
+.dropzone-actions button[type='submit'],
+.dropzone-actions a[type='submit'] {
     background-color: #DE8121;
-    border: 1px solid #DE8121;
-    border-radius: 0.5rem;
-    padding: 0.5rem 1rem;
+    border-color: #DE8121;
     color: #FFFFFF;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.form-inputs{
+.dropzone-actions button[type='submit']:hover,
+.dropzone-actions a[type='submit']:hover {
+    background-color: #342822;
+    border-color: #342822;
+    color: white;
+}
+
+/* Estilos para los inputs del formulario */
+.form-inputs {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
 
-.form-editar-producto-input{
+.form-editar-producto-input {
     display: flex;
     flex-direction: column;
     padding: 10px 0px;
@@ -145,27 +156,33 @@ input, select, textarea {
     font-family: 'Arial', sans-serif;
 }
 
-.form-editar-inputs{
+/* Estilos para los inputs del formulario de edición */
+.form-editar-inputs {
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 300px;
 }
 
-.form-editar-titulo-imagen{
+.form-editar-titulo-imagen {
     color: #342822;
 }
 
+/* Media query para dispositivos con una pantalla de hasta 824px de ancho */
 @media screen and (max-width: 824px) {
-    .form-inputs{
+    .form-inputs {
         flex-direction: column;
     }
-    
-    .dropzone-box{
-        margin-top: 240px;
+
+    .espacio-menu-footer {
+        height: 50px;
     }
 
-    body{
+    body {
         height: 100vh;
+    }
+
+    .form-editar-inputs {
+        width: 100%;
     }
 }
