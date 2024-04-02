@@ -34,9 +34,9 @@ export const Home = () => {
     return (
         <>
             <div className='buscador'>
-            <h1 className='titulo-buscador'>Encuentra de forma fácil tus herramientas</h1>
-            <p className="parrafo-buscador">Motoniveladoras, retroexcavadoras, tractores topadores y muchas más herramientas.</p>
-            <Buscador updateProductos={updateProductos}/>
+                <h1 className='titulo-buscador'>Encuentra de forma fácil tus herramientas</h1>
+                <p className="parrafo-buscador">Motoniveladoras, retroexcavadoras, tractores topadores y muchas más herramientas.</p>
+                <Buscador updateProductos={updateProductos}/>
             </div>
             <div id='bodyCard'>
                 <div id='hCard' className="HomeCards">
@@ -45,6 +45,7 @@ export const Home = () => {
                     ))}
                 </div>
             </div>
+            <div>
                 <h3 className='titulo_tipo background-tittle'>Busqueda por tipo de maquinaria</h3>
             </div>
             <div className='card-recomendado'>

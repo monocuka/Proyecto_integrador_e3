@@ -6,7 +6,13 @@ export const EditarProducto = () => {
   const { id } = useParams();
 
   return (
-    // <ProductoEditar />
-    <FormEditarProducto id={ id }/>
+    <>
+      <div className='espacio-menu-header' />
+      <div>
+        <h1 className='titulo-modificar-producto'>Modificar Producto</h1>
+      </div>
+      <FormEditarProducto id={ id }/>
+      <div className='espacio-menu-footer' />
+    </>
   )
 }
