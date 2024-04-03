@@ -79,32 +79,33 @@ const CardDetalle = ({ product }) => {
                         </div>
                     </div>
                 <div className='poliDiv'>
-                    <div className='Politicas'> <h2><strong>Politicas de uso y alquiler</strong></h2></div>
+                    <div className='Politicas'> <h2><strong>Politicas de uso y Alquiler</strong></h2></div>
                     <div>
                         <div>
                             <ol>
                                 <li>
-                                1. Uso Responsable de la Maquinaria:
+                                Uso Responsable de la Maquinaria:
                                 - Los clientes deben utilizar la maquinaria de manera responsable y siguiendo todas las normas de seguridad establecidas.
                                 - No se permite el uso de la maquinaria para fines distintos a los especificados en el contrato de alquiler.
                                 </li>
                                 <li>
-                                2. Mantenimiento y Cuidado:
+                                Mantenimiento y Cuidado:
                                 - Los clientes son responsables de mantener la maquinaria en condiciones adecuadas de funcionamiento durante el período de alquiler.
                                 - Cualquier daño causado por un mal uso o negligencia del cliente será responsabilidad del mismo y podrá resultar en cargos adicionales.
                                 </li>
                                 <li>
-                                3. Devolución a Tiempo:
+                                Devolución a Tiempo:
                                 - Los clientes deben devolver la maquinaria alquilada en la fecha acordada en el contrato. El retraso en la devolución puede resultar en cargos adicionales por día de retraso.
                                 </li>
                                 <li>
-                                4. Seguro y Responsabilidad:
+                                Seguro y Responsabilidad:
                                 - Es responsabilidad del cliente asegurar la maquinaria alquilada durante el período de uso.
                                 - La empresa de alquiler no se hace responsable de ningún accidente o daño causado por el mal uso de la maquinaria.
                                 </li>
                             </ol>
                         </div>
-                        <div><h6><a href="/Politicas">Leer más</a></h6></div>
+                        <div className='titleRead'>
+                            <h6 ><a href="/Politicas" className='readMore'>Leer más</a></h6></div>
 
                     </div>
                 </div>
