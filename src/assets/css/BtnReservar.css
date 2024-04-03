@@ -1,5 +1,19 @@
-
-.btnDetalles{
-    padding: 10px;
-    width: 30%;
-}
+button[type="submit"] {
+    background-color: rgb(222, 129, 33); /* Botón de inicio de sesión naranja */
+    color: white; /* Texto blanco */
+    border: 2px solid rgb(222, 129, 33);
+    padding: 6px 39px;
+     border-radius: 5px;
+     font-size: 15px;
+     margin: 2px;
+  }
+  
+  .btnIndetificar{
+    background-color: transparent;
+    border: 2px solid rgb(222, 129, 33);
+    color: rgb(222, 129, 33);
+    padding: 6px 30px;
+    border-radius: 5px;
+    font-size: 15px;
+    padding: 6px 51px;
+  }
