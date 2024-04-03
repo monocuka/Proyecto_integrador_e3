@@ -28,22 +28,10 @@
     color: var(--color-tertiary);
 }
 
-.buscador-input{
-    margin-right: 10px;
-    margin-left: 10px;
-}
-
-#buscadores-home{
+.bucador-inputs{
     display: flex;
-    align-items: end;
-}
-
-/*.calendars-container {
-  display: flex;
-}*/
-
-.calendar {
-  margin-right: 10px; /* Adjust spacing between calendars */
+    flex-direction: row;
+    align-items: center;
 }
 
 .titulo-buscador{
@@ -100,6 +88,35 @@
 .btn-buscar:hover{
     background-color: var(--color-tertiary);
     color: var(--color-secondary);
+}
+
+/* CSS PARA LAS SUGERENCIA DEL INPUT */
+.autocomplete-container {
+    position: relative;
+}
+
+.suggestions-list {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    margin-top: 5px;
+    padding: 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    list-style-type: none;
+}
+
+.suggestions-list li {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    color: #342822;
+}
+
+.suggestions-list li:hover {
+    background-color: #f1f1f1;
 }
 
 @media screen and (max-width: 768px) {

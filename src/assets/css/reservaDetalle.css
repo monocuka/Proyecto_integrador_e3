@@ -1,0 +1,123 @@
+:root {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    --color-primary: #ffffff;
+    --color-secondary: #DE8121;
+    --color-tertiary: #F1DFBE;
+    --color-quaternary: #E5E5E5;
+    --color-quinary: #342822;
+    --color-senary: black;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    background-color: #f1dfbe;
+}
+
+/* Estilos generales que se aplican a todas las pantallas */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #ffffff;
+}
+
+.registro-container {
+    background-color: #F1DFBE;
+}
+
+/* Estilos para el encabezado */
+header {
+    background-color: #F1DFBE;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    color: white;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenedor del logo y el eslogan */
+.logo-container,
+.slogan {
+    display: flex;
+    align-items: center;
+}
+
+/* Logo de la empresa */
+.company-logo {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+}
+
+/* Eslogan de la empresa */
+.slogan {
+    text-align: left;
+    color: #342822;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+}
+
+.slogan .line1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}
+
+.slogan .line2 {
+    font-size: 1em;
+}
+
+/* Icono de usuario */
+.user-icon {
+    width: 30px;
+    height: auto;
+    margin-right: 10px;
+}
+
+/* Contenedor del cuerpo */
+.body-container {
+    display: flex;
+    padding: 20px;
+}
+
+/* Imagen de la empresa */
+.company-image {
+    display: none;
+}
+
+#cardUsuDetalleReservaDet {
+    height: 100px;
+    display: flex;
+    font-size:large;
+
+}
+
+#tituloMiCuentaReserva{
+    margin-top: 100px;
+    font-size:x-large;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+#infoUsuario {
+    margin-top: 10%;
+    /*background-color: aquamarine;*/
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#calendarioDisponibilidad{
+    display: none;
+}
