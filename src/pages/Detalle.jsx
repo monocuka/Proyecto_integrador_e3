@@ -30,7 +30,7 @@ export const Detalle = () => {
             }
         };
         obtenerDetallesProducto();
-    }, [id]);
+    }, []);
 
     if (!product) {
         return <div>Cargando...</div>;
