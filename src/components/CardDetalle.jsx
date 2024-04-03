@@ -5,6 +5,7 @@ import BotonReservas from '../components/BotonReservas';
 import Gallery from '../components/Gallery'
 import { useEffect, useState } from 'react'; 
 import '../assets/css/cardDetalle.css'
+import imgBack from '../assets/img/back.png'
 
 
 
@@ -42,7 +43,7 @@ const CardDetalle = ({ product }) => {
             <div className='superiorDtalle'>
                 <div className="btnBack">
                     <Link to="/home" className="btnGoback">
-                        <img src="/src/assets/img/back.png" alt="atras" className='imgback' />
+                        <img src={imgBack} alt="atras" className='imgback' />
                     </Link>
                 </div>
                 <h2 className='titleDetalle'>Detalle del Producto</h2>

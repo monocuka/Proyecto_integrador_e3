@@ -14,7 +14,7 @@ const Card_recommended = ({ product }) => {
     <section className="container-card">
       <div className="card-product">
         {imagenUrl && (
-          <img src={`http://${imagenUrl}`} alt={nombre} className="img-card-recommended" />
+          <img src={imagenUrl} alt={nombre} className="img-card-recommended" />
         )}
         <div className="description-product">
           <h3 className="tittle">{nombre}</h3>
