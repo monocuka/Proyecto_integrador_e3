@@ -10,6 +10,9 @@
     --color-senary: black;
 }
 
+*{
+    /* border: 1px solid black; */
+}
 
 h1.recommended-tittle {
     color: var(--color-quinary);
@@ -19,13 +22,21 @@ h1.recommended-tittle {
 
 .Card_recommended_container {
     display: flex;
+    justify-content: space-between;
     width: fit-content;
     background-color: var(--color-primary);
     border-radius: 10px;
     color: var(--color-senary);
-    overflow: hidden;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    /* border: solid 1px red; */
+    width: 80%;
+}
+
+.card-product-reco{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 50%;
+    padding: 20px 10px;
 }
 
 .fondo-recomendado{
@@ -35,8 +46,9 @@ h1.recommended-tittle {
 }
 
 .background-recommended {
-    width: -webkit-fill-available;
-    display: grid;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
 }
 
 .recommended-background{
@@ -48,7 +60,10 @@ h1.recommended-tittle {
 
 .card-product {
     display: flex;
-    padding: 1rem 1.8rem;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
 }
 
 .card-product:hover{
@@ -57,8 +72,8 @@ h1.recommended-tittle {
 }
 
 .img-card-recommended {
-    width: 313px;
-    height: 283px;
+    width: 200px;
+    height: 200px;
 }
 
 .description-product {
@@ -70,7 +85,7 @@ h1.recommended-tittle {
 
 .description {
     text-align: left;
-    width: 250px;
+    width: 100%;
 }
 
 .tittle {
@@ -113,19 +128,39 @@ h1.recommended-tittle {
     overflow-x: auto;
 }
 
-@media screen and (max-width: 768px) {
+.container-card{
+    display: flex;
+    min-height: 100%;
+
+}
+
+@media screen and (max-width: 1024px) {
     .Card_recommended_container{
-        display: block;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card-product-reco{
+        /* background: black; */
+        max-width: 80%;
     }
 }
 
-@media screen and (max-width: 689px) {
-    .card-product {
-        display: block;
-        text-align: center;
-        padding: 1em;
+@media screen and (max-width: 1438px) {
+    .Card_recommended_container{
+        width: 90%;
     }
+}
 
+@media screen and (max-width: 1228px) {
+    .Card_recommended_container{
+        width: 100%;
+    }
+}
+
+
+@media screen and (max-width: 689px) {
     .img-card-recommended {
         border-radius: 10px;
         margin-top: 1rem;
