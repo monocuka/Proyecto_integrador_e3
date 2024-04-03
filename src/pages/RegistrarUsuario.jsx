@@ -1,182 +1,247 @@
 import '../assets/css/RegistrarUsuario.css'
-//import useInput from '../components/Registrar_Usuario/UseInput'
-import React, { useState } from 'react'
+import logoSinFondo from '../assets/img/logo-sin-fondo-ni letras.png';
+import iconoPassword from '../assets/img/password.svg';
+import iconoEmail from '../assets/img/email.svg';
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 export const RegistrarUsuario = () => {
 
     const [formData, setFormData] = useState({
-        Name: "",
+        name: "",
         lastName: "", 
         email: "",
         pass: "",
         pass2: ""
     });
-    
+
+    const [validation, setValidation] = useState({
+        isEmailValid: true,
+        isPasswordValid: true
+    });
+
     const [error, setError] = useState("");
-    const [successMessage, setSuccessMessage] = useState(false);
+    const [successMessage, setSuccessMessage] = useState("");
 
     const handleInputChange = (e) => {
+        const { name, value } = e.target;
+
+        let isEmailValid = validation.isEmailValid;
+
+        if (name === 'email') {
+            const emailRegex = /^[^\s]+@[^\s]+(\.[^\s]+)+$/;
+            isEmailValid = emailRegex.test(value);
+        }
+
         setFormData({
             ...formData,
-            [e.target.name]: e.target.value,
+            [name]: value,
         });
 
-        setError("");
-    };
+        setValidation({
+            ...validation,
+            isEmailValid: isEmailValid,
+        });
+    }
 
-    const handleFocus = () => {
-        setError("");
-    };
+    useEffect(() => {
+        const isPasswordValid = formData.pass === formData.pass2 && formData.pass.length >= 8;
+        setValidation({
+            ...validation,
+            isPasswordValid: isPasswordValid
+        });
+    }, [formData.pass, formData.pass2]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
     
         const nameRegex = /^[^\s]+(\s[^\s]+)*$/;
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        if (!nameRegex.test(formData.Name) ||
-            formData.Name.length <= 5 || formData.pass.length <= 8 ||
-            formData.pass !== formData.pass2 ||
-            !emailRegex.test(formData.email)) {
-            setSuccessMessage("");
-            setError("ERROR EN LOS DATOS")
-        } else {
-            
-            const data = {
-                name: formData.Name,
-                lastName: formData.lastName, 
-                email: formData.email,
-                password: formData.pass
-            };
-            fetch('http://localhost:8080/api/auth/register', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data);
-                setSuccessMessage("User registered successfully!");
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-                setError("Failed to register user");
-            });
-    
-            setError(true);
+        if (!nameRegex.test(formData.name) ||
+            formData.name.length <= 2 ||
+            !validation.isEmailValid ||
+            !validation.isPasswordValid) {
+            // setError("Error al registrar usuario");
+            console.log("Error");
+            return;
+        } 
+        
+        const data = {
+            name: formData.name,
+            lastName: formData.lastName, 
+            email: formData.email,
+            password: formData.pass
+        };
+
+        const requestOptions = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(data),
         }
-        console.log("Formulario enviado exitosamente!: ");
+        
+        Swal.fire({
+            title: "Desea registrar el usuario cargado?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Si, registrar"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch('http://localhost:8080/api/auth/register', requestOptions)
+                .then((response) => {
+                    if (!response.ok) {
+                        return response.text().then((error) => {
+                            throw new Error(error);
+                        });
+                    }
+                    return response.text();
+                })
+                .then((result) => {
+                    Swal.fire({
+                        title: "Registrado!",
+                        icon: "success"
+                    });
+                    setProducto(initStateProducto);
+                    setImagen(null);
+                })
+                .catch((error) => {
+                    try {
+                        const jsonError = JSON.parse(error.message);
+                        Swal.fire({
+                            title: "Error",
+                            text: jsonError.mensaje,
+                            icon: "error"
+                        });
+                    } catch (parseError) {
+                        console.error('Error al parsear el mensaje JSON:', parseError);
+                        Swal.fire({
+                            title: "Error",
+                            text: errorMessage,
+                            icon: "error"
+                        });
+                    }
+                });
+            }
+        });
+
+
+
+        // try {
+        //     const response = await fetch('http://localhost:8080/api/auth/register', requestOptions);
+        //     const responseData = await response.json();
+        //     console.log('Success:', responseData);
+        //     setSuccessMessage("User registered successfully!");
+
+        // } catch (error) {
+        //     console.error('Error:', error);
+        //     setError("Error al registrar usuario");
+        // }
     }
     
 
     return (
-        <div id='Registro'>
-            <div id='imagenPlusCont'>
-            <h2 className='registrar'>Registrarse</h2>
-                <div className="company-image">
-                    <div className='img-agregar'>
-                        <img src='/src/assets/img/foto registrar.png' alt="Imagen de la empresa" />
+        <>
+        <div className='body-login'>
+            <div className="centering">
+                <form className="my-form" onSubmit={handleSubmit}>
+                    <div className="login-welcome-row">
+                        <img
+                            className="login-welcome"
+                            src={logoSinFondo}
+                            alt="Astronaut"
+                        />
+                        <h1>Registrarse</h1>
                     </div>
-                    <div className='img-agregar-tablet'>
-                        <img id='imgtablet' src='/src/assets/img/foto fondo.png' alt="Imagen de la empresa" />
+                    <div className="text-field">
+                        <label htmlFor="nombre">Nombre:</label>
+                        <input
+                            aria-label="nombre"
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Nombre"
+                            value={formData.name}
+                            onInput={handleInputChange}
+                            required
+                        />
                     </div>
-                </div>
-                <form className='formregistrarusu' onSubmit={handleSubmit}>
-                    <div id='formplusbuttons'>
-                        <div id="contenedorForm">
-                            <div id="name"></div>
-                            <div id="boxInput">
-                                <label >Nombre: </label>
-                                <input
-                                    type='text'
-                                    id='Name'
-                                    className="form-control"
-                                    name="Name"
-                                    value={formData.Name}
-                                    onChange={handleInputChange}
-                                    onFocus={handleFocus}
-                                />
-                            </div>
-                            <div id="boxInput">
-                                <label >Apellido: </label>
-                                <input
-                                    type='text'
-                                    className="form-control"
-                                    name="lastName"
-                                    id='lastName'
-                                    value={formData.lastName}
-                                    onChange={handleInputChange}
-                                    onFocus={handleFocus}
-                                />
-                            </div>
-                            <div id="boxInput">
-                                <label >E-mail: </label>
-                                <input
-                                    type='text'
-                                    className="form-control"
-                                    name="email"
-                                    id='email'
-                                    value={formData.email}
-                                    onChange={handleInputChange}
-                                    onFocus={handleFocus}
-                                />
-                            </div>
-                            <div id="boxInput">
-                                <label >Contraseña: </label>
-                                <input
-                                    type='password'
-                                    className="form-control"
-                                    name="pass"
-                                    id='pass'
-                                    value={formData.pass}
-                                    onChange={handleInputChange}
-                                    onFocus={handleFocus}
-                                />
-                            </div>
-                            <div id="boxInput">
-                                <label >Repetir Contraseña: </label>
-                                <input
-                                    type='password'
-                                    className="form-control"
-                                    name="pass2"
-                                    id='pass2'
-                                    value={formData.pass2}
-                                    onChange={handleInputChange}
-                                    onFocus={handleFocus}
-                                />
-                            </div>
-                        </div>
-
-                        <div className='recibirNotificacion'>
-                            <div className='notifi1'>
-                                <input type="checkbox" id="cbox1" value="first_checkbox" />
-                            </div>
-                            <div className='notifi2'> 
-                                <p>No quiero recibir notificaciones con promociones de Equipa Obra por email.</p>
-                            </div>
-                        </div>
-                        <div className='terminos'>
-                            <p>Al registrarte estás aceptando nuestros <a href="https://www.freepikcompany.com/legal?_gl=1*11qmuq7*fp_ga*MTYzODM1MzY1OC4xNjM0MjAwMjcy*fp_ga_QWX66025LC*MTY0MTI5MTg2Ny4yNzkuMC4xNjQxMjkxODY4LjU5*test_ga*NDA4Mjg4MTQ1LjE2MTMwNDU4MTA.*test_ga_18B6QPTJPC*MTY0MTI5MTg2Ny4yODUuMC4xNjQxMjkxODY3LjYw#nav-freepik">Términos de Uso</a> y <a href="https://www.freepikcompany.com/privacy?_gl=1*11qmuq7*fp_ga*MTYzODM1MzY1OC4xNjM0MjAwMjcy*fp_ga_QWX66025LC*MTY0MTI5MTg2Ny4yNzkuMC4xNjQxMjkxODY4LjU5*test_ga*NDA4Mjg4MTQ1LjE2MTMwNDU4MTA.*test_ga_18B6QPTJPC*MTY0MTI5MTg2Ny4yODUuMC4xNjQxMjkxODY3LjYw">Política de Privacidad</a>.</p>
-
-
-                            <div className='buttonsRegCan'>
-                                <button className='button-custom'
-                                    type='submit' >
-                                    Registrarse
-                                </button>
-                                <Link to="/home">
-                                    <button className='btnIndetificar' type="button">Cancelar</button>
-                                </Link>
-                            </div>
+                    <div className="text-field">
+                        <label htmlFor="nombre">Apellido:</label>
+                        <input
+                            aria-label="apellido"
+                            type="text"
+                            id="lastName"
+                            name="lastName"
+                            placeholder="Apellido"
+                            value={formData.lastName}
+                            onInput={handleInputChange}
+                            required
+                        />
+                    </div>
+                    <div className="text-field">
+                        <label htmlFor="email">Email:</label>
+                        <input
+                            aria-label="Email"
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Tu Email"
+                            value={formData.email}
+                            onInput={handleInputChange}
+                            required
+                            className={validation.isEmailValid ? 'valid' : 'invalid'}
+                        />
+                        {!validation.isEmailValid && <p className="error-message">El correo electrónico no es válido</p>}
+                        {validation.isEmailValid && <img alt="Email Icon" title="Email Icon" src={iconoEmail}/>}
+                    </div>
+                    <div className="text-field">
+                        <label htmlFor="password">Password:</label>
+                        <input
+                          id="pass"
+                          type="text"
+                          aria-label="Password"
+                          name="pass"
+                          placeholder="Tu Password"
+                          value={formData.pass}
+                          onInput={handleInputChange}
+                          required
+                          className={validation.isPasswordValid ? 'valid' : 'invalid'}
+                        />
+                        {!validation.isPasswordValid && <p className="error-message">La contraseña debe tener al menos 8 caracteres y coincidir con la confirmación de la contraseña</p>}
+                        {validation.isPasswordValid && <img alt="Email Icon" title="Email Icon" src={iconoPassword}/>}
+                    </div>
+                    <div className="text-field">
+                        <label htmlFor="repit-password">Repetir Password:</label>
+                        <input
+                          id="pass2"
+                          type="text"
+                          aria-label="repit-Password"
+                          name="pass2"
+                          placeholder="Tu Password"
+                          value={formData.pass2}
+                          onInput={handleInputChange}
+                          required
+                          className={validation.isPasswordValid ? 'valid' : 'invalid'}
+                        />
+                        {!validation.isPasswordValid && <p className="error-message">La contraseña debe tener al menos 8 caracteres y coincidir con la confirmación de la contraseña</p>}
+                        {validation.isPasswordValid && <img alt="Email Icon" title="Email Icon" src={iconoPassword}/>}
+                    </div>
+                    <input type="submit" className="my-form__button" value="Registrarse" />
+                    {error && <p className="error-message">{error}</p>}
+                    {successMessage && <p className="success-message">{successMessage}</p>}
+                    <div className="my-form__actions">
+                        <div className="my-form__signup">
+                            <Link to={'/home'} title='Crear una Cuenta'>
+                                Cancelar
+                            </Link>
                         </div>
                     </div>
-                    {error && <p className="text-danger">{error}</p>}
-                    {successMessage && <p className="text-success">{successMessage}</p>}
                 </form>
             </div>
         </div>
-    )
+        <div className='espacio-menu-footer' />
+        </>
+    );
 }
