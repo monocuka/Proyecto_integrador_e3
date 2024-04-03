@@ -8,15 +8,15 @@ import '../assets/css/Calendario.css';
 
 const Calendario = ({ reserva, onChange }) => {
     const [date, setDate] = useState(new Date());
-
+    console.log("[calendario.jsx] La reserva q llego es esta: " + reserva)
     const siguienteMes = new Date(date);
     siguienteMes.setMonth(siguienteMes.getMonth() + 1);
 
     const marcarFechasSeleccionadas = ({ date }) => {
-        if (reserva) {
-            for (let i = 0; i < reserva.length; i++) {
-                const fecha_desde = new Date(reserva[i].fecha_desde[0], reserva[i].fecha_desde[1] - 1, reserva[i].fecha_desde[2]);
-                const fecha_hasta = new Date(reserva[i].fecha_hasta[0], reserva[i].fecha_hasta[1] - 1, reserva[i].fecha_hasta[2]);
+        if (reserva && reserva.reservas) {
+            for (let i = 0; i < reserva.reservas.length; i++) {
+                const fecha_desde = new Date(reserva.reservas[i].fechaDesde[0], reserva.reservas[i].fechaDesde[1] - 1, reserva.reservas[i].fechaDesde[2]);
+                const fecha_hasta = new Date(reserva.reservas[i].fechaHasta[0], reserva.reservas[i].fechaHasta[1] - 1, reserva.reservas[i].fechaHasta[2]);
                 if (date.getMonth() === fecha_desde.getMonth() && date.getFullYear() === fecha_desde.getFullYear()) {
                     if (date.getDate() >= fecha_desde.getDate() && date.getDate() <= fecha_hasta.getDate()) {
                         return <div className="selected-date">❌</div>;
@@ -28,10 +28,10 @@ const Calendario = ({ reserva, onChange }) => {
 
 
     const marcarFechasSeleccionadas1 = ({ date }) => {
-        if (reserva) {
-            for (let i = 0; i < reserva.length; i++) {
-                const fecha_desde = new Date(reserva[i].fecha_desde[0], reserva[i].fecha_desde[1] - 1, reserva[i].fecha_desde[2]);
-                const fecha_hasta = new Date(reserva[i].fecha_hasta[0], reserva[i].fecha_hasta[1] - 1, reserva[i].fecha_hasta[2]);
+        if (reserva && reserva.reservas) {
+            for (let i = 0; i < reserva.reservas.length; i++) {
+                const fecha_desde = new Date(reserva.reservas[i].fechaDesde[0], reserva.reservas[i].fechaDesde[1] - 1, reserva.reservas[i].fechaDesde[2]);
+                const fecha_hasta = new Date(reserva.reservas[i].fechaHasta[0], reserva.reservas[i].fechaHasta[1] - 1, reserva.reservas[i].fechaHasta[2]);
 
                 if (date.getMonth() === fecha_desde.getMonth() && date.getFullYear() === fecha_desde.getFullYear()) {
                     if (date.getDate() >= fecha_desde.getDate() && date.getDate() <= fecha_hasta.getDate()) {
