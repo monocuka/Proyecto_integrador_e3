@@ -81,7 +81,7 @@ const CardDetalle = ({ product }) => {
                 <div className='poliDiv'>
                     <div className='Politicas'> <h2><strong>Politicas de uso y Alquiler</strong></h2></div>
                     <div>
-                        <div>
+                        <div className='politicasDetalle'>
                             <ol>
                                 <li>
                                 Uso Responsable de la Maquinaria:

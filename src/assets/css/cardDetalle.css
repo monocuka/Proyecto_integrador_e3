@@ -74,3 +74,13 @@
 .Caracteristicas{
     padding: 3%;
 }
+.Politicas{
+    padding: 3%;
+}
+.politicasDetalle{
+    padding: 2%;
+}
+.precio{
+    display: flex;
+    justify-content: flex-end;
+}
