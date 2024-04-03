@@ -47,10 +47,30 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 10px;
+    padding-bottom: 5%;
+    padding-top: 5%;
 }
 
 .gallery img {
     width: 100%;
     height: auto;
     object-fit: cover;
+    border-radius: 10px;
+}
+.readMore {
+    color: #ffff;
+    padding: 10px;
+    font-size: 1.5em;
+    background-color: #df8121;
+    border-radius: 8px;
+}
+.poliDiv{
+    text-align: justify;
+    padding: 2%;
+}
+.titleRead{
+    padding-top: 2%;
+}
+.Caracteristicas{
+    padding: 3%;
 }
