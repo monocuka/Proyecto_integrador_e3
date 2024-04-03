@@ -102,7 +102,7 @@ const CardDetalle = ({ product }) => {
                                 - Es responsabilidad del cliente asegurar la maquinaria alquilada durante el período de uso.
                                 - La empresa de alquiler no se hace responsable de ningún accidente o daño causado por el mal uso de la maquinaria.
                                 </li>
-                                </ol>
+                            </ol>
                         </div>
                         <div><h6><a href="/Politicas">Leer más</a></h6></div>
 
