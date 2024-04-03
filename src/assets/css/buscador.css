@@ -95,7 +95,7 @@
 .suggestions-list {
     position: absolute;
     z-index: 1;
-    width: 100%;
+    width: 700px;
     margin-top: 5px;
     padding: 0;
     border: 1px solid #ccc;
@@ -118,6 +118,9 @@
 
 @media (max-width: 1042px) {
     .container-inputs{
+        width: 100%;
+    }
+    .suggestions-list{
         width: 100%;
     }
 }
