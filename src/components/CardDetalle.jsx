@@ -61,9 +61,74 @@ return (
                 <div className='precio'>
                         <p><strong>Precio: $</strong> {product.precio}</p>
                 </div>
+<<<<<<< HEAD
                 <div className='InfoDetalle'>
                     <p><strong>Descripción:</strong> {product.descripcion}</p>
                     <p><strong>Categoría:</strong> {product.categoria.nombre}</p>
+=======
+                <h2 className='titleDetalle'>Detalle del Producto</h2>
+            </div>
+
+                {/* Galería de imágenes */}
+                <Gallery imageUrls={product.imagenes.map(imagen => imagen.urlImagen)} />
+
+                <div className='nombrePuntuacion'>
+                    <h3>{product.nombre}</h3>
+                    <p>⭐⭐⭐⭐</p>
+                </div>
+                <div className="infoCardDetail">
+                        <div className='precio'>
+                                <p><strong>Precio: $</strong> {product.precio}</p>
+                        </div>
+                        <div className='InfoDetalle'>
+                            <p><strong>Descripción:</strong> {product.descripcion}</p>
+                            <p><strong>Categoría:</strong> {product.categoria.nombre}</p>
+                        </div>
+                </div>
+                <div className='Caracteristicas'>
+                    <h2><strong>Características.</strong></h2>
+                    <ul className='listCaracteristicas'>{listaCaracteristicas}</ul>
+                </div>
+                <div className='Calendario'>
+                    <h2>Visualiza la Disponibilidad de el producto</h2>
+                        <div className='CalendarioReserva'>
+                            <Calendario reserva={reserva} />
+                        </div>
+                        <div className='btnDetalles'>
+                            <BotonReservas product={product} />
+                        </div>
+                    </div>
+                <div className='poliDiv'>
+                    <div className='Politicas'> <h2><strong>Politicas de uso y Alquiler</strong></h2></div>
+                    <div>
+                        <div>
+                            <ol>
+                                <li>
+                                Uso Responsable de la Maquinaria:
+                                - Los clientes deben utilizar la maquinaria de manera responsable y siguiendo todas las normas de seguridad establecidas.
+                                - No se permite el uso de la maquinaria para fines distintos a los especificados en el contrato de alquiler.
+                                </li>
+                                <li>
+                                Mantenimiento y Cuidado:
+                                - Los clientes son responsables de mantener la maquinaria en condiciones adecuadas de funcionamiento durante el período de alquiler.
+                                - Cualquier daño causado por un mal uso o negligencia del cliente será responsabilidad del mismo y podrá resultar en cargos adicionales.
+                                </li>
+                                <li>
+                                Devolución a Tiempo:
+                                - Los clientes deben devolver la maquinaria alquilada en la fecha acordada en el contrato. El retraso en la devolución puede resultar en cargos adicionales por día de retraso.
+                                </li>
+                                <li>
+                                Seguro y Responsabilidad:
+                                - Es responsabilidad del cliente asegurar la maquinaria alquilada durante el período de uso.
+                                - La empresa de alquiler no se hace responsable de ningún accidente o daño causado por el mal uso de la maquinaria.
+                                </li>
+                            </ol>
+                        </div>
+                        <div className='titleRead'>
+                            <h6 ><a href="/Politicas" className='readMore'>Leer más</a></h6></div>
+
+                    </div>
+>>>>>>> cccbefb6a0a700e2870f8fe9fdb4a18b6d8ddab8
                 </div>
         </div>
         <div className='Caracteristicas'>

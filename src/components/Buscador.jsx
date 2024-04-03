@@ -89,6 +89,7 @@ const Buscador = ({ updateProductos }) => {
     }, []);
 
     const fetchData = async () => {
+<<<<<<< HEAD
         setFetchStatus('loading');
         try {
 
@@ -148,6 +149,23 @@ const Buscador = ({ updateProductos }) => {
                 title: 'Error',
                 text: error.message
             });
+=======
+      setFetchStatus('loading');
+      try {
+        
+        if(startDate === null || endDate === null) {
+          setError("Debe completar las fechas"); // Guardar el mensaje de error
+          setFetchStatus('error');
+          return;
+        }
+        console.log
+        
+        const res = await fetch(`http://localhost:8080/api/producto/disponibilidad/fechainicial/${startDate}/fechafinal/${endDate}?busqueda=${nombreBusqueda}`);
+        
+        if (!res.ok) {
+          if (res.status === 404 || res.status === 500) {
+            setError('Product not found');
+>>>>>>> cccbefb6a0a700e2870f8fe9fdb4a18b6d8ddab8
             setFetchStatus('error');
         }
     };
@@ -188,11 +206,99 @@ const Buscador = ({ updateProductos }) => {
                 Buscar
             </button>
 
+<<<<<<< HEAD
             {fetchStatus === 'success' && resultados.length > 0 && <p>Productos encontrados: {resultados.length}</p>}
             {fetchStatus === 'error' && <p>Error al realizar la búsqueda.</p>}
             {mostrarCalendario && <Calendario onChange={handleDateChange} />} {/* Muestra el componente de Calendario si mostrarCalendario es true */}
         </div>
     );
+=======
+  const handleFechaInputChange = (event) => {
+    setFechaBusqueda(event.target.value);
+  };
+
+  const handleChange = async (e) => {
+    const value = e.target.value;
+    setNombreBusqueda(value);
+
+    try {
+        const response = await fetch(`http://localhost:8080/api/producto/nombresSimilares/${value}`);
+        const data = await response.json();
+        setFilteredSuggestions(data);
+        
+        if (Array.isArray(data)) {
+          setFilteredSuggestions(data.map(item => item.nombre));
+        
+        } else {
+          setFilteredSuggestions([]);
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+  };
+
+  const handleSelect = (value) => {
+    setNombreBusqueda(value);
+    setFilteredSuggestions([]);
+  };
+
+  const handleClickOutside = (e) => {
+    
+    if (node.current && !node.current.contains(e.target)) {
+      // Click outside the component
+      setFilteredSuggestions([]);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside);
+
+    return () => {
+        document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
+
+  return (
+    <div className="autocomplete-container"  ref={node}>
+      <div className='container-inputs'>
+        <input 
+          className='input-buscador' 
+          type="text" 
+          placeholder="Escribe el nombre de la maquinaria..." 
+          value={nombreBusqueda}
+          onChange={handleChange}
+        />
+        {filteredSuggestions.length > 0 && (
+            <ul className="suggestions-list">
+                {filteredSuggestions.map((suggestion, index) => (
+                    <li key={index} onClick={() => handleSelect(suggestion)}>
+                        {suggestion}
+                    </li>
+                ))}
+            </ul>
+        )}
+        <div className='bucador-inputs'>
+          <input 
+            className='input-buscador' 
+            type="text" 
+            placeholder={`Fecha inicial: ${startDate ? startDate : 'Not selected'} | Fecha Final: ${endDate ? endDate : 'Not selected'}`}
+            onChange={handleFechaInputChange}
+          />
+          <div onClick={toggleCalendario} className='icono-calendario'  style={{ cursor: 'pointer' }} >
+            <FontAwesomeIcon icon={faCalendarAlt}  size="2x"/>
+          </div>
+          <button className='btn-buscar' onClick={fetchData}>
+            Buscar
+          </button>
+      </div>
+      </div>
+
+      {fetchStatus === 'success' && resultados != null && resultados.length > 0 && <p>Productos encontrados: {resultados.length}</p>}
+      {fetchStatus === 'error' && <p>Error: {error}</p>}
+      {mostrarCalendario && <Calendario onChange={handleDateChange} />} {/* Muestra el componente de Calendario si mostrarCalendario es true */}
+    </div>
+  );
+>>>>>>> cccbefb6a0a700e2870f8fe9fdb4a18b6d8ddab8
 };
 
 export default Buscador;

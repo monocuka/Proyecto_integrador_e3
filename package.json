@@ -23,7 +23,11 @@
     "react-router-dom": "^6.22.2",
     "react-slick": "^0.30.2",
     "slick-carousel": "^1.8.1",
+<<<<<<< HEAD
     "sweetalert2": "^11.10.7"
+=======
+    "sweetalert2-react-content": "^5.0.7"
+>>>>>>> cccbefb6a0a700e2870f8fe9fdb4a18b6d8ddab8
   },
   "devDependencies": {
     "@types/react": "^18.2.55",

@@ -41,7 +41,13 @@ export const Home = () => {
                     ))}
                 </div>
             </div>
+<<<<<<< HEAD
             <h3 className='titulo_tipo background-tittle'>Busqueda por tipo de maquinaria</h3>
+=======
+            <div>
+                <h3 className='titulo_tipo background-tittle'>Busqueda por tipo de maquinaria</h3>
+            </div>
+>>>>>>> cccbefb6a0a700e2870f8fe9fdb4a18b6d8ddab8
             <div className='card-recomendado'>
                 <Card_categoria/>
             </div>
