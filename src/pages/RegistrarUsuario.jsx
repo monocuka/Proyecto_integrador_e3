@@ -5,6 +5,7 @@ import iconoEmail from '../assets/img/email.svg';
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2'
+import serverEndPoint from '../components/constans';
 
 export const RegistrarUsuario = () => {
 

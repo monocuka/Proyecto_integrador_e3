@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import CardDetalle from '../components/CardDetalle';
+import serverEndPoint from '../components/constans';
 
 
 
