@@ -123,8 +123,8 @@ const CardDetalle = ({ product }) => {
                             <Calendario reserva={reserva} onChange={handleDateChange}/>
                         </div>
                         <div className='btnDetalles'>
-                            {startDate}
-                            <BotonReservas product={product} startDate={startDate} endDate={endDate} />
+                            {/* <BotonReservas product={product} startDate={startDate} endDate={endDate} /> */}
+                            {startDate && endDate && <BotonReservas product={product} startDate={startDate} endDate={endDate} />}
                         </div>
                     </div>
                 <div className='poliDiv'>
