@@ -1,14 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import Calendar from 'react-calendar';
+import '../assets/css/Calendario.css';
+import CalendarioExtendido from './CalendarioExtendido';
 
 //import 'react-calendar/dist/Calendar.css';
 import '../assets/css/Calendario.css';
 
 const Calendario = ({ reserva, onChange, startDate, endDate }) => {
+    const [start, setStart] = useState(null);
+    const [end, setEnd] = useState(null);
+
     const [date, setDate] = useState(new Date());
-    const [ fechasDeshabilitadas, setFechasDeshabilitadas] = useState([]);
-    const siguienteMes = new Date(date);
-    siguienteMes.setMonth(siguienteMes.getMonth() + 1);
+    const [ fechasDeshabilitadas, setFechasDeshabilitadas] = useState([]);    
+    if(startDate == null || endDate == null){
+        
+        startDate = date;
+        endDate = date;
+    }
+    const [siguienteMes, setSiguienteMes] = useState(new Date(date.getFullYear(), date.getMonth() + 1));
 
 
     const generarRangoFechas = (fechaDesde, fechaHasta) => {
@@ -37,20 +46,56 @@ const Calendario = ({ reserva, onChange, startDate, endDate }) => {
         }
     }, [reserva]);
 
+    const incrementMonth = () => {
+        setDate(new Date(date.getFullYear(), date.getMonth() + 1));
+        setSiguienteMes(new Date(siguienteMes.getFullYear(), siguienteMes.getMonth() + 1));
+    };
+
+    const decrementMonth = () => {
+        setDate(new Date(date.getFullYear(), date.getMonth() - 1));
+        setSiguienteMes(new Date(siguienteMes.getFullYear(), siguienteMes.getMonth() - 1));
+    };
+
+    const handleDateChange = (date) => {
+        if(onChange != null){
+            onChange(date);
+        }
+       
+        const formattedDate = date.toISOString().split('T')[0];
+        if (!start) {
+            setStart(formattedDate);
+        } else if (!end) {
+            setEnd(formattedDate); 
+        } else {
+            setStart(formattedDate);
+            setEnd(null);
+        }
+    };
+    
+
+    const adjustedEndDate = end ? new Date(new Date(end).setDate(new Date(end).getDate() + 1)) : null;
+    const adjustedStartDate = start ? new Date(new Date(start).setDate(new Date(start).getDate() + 1)) : null;
+
     return (
         <div className="cal-container">
             <div className="title-container">
                 <h2>Calendario</h2>
+                <button className='cal-btn' onClick={decrementMonth}>Previous</button>
+                <button className='cal-btn' onClick={incrementMonth}>Next</button>
+                <div></div>
+                <h1></h1>
             </div>
             <div className="mes">
-                
-                <Calendar
-                    onChange={onChange}
-                    value={startDate}
+                <h3>{nombreMes(date.getMonth())} {date.getFullYear()}</h3>
+
+                <CalendarioExtendido
+                    onChange={handleDateChange}
+                    value={[adjustedStartDate, adjustedEndDate]}
+                    activeStartDate={date}
                     calendarType="gregory"
-                    showNavigation={true}
+                    showNavigation={false}
                     minDetail="year"
-                    minDate={new  Date()}
+                    minDate={new Date()}
                     tileDisabled={({ date, view }) => {
                         return view === 'month' && fechasDeshabilitadas.some(disabledDate => {
                             return date.getTime() === disabledDate.getTime();
@@ -59,14 +104,15 @@ const Calendario = ({ reserva, onChange, startDate, endDate }) => {
                 />
             </div>
             <div className="mes">
-                
-                <Calendar
-                    onChange={onChange}
-                    value={endDate}
+                <h3>{nombreMes(siguienteMes.getMonth())} {siguienteMes.getFullYear()}</h3>
+                <CalendarioExtendido
+                    onChange={handleDateChange}
+                    value={[adjustedStartDate, adjustedEndDate]}
+                    activeStartDate={siguienteMes}
                     calendarType="gregory"
-                    showNavigation={true}
+                    showNavigation={false}
                     minDetail="year"
-                    minDate={new  Date()}
+                    minDate={new Date()}
                     tileDisabled={({ date, view }) => {
                         return view === 'month' && fechasDeshabilitadas.some(disabledDate => {
                             return date.getTime() === disabledDate.getTime();
@@ -87,4 +133,3 @@ const nombreMes = (mes) => {
 };
 
 export default Calendario;
-
