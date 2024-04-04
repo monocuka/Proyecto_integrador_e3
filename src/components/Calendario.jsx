@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Calendar from 'react-calendar';
 import '../assets/css/Calendario.css';
+import CalendarioExtendido from './CalendarioExtendido';
 
 //import 'react-calendar/dist/Calendar.css';
 import '../assets/css/Calendario.css';
@@ -10,13 +11,13 @@ const Calendario = ({ reserva, onChange, startDate, endDate }) => {
     const [end, setEnd] = useState(null);
 
     const [date, setDate] = useState(new Date());
-    const [ fechasDeshabilitadas, setFechasDeshabilitadas] = useState([]);    if(startDate == null || endDate == null){
+    const [ fechasDeshabilitadas, setFechasDeshabilitadas] = useState([]);    
+    if(startDate == null || endDate == null){
         
         startDate = date;
         endDate = date;
     }
-    const siguienteMes = new Date(date);
-    siguienteMes.setMonth(siguienteMes.getMonth() + 1);
+    const [siguienteMes, setSiguienteMes] = useState(new Date(date.getFullYear(), date.getMonth() + 1));
 
 
     const generarRangoFechas = (fechaDesde, fechaHasta) => {
@@ -54,6 +55,7 @@ const Calendario = ({ reserva, onChange, startDate, endDate }) => {
         setDate(new Date(date.getFullYear(), date.getMonth() - 1));
         setSiguienteMes(new Date(siguienteMes.getFullYear(), siguienteMes.getMonth() - 1));
     };
+    //setSiguienteMes(new Date(date.getFullYear(), date.getMonth() + 1));
 
     const handleDateChange = (date) => {
         onChange(date);
@@ -83,7 +85,23 @@ const Calendario = ({ reserva, onChange, startDate, endDate }) => {
             </div>
             <div className="mes">
                 <h3>{nombreMes(date.getMonth())} {date.getFullYear()}</h3>
-                <Calendar
+
+                <CalendarioExtendido
+                    onChange={handleDateChange}
+                    value={[adjustedStartDate, adjustedEndDate]}
+                    activeStartDate={date}
+                    calendarType="gregory"
+                    showNavigation={false}
+                    minDetail="year"
+                    minDate={new Date()}
+                    tileDisabled={({ date, view }) => {
+                        return view === 'month' && fechasDeshabilitadas.some(disabledDate => {
+                            return date.getTime() === disabledDate.getTime();
+                        })}
+                    }
+                />
+
+                {/* <Calendar
                     onChange={handleDateChange}
                     value={[adjustedStartDate, adjustedEndDate]}
                     calendarType="gregory"
@@ -94,12 +112,26 @@ const Calendario = ({ reserva, onChange, startDate, endDate }) => {
                         return view === 'month' && fechasDeshabilitadas.some(disabledDate => {
                             return date.getTime() === disabledDate.getTime();
                         })}
-                    }
-                />
+                    } 
+                />*/}
             </div>
             <div className="mes">
                 <h3>{nombreMes(siguienteMes.getMonth())} {siguienteMes.getFullYear()}</h3>
-                <Calendar
+                <CalendarioExtendido
+                    onChange={handleDateChange}
+                    value={[adjustedStartDate, adjustedEndDate]}
+                    activeStartDate={siguienteMes}
+                    calendarType="gregory"
+                    showNavigation={false}
+                    minDetail="year"
+                    minDate={new Date()}
+                    tileDisabled={({ date, view }) => {
+                        return view === 'month' && fechasDeshabilitadas.some(disabledDate => {
+                            return date.getTime() === disabledDate.getTime();
+                        })}
+                    }
+                />
+                {/* <Calendar
                     onChange={handleDateChange}
                     value={[adjustedStartDate, adjustedEndDate]}
                     calendarType="gregory"
@@ -111,7 +143,7 @@ const Calendario = ({ reserva, onChange, startDate, endDate }) => {
                             return date.getTime() === disabledDate.getTime();
                         })}
                     }
-                />
+                /> */}
             </div>
         </div>
     );
