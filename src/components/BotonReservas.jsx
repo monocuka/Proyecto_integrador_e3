@@ -6,22 +6,35 @@ import Swal from 'sweetalert2';
 
 import '../assets/css/BtnReservar.css';
 
-const BotonReservas = ({ product }) => {
+const BotonReservas = ({ product, startDate, endDate }) => {
     const { authState } = useContext(AuthContext);
     const { logged } = authState;
     const [redirectTo, setRedirectTo] = useState('/iniciarSesion');
-
+    
     useEffect(() => {
         if (logged) {
-            // Si el usuario está autenticado, redirigir al componente de reservas
-            setRedirectTo('/reservas');
+            if (mayor47hs() ==  true) {
+                setRedirectTo('/reservas');
+            }
+            
         } else {
             // Si el usuario no está autenticado, redirigir al componente de inicio de sesión
             setRedirectTo('/iniciarSesion');
         }
     }, [logged]);
-
+    const mayor47hs = () => {
+        if(!endDate && !startDate){
+            return false;
+        }
+        const differenceInHours = (new Date(endDate) - new Date(startDate)) / (1000 * 60 * 60);
+        return differenceInHours > 48;
+    };
+    
     const handleReservarClick = () => {
+        
+        if(mayor47hs() == false){
+            return null;
+        }
         if (!logged) {
             // Si el usuario no está autenticado, mostrar el mensaje con SweetAlert2
             Swal.fire({
@@ -42,9 +55,18 @@ const BotonReservas = ({ product }) => {
     }
 
     return (
-        <Link to={logged ? redirectTo : '#'} onClick={handleReservarClick}>
-            <button className="button-iniciar">Reservar</button>
-        </Link>
+        <>
+            <div>
+                <p style={{visibility: mayor47hs() ? 'hidden' : 'visible', color: 'red'}}>Tiene que haber minimo 48hs entre las fechas</p>
+                <p>Las fechas no se encuentran disponibles</p>
+            </div>
+                
+            <Link to={logged ? redirectTo : '#'} onClick={handleReservarClick}>
+                <p>Reservar</p>
+                {/* <button className="button-iniciar" >Reservar</button> */}
+            </Link>
+        </>
+        
     );
 };
 
