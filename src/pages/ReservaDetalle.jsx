@@ -1,22 +1,64 @@
 import { useState, useEffect, useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import CardDetalle from '../components/CardDetalle';
 import '../pages/RegistrarUsuario';
 import '../assets/css/reservaDetalle.css';
 import { AuthContext } from '../context/AuthContext';
 import BotonConfirmarReserva from '../components/BotonConfirmarReserva';
 import DetalleReserva from '../components/DetalleReserva';
-
-//import { useData } from '../context/DataContext';
- // Importing the DataContext
-
+import Swal from 'sweetalert2'
 
 export const ReservaDetalle = () => {
+
+    const { authState } = useContext(AuthContext);
+    const { usuario } = authState;
 
     const { id } = useParams(); // Obtén el id de la URL
     const { startDate } = useParams(); // Obtén el id de la URL
     const { endDate } = useParams(); // Obtén el id de la URL
     const [product, setProduct] = useState(null);
+    
+    const formatDateToArray = (dateString) => {
+      const [year, month, day] = dateString.split('-').map(Number);
+      return [year, month, day];
+    };
+
+    const [reservaData, setReservaData] = useState({
+        fechaDesde: [],
+        fechaHasta: [],
+        cantidad: 1,
+        idProducto: id,
+        emailUsuario: usuario.email
+    });
+
+    useEffect(() =>{
+        setReservaData({
+            fechaDesde: formatDateToArray(startDate),
+            fechaHasta: formatDateToArray(endDate),
+            cantidad: 1,
+            idProducto: id,
+            emailUsuario: usuario.email
+        });
+    }, []);
+
+    const enviarReserva = async () => {
+          fetch('http://localhost:8080/api/reserva/guardar', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(reservaData),
+          }).then((response) => response.text())
+          .then((result) => {
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Reserva exitosa",
+                showConfirmButton: false,
+                timer: 1500
+              });
+          })
+          .catch((error) => console.error(error));
+    };
 
     useEffect(() => {
         const obtenerDetallesProductoPorId = async (id) => {
@@ -63,10 +105,10 @@ export const ReservaDetalle = () => {
                 </div>
             </div>
             <div className='botonConfirmarReserva'>
-              {/*  <BotonConfirmarReserva product={product} />*/}
-              <Link to={`/detalle/${product.id}`} className="BtnReserva">Reservar</Link>
-
-    </div>
+                <button onClick={enviarReserva}>
+                    Guardar Reserva
+                </button>
+            </div>
 
         </div>
     );
@@ -92,5 +134,3 @@ const UsuarioRegistrado = () => {
         </>
     )
 };
-
-

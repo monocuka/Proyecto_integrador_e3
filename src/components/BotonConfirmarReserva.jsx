@@ -7,9 +7,11 @@ const BotonConfirmarReserva = ({ product }) => {
     
     http://localhost:8080/api/reserva/guardar
 
-    
+
     return (
+        <div id='btnReservaOk'>
         <Link to={`/detalle/${product.id}`} className="BtnReserva">Reservar</Link>
+        </div>
     );
 };
 
