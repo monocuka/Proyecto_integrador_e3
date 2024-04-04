@@ -84,3 +84,9 @@
     display: flex;
     justify-content: flex-end;
 }
+
+@media screen and (max-width: 515px) { 
+    .superiorDtalle{
+        flex-direction: column;
+    }
+}

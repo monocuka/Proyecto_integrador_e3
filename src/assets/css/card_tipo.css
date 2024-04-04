@@ -11,6 +11,9 @@
     --color-senary: black;
 }
 
+*{
+    /* border: 1px solid black; */
+}
 /* Contenedor general */
 .container-tipo {
     position: relative;

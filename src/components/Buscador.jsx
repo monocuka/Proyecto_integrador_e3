@@ -27,6 +27,7 @@ const Buscador = ({ updateProductos }) => {
           setFetchStatus('error');
           return;
         }
+        console.log
         
         const res = await fetch(`http://localhost:8080/api/producto/disponibilidad/fechainicial/${startDate}/fechafinal/${endDate}?busqueda=${nombreBusqueda}`);
         
@@ -118,39 +119,38 @@ const Buscador = ({ updateProductos }) => {
 
   return (
     <div className="autocomplete-container"  ref={node}>
-      <input 
-        className='input-buscador' 
-        type="text" 
-        placeholder="Escribe el nombre de la maquinaria..." 
-        value={nombreBusqueda}
-        onChange={handleChange}
-      />
-      {filteredSuggestions.length > 0 && (
-          <ul className="suggestions-list">
-              {filteredSuggestions.map((suggestion, index) => (
-                  <li key={index} onClick={() => handleSelect(suggestion)}>
-                      {suggestion}
-                  </li>
-              ))}
-          </ul>
-      )}
-      <div className='bucador-inputs'>
+      <div className='container-inputs'>
         <input 
           className='input-buscador' 
           type="text" 
-          placeholder={`Fecha inicial: ${startDate ? startDate : 'Not selected'} | Fecha Final: ${endDate ? endDate : 'Not selected'}`}
-          onChange={handleFechaInputChange}
+          placeholder="Escribe el nombre de la maquinaria..." 
+          value={nombreBusqueda}
+          onChange={handleChange}
         />
-        <div onClick={toggleCalendario} className='bucador-inputs'  style={{ cursor: 'pointer' }} >
-          <FontAwesomeIcon icon={faCalendarAlt}  size="2x"/>
-        </div>
-    </div>
-      <button 
-        className='btn-buscar'
-        onClick={fetchData}
-      >
-        Buscar
-      </button>
+        {filteredSuggestions.length > 0 && (
+            <ul className="suggestions-list">
+                {filteredSuggestions.map((suggestion, index) => (
+                    <li key={index} onClick={() => handleSelect(suggestion)}>
+                        {suggestion}
+                    </li>
+                ))}
+            </ul>
+        )}
+        <div className='bucador-inputs'>
+          <input 
+            className='input-buscador' 
+            type="text" 
+            placeholder={`Fecha inicial: ${startDate ? startDate : 'Not selected'} | Fecha Final: ${endDate ? endDate : 'Not selected'}`}
+            onChange={handleFechaInputChange}
+          />
+          <div onClick={toggleCalendario} className='icono-calendario'  style={{ cursor: 'pointer' }} >
+            <FontAwesomeIcon icon={faCalendarAlt}  size="2x"/>
+          </div>
+          <button className='btn-buscar' onClick={fetchData}>
+            Buscar
+          </button>
+      </div>
+      </div>
 
       {fetchStatus === 'success' && resultados != null && resultados.length > 0 && <p>Productos encontrados: {resultados.length}</p>}
       {fetchStatus === 'error' && <p>Error: {error}</p>}
