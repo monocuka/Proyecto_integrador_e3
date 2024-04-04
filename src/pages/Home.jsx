@@ -50,7 +50,6 @@ export const Home = () => {
                     ))}
                 </div>
             </div>
-            <h3 className='titulo_tipo background-tittle'>Busqueda por tipo de maquinaria</h3>
             <div>
                 <h3 className='titulo_tipo background-tittle'>Busqueda por tipo de maquinaria</h3>
             </div>
