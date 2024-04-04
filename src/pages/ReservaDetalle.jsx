@@ -12,6 +12,8 @@ import BotonConfirmarReserva from '../components/BotonConfirmarReserva';
 export const ReservaDetalle = () => {
 
     const { id } = useParams(); // Obtén el id de la URL
+    const { startDate } = useParams(); // Obtén el id de la URL
+    const { endDate } = useParams(); // Obtén el id de la URL
     const [product, setProduct] = useState(null);
 
     useEffect(() => {
@@ -54,14 +56,14 @@ export const ReservaDetalle = () => {
             </div>
             <div className='divFechasSeleccionadas'>
                 <div>
-                    <div>Fecha inicio de reserva: </div>
-                    <div>Fecha fin de reserva:  </div>
+                    <div>Fecha inicio de reserva: {startDate} </div>
+                    <div>Fecha fin de reserva: {endDate} </div>
                 </div>
             </div>
             <div className='botonConfirmarReserva'>
                 <BotonConfirmarReserva product={product} />
-            </div>
-    
+    </div>
+
         </div>
     );
 }

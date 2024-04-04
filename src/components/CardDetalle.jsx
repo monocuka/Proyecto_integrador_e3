@@ -10,9 +10,11 @@ import imgBack from '../assets/img/back.png'
 //import axios from 'axios';
 
 
+
 const CardDetalle = ({ product }) => {
     const [startDate, setStartDate] = useState(null);
     const [endDate, setEndDate] = useState(null);
+    //const history = useHistory();
 
     if (!product) {
         return null;
@@ -69,8 +71,14 @@ const CardDetalle = ({ product }) => {
 
     };
 
+    let fechaDesde;
+    let fechaHasta;
+
     React.useEffect(() => {
-        console.log(`startDate: ${startDate}, endDate: ${endDate}`);
+        fechaDesde = startDate;
+        fechaHasta = endDate;
+        console.log("cosa", startDate, endDate);
+
     }, [startDate, endDate]);
 
 
@@ -115,7 +123,8 @@ const CardDetalle = ({ product }) => {
                             <Calendario reserva={reserva} onChange={handleDateChange}/>
                         </div>
                         <div className='btnDetalles'>
-                            <BotonReservas product={product} />
+                            {startDate}
+                            <BotonReservas product={product} startDate={startDate} endDate={endDate} />
                         </div>
                     </div>
                 <div className='poliDiv'>

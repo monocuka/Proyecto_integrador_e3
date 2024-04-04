@@ -5,7 +5,7 @@
 export const DataContext = createContext();
 
 export const DataProvider = (ReservaDetalle) => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
 
   return (
     <DataContext.Provider value={{ data, setData }}>

@@ -6,19 +6,21 @@ import Swal from 'sweetalert2';
 
 import '../assets/css/BtnReservar.css';
 
-const BotonReservas = ({ product }) => {
+const BotonReservas = ({ product, startDate, endDate }) => {
     const { authState } = useContext(AuthContext);
     const { logged } = authState;
     const [redirectTo, setRedirectTo] = useState('/iniciarSesion');
+    const [url, setUrl] = useState("") 
 
     useEffect(() => {
         if (logged) {
             // Si el usuario está autenticado, redirigir al componente de reservas
-            setRedirectTo('/reservas');
+            setRedirectTo(`/reservas/${product.id}/${startDate}/${endDate}`);
         } else {
             // Si el usuario no está autenticado, redirigir al componente de inicio de sesión
             setRedirectTo('/iniciarSesion');
         }
+        console.log(startDate, endDate);
     }, [logged]);
 
     const handleReservarClick = () => {
