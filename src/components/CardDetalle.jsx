@@ -39,26 +39,6 @@ const CardDetalle = ({ product }) => {
         <li key={index}>{caracteristica.nombre}</li>
     ));
 
-    // const handleDateChange = (date) => {
-    //     const formattedDate = date.toISOString().split('T')[0];
-    //     if (startDate && endDate) {
-    //         setStartDate(null);
-    //         setEndDate(null);
-    //     }
-    //     if (!startDate) {
-    //         setStartDate(formattedDate);
-    //     } else if (!endDate || formattedDate > endDate) {
-    //         setEndDate(formattedDate);
-    //     } else if (formattedDate < startDate) {
-    //         setEndDate(startDate);
-    //         setStartDate(formattedDate);
-    //     } else {
-    //         setStartDate(formattedDate);
-    //         setEndDate(null);
-    //     }
-    //     //console.log(`startDate: ${startDate}, endDate: ${endDate}`);
-    // };
-
     const handleDateChange = (date) => {
         const formattedDate = date.toISOString().split('T')[0];
     
@@ -86,27 +66,14 @@ const CardDetalle = ({ product }) => {
             setEndDate(null);
             return;
         }
-    
-        //console.log(startDate: ${startDate}, endDate: ${endDate});
+  
     };
 
     React.useEffect(() => {
         console.log(`startDate: ${startDate}, endDate: ${endDate}`);
     }, [startDate, endDate]);
     
-    
-    
-    
-    
-    
-{/* 
-        empiezan vacios -> startDate: '' endDate:''
-        usuario clickea -> startDate: 'date' endDate:''
-        usuario clickea denuevo -> startDate: 'date' endDate:'date'
-        Si el usuario clickea de nuevo -> startDate: '' endDate:'' -> startDate:'date' endDate:''
-        Si el startDate > endDate -> startDate.swap(endDate)
-*/}
-    
+  
 
     return (
         <div className="CardDetalleF">
