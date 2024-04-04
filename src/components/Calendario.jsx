@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Calendar from 'react-calendar';
-import '../assets/css/Calendario.css';
 
 //import 'react-calendar/dist/Calendar.css';
 import '../assets/css/Calendario.css';
@@ -42,14 +41,12 @@ const Calendario = ({ reserva, onChange }) => {
         <div className="cal-container">
             <div className="title-container">
                 <h2>Calendario</h2>
-                <div></div>
-                <h1></h1>
             </div>
             <div className="mes">
-                <h3>{nombreMes(date.getMonth())} {date.getFullYear()}</h3>
+                
                 <Calendar
                     onChange={onChange}
-                    value={date}
+                    value={startDate}
                     calendarType="gregory"
                     showNavigation={true}
                     minDetail="year"
@@ -62,10 +59,10 @@ const Calendario = ({ reserva, onChange }) => {
                 />
             </div>
             <div className="mes">
-                <h3>{nombreMes(siguienteMes.getMonth())} {siguienteMes.getFullYear()}</h3>
+                
                 <Calendar
                     onChange={onChange}
-                    value={siguienteMes}
+                    value={endDate}
                     calendarType="gregory"
                     showNavigation={true}
                     minDetail="year"
