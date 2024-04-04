@@ -1,9 +1,6 @@
 import '../assets/css/usuarioDetalle.css';
 import '../pages/RegistrarUsuario';
 
-import '../assets/css/usuarioDetalle.css';
-import '../pages/RegistrarUsuario';
-
 import { useState, useEffect } from 'react';
 
 export const UsuarioDetalle = () => {

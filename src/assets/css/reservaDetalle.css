@@ -98,13 +98,13 @@ header {
 #cardUsuDetalleReservaDet {
     height: 100px;
     display: flex;
-    font-size:large;
+    font-size: large;
 
 }
 
-#tituloMiCuentaReserva{
+#tituloMiCuentaReserva {
     margin-top: 100px;
-    font-size:x-large;
+    font-size: x-large;
     font-weight: bolder;
     display: flex;
     justify-content: center;
@@ -118,6 +118,52 @@ header {
     padding-right: 20px;
 }
 
-#calendarioDisponibilidad{
+#calendarioDisponibilidad {
     display: none;
+}
+
+
+.poliDiv {
+    display: flex;
+    justify-content: flex-end;
+    column-gap: 20px;
+    flex-direction: row;
+}
+
+.readMore {
+    color: #ffff;
+    padding: 5px 8px 5px;
+    margin-bottom: 0px;
+    font-size: 1.2em;
+    background-color: #342822;
+    border-radius: 8px;
+}
+
+.titleRead {
+    display: flex;
+}
+
+.divFechasSeleccionadas {
+    height: 80px;
+    display: flex;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: skyblue;
+    text-align: justify;
+    align-content: flex-start;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.botonConfirmarReserva {
+    height: 40px;
+    margin-bottom: 30px;
+    background-color: palevioletred;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 50px;
+}
+
+.fechasSeleccionadas{
+    height: 150px;
 }

@@ -14,6 +14,7 @@ import { ListarProductos } from '../pages/ListarProductos.jsx';
 import ListarFavoritos from '../components/favoritos/Favoritos.jsx'
 import ProductosPorCategoriaPage from '../pages/ProductosPorCategoriaPage.jsx';
 import { Politicas } from '../pages/Politicas.jsx';
+import { ReservaDetalle } from '../pages/ReservaDetalle.jsx';
 
 
 // Componente de alto orden para el layout con encabezado y pie de página
@@ -48,6 +49,8 @@ const AppRoutes = () => {
       <Route path="/agregarCategoria" element={<RoleBasedRoute allowedRoles={['ROLE_ADMIN']}><AgregarCategoria /></RoleBasedRoute>} /> 
       <Route path="/listarFavoritos" element={<ListarFavoritos/>}/> 
       <Route path="/productosPorCategoriaPage/:categoriaId" element={<ProductosPorCategoriaPage />} />
+      <Route path="/reservaDetalle/:id" element={<RoleBasedRoute allowedRoles={['ROLE_USER', 'ROLE_ADMIN']}><ReservaDetalle /></RoleBasedRoute>} /> 
+
     </Routes>
   )
 }

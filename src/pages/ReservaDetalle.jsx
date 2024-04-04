@@ -1,9 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import CardDetalle from '../components/CardDetalle';
 import '../pages/RegistrarUsuario';
 import '../assets/css/reservaDetalle.css';
-import Detalle from './Detalle';
+import { AuthContext } from '../context/AuthContext';
+import BotonConfirmarReserva from '../components/BotonConfirmarReserva';
+import { useData } from '../context/DataContext';
+ // Importing the DataContext
+
 
 export const ReservaDetalle = () => {
 
@@ -47,22 +51,25 @@ export const ReservaDetalle = () => {
                     <CardDetalle product={product} />
                 </div>
             </div>
-            
+            <div className='divFechasSeleccionadas'>
+                <div>
+                    <div>Fecha inicio de reserva: </div>
+                    <div>Fecha fin de reserva:  </div>
+                </div>
+            </div>
+            <div className='botonConfirmarReserva'>
+                <BotonConfirmarReserva product={product} />
+            </div>
+            <div >
+                <FechaDesdeCalendar />
+            </div>
         </div>
     );
 }
 
 const UsuarioRegistrado = () => {
-    const [usuario, setUsuario] = useState(null);
-
-    useEffect(() => {
-        const usuarioData = JSON.parse(localStorage.getItem('usuario'));
-        setUsuario(usuarioData);
-    }, []);
-
-    if (!usuario) {
-        return null; // or some loading state
-    }
+    const { authState } = useContext(AuthContext);
+    const { usuario } = authState;
 
     return (
         <>
@@ -81,16 +88,50 @@ const UsuarioRegistrado = () => {
     )
 };
 
-/*const FechasSeleccionadas = ({ }) => {
-    //const [data, setData] = useState(null);
+/*const FechasSeleccionadas = ({ product }) => {
+    const [startDate, setStartDate] = useState(null);
+    const [endDate, setEndDate] = useState(null);
+
+    /*useEffect(() => {
+    
+        const res = await fetch(`http://localhost:8080/api/producto/disponibilidad/fechainicial/${startDate}/fechafinal/${endDate}?busqueda=${nombreBusqueda}`)
+                .then(response => response.json())
+                .then(data => {
+                    setReserva(data);
+                    console.log(JSON.stringify(data, null, 2));
+                })
+                .catch(error => {
+                    console.error('There was an error!', error);
+                });
+        }
+        fetchData();
+ }, []);
 
     return (
         <>
             <div className='fechasSeleccionadas'>
-                <div>Fecha inicio de reserva: {data} </div>
-                <div>Fecha fin de reserva: {data} </div>
+                <div>Fecha inicio de reserva: {startDate} </div>
+                <div>Fecha fin de reserva: {endDate} </div>
             </div>
         </>
     )
+};*/
+
+// ChildComponent.jsx
+
+
+const FechaDesdeCalendar = () => {
+  const { data } = useData(); // Using the useData hook to access context data
+
+  return (
+    <div>
+      <h2>Child Component</h2>
+      <p>Data: {data}</p>
+      <div className='fechasSeleccionadas'>
+                <div>Fecha inicio de reserva: {data.startDate} </div>
+                <div>Fecha fin de reserva: {data.endDate} </div>
+            </div>
+    </div>
+  );
 };
-export default FechasSeleccionadas;*/
+
