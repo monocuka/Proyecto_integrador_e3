@@ -4,7 +4,7 @@ import Calendar from 'react-calendar';
 //import 'react-calendar/dist/Calendar.css';
 import '../assets/css/Calendario.css';
 
-const Calendario = ({ reserva, onChange }) => {
+const Calendario = ({ reserva, onChange, startDate, endDate }) => {
     const [date, setDate] = useState(new Date());
     const [ fechasDeshabilitadas, setFechasDeshabilitadas] = useState([]);
     const siguienteMes = new Date(date);
