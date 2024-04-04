@@ -11,7 +11,8 @@ import imgBack from '../assets/img/back.png'
 
 
 const CardDetalle = ({ product }) => {
-
+    const [startDate, setStartDate] = useState(null);
+    const [endDate, setEndDate] = useState(null);
     if (!product) {
         return null; 
     }
@@ -37,6 +38,18 @@ const CardDetalle = ({ product }) => {
     const listaCaracteristicas = caract.map((caracteristica, index) => (
         <li key={index}>{caracteristica.nombre}</li>
     ));
+
+    const handleDateChange = (date) => {
+        const formattedDate = date.toISOString().split('T')[0];
+        if (!startDate) {
+            setStartDate(formattedDate);
+        } else if (!endDate) {
+            setEndDate(formattedDate);
+        } else {
+            setStartDate(formattedDate);
+            setEndDate(null);
+        }
+      };
 
     return (
         <div className="CardDetalleF">
@@ -71,8 +84,9 @@ const CardDetalle = ({ product }) => {
                 </div>
                 <div className='Calendario'>
                     <h2>Visualiza la Disponibilidad de el producto</h2>
+                    <p>{`Fecha inicial: ${startDate ? startDate : 'Not selected'} | Fecha Final: ${endDate ? endDate : 'Not selected'}`}</p>
                         <div className='CalendarioReserva'>
-                            <Calendario reserva={reserva} />
+                        <Calendario onChange={handleDateChange} reserva={reserva} />
                         </div>
                         <div className='btnDetalles'>
                             <BotonReservas product={product} />
