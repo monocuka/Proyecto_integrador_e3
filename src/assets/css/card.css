@@ -44,3 +44,8 @@
     border: none;
     text-decoration: none;
 }
+@media only screen and (max-width: 450px) {
+    .infoCard{
+        display: flex; 
+    }
+}
