@@ -11,7 +11,9 @@ import imgBack from '../assets/img/back.png'
 
 
 const CardDetalle = ({ product }) => {
-    
+    const [startDate, setStartDate] = useState(null);
+    const [endDate, setEndDate] = useState(null);
+
     if (!product) {
         return null; 
     }
@@ -36,6 +38,42 @@ const CardDetalle = ({ product }) => {
     const listaCaracteristicas = caract.map((caracteristica, index) => (
         <li key={index}>{caracteristica.nombre}</li>
     ));
+
+    const handleDateChange = (date) => {
+        const formattedDate = date.toISOString().split('T')[0];
+    
+        // Lógica para cuando se carga el calendario por primera vez
+        if (!startDate) {
+            setStartDate(formattedDate);
+            return;
+        }
+    
+        // Lógica para cuando se agrega la fecha hasta
+        if (startDate && !endDate) {
+            if (formattedDate < startDate) {
+                setEndDate(startDate);
+                setStartDate(formattedDate);
+            } else {
+                setEndDate(formattedDate);
+            }
+            return;
+        }
+    
+        // Lógica para cambiar las fechas si ambas están cargadas
+        // Reinicia el primer valor y establece el segundo en null
+        if (startDate && endDate) {
+            setStartDate(formattedDate);
+            setEndDate(null);
+            return;
+        }
+  
+    };
+
+    React.useEffect(() => {
+        console.log(`startDate: ${startDate}, endDate: ${endDate}`);
+    }, [startDate, endDate]);
+    
+  
 
     return (
         <div className="CardDetalleF">
@@ -70,8 +108,9 @@ const CardDetalle = ({ product }) => {
                 </div>
                 <div className='Calendario'>
                     <h2>Visualiza la Disponibilidad de el producto</h2>
+                    <p>{`Fecha inicial: ${startDate ? startDate : 'Not selected'} | Fecha Final: ${endDate ? endDate : 'Not selected'}`}</p>
                         <div className='CalendarioReserva'>
-                            <Calendario reserva={reserva} />
+                            <Calendario reserva={reserva} onChange={handleDateChange}/>
                         </div>
                         <div className='btnDetalles'>
                             <BotonReservas product={product} />
