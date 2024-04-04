@@ -5,7 +5,7 @@ import '../pages/RegistrarUsuario';
 import '../assets/css/reservaDetalle.css';
 import { AuthContext } from '../context/AuthContext';
 import BotonConfirmarReserva from '../components/BotonConfirmarReserva';
-import { useData } from '../context/DataContext';
+//import { useData } from '../context/DataContext';
  // Importing the DataContext
 
 
@@ -19,7 +19,7 @@ export const ReservaDetalle = () => {
             try {
                 const response = await fetch(`http://localhost:8080/api/producto/id/${id}`);
                 const data = await response.json();
-                return data;
+                return data; 
             } catch (error) {
                 console.error('Error al obtener los detalles del producto:', error);
                 throw error; // Lanza el error para que puedas manejarlo en el componente
@@ -35,11 +35,12 @@ export const ReservaDetalle = () => {
             }
         };
         obtenerDetallesProducto();
-    }, [id]);
+    }, []);
 
     if (!product) {
         return <div>Cargando...</div>;
     }
+
 
     return (
         <div>
@@ -60,9 +61,7 @@ export const ReservaDetalle = () => {
             <div className='botonConfirmarReserva'>
                 <BotonConfirmarReserva product={product} />
             </div>
-            <div >
-                <FechaDesdeCalendar />
-            </div>
+    
         </div>
     );
 }
@@ -78,8 +77,8 @@ const UsuarioRegistrado = () => {
                 <div id='cardUsuDetalleReservaDet'>
 
                     <div>
-                        <p>Name: {usuario.name}</p>
-                        <p>Last Name: {usuario.lastName}</p>
+                        <p>Nombre: {usuario.name}</p>
+                        <p>Apellido: {usuario.lastName}</p>
                         <p>email: {usuario.email}</p>
                     </div>
                 </div>
@@ -117,10 +116,9 @@ const UsuarioRegistrado = () => {
     )
 };*/
 
-// ChildComponent.jsx
 
 
-const FechaDesdeCalendar = () => {
+/*const FechaDesdeCalendar = () => {
   const { data } = useData(); // Using the useData hook to access context data
 
   return (
@@ -133,5 +131,5 @@ const FechaDesdeCalendar = () => {
             </div>
     </div>
   );
-};
+};*/
 

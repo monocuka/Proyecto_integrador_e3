@@ -123,13 +123,6 @@ header {
 }
 
 
-.poliDiv {
-    display: flex;
-    justify-content: flex-end;
-    column-gap: 20px;
-    flex-direction: row;
-}
-
 .readMore {
     color: #ffff;
     padding: 5px 8px 5px;
@@ -139,9 +132,7 @@ header {
     border-radius: 8px;
 }
 
-.titleRead {
-    display: flex;
-}
+
 
 .divFechasSeleccionadas {
     height: 80px;

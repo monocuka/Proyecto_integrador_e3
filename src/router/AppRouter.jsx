@@ -49,7 +49,7 @@ const AppRoutes = () => {
       <Route path="/agregarCategoria" element={<RoleBasedRoute allowedRoles={['ROLE_ADMIN']}><AgregarCategoria /></RoleBasedRoute>} /> 
       <Route path="/listarFavoritos" element={<ListarFavoritos/>}/> 
       <Route path="/productosPorCategoriaPage/:categoriaId" element={<ProductosPorCategoriaPage />} />
-      <Route path="/reservaDetalle/:id" element={<RoleBasedRoute allowedRoles={['ROLE_USER', 'ROLE_ADMIN']}><ReservaDetalle /></RoleBasedRoute>} /> 
+      <Route path="/reservas" element={<RoleBasedRoute allowedRoles={['ROLE_USER', 'ROLE_ADMIN']}><ReservaDetalle /></RoleBasedRoute>} /> 
 
     </Routes>
   )

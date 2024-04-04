@@ -217,6 +217,7 @@ const AuthButtons = ({ displayMenuBurguer }) => {
         <h2>Menú</h2>
         <li><a href="#login" title="login">Iniciar sesión</a></li>
         <li><a href="#registry" title="registry">Registrarse</a></li>
+        
       </ul>
     );
 }

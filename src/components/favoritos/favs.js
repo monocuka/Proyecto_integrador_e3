@@ -1,3 +1,5 @@
+import Swal from 'sweetalert2'
+
 const getFavFromStorage = () => {
     const localData = localStorage.getItem('favs');
     return localData ? JSON.parse(localData) : [];
@@ -11,7 +13,14 @@ const getFavFromStorage = () => {
             if (isFavOnList.length === 0) {
                 storageFavs.push(product);
                 localStorage.setItem('favs', JSON.stringify(storageFavs));
-                alert('Producto agregado a favoritos');
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Favorito agregado correctamente",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+                // alert('Producto agregado a favoritos');
             } else {
                 alert('Producto ya se encuentra en favoritos');
             }
@@ -30,7 +39,13 @@ const removeFavInStorage = (id) => {
             if (index !== -1) {
                 storageFavs.splice(index, 1);
                 localStorage.setItem('favs', JSON.stringify(storageFavs));
-                alert('Producto eliminado de favoritos');
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Favorito eliminado correctamente",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
             } else {
                 alert('El producto no está en la lista de favoritos');
             }
