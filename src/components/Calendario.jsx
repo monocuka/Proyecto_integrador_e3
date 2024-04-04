@@ -57,7 +57,10 @@ const Calendario = ({ reserva, onChange, startDate, endDate }) => {
     };
 
     const handleDateChange = (date) => {
-        onChange(date);
+        if(onChange != null){
+            onChange(date);
+        }
+       
         const formattedDate = date.toISOString().split('T')[0];
         if (!start) {
             setStart(formattedDate);

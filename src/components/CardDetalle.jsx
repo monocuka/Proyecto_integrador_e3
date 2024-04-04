@@ -11,6 +11,8 @@ import imgBack from '../assets/img/back.png'
 
 
 const CardDetalle = ({ product }) => {
+    const [startDate, setStartDate] = useState(null);
+    const [endDate, setEndDate] = useState(null);
 
     if (!product) {
         return null; 
@@ -36,6 +38,75 @@ const CardDetalle = ({ product }) => {
     const listaCaracteristicas = caract.map((caracteristica, index) => (
         <li key={index}>{caracteristica.nombre}</li>
     ));
+
+    // const handleDateChange = (date) => {
+    //     const formattedDate = date.toISOString().split('T')[0];
+    //     if (startDate && endDate) {
+    //         setStartDate(null);
+    //         setEndDate(null);
+    //     }
+    //     if (!startDate) {
+    //         setStartDate(formattedDate);
+    //     } else if (!endDate || formattedDate > endDate) {
+    //         setEndDate(formattedDate);
+    //     } else if (formattedDate < startDate) {
+    //         setEndDate(startDate);
+    //         setStartDate(formattedDate);
+    //     } else {
+    //         setStartDate(formattedDate);
+    //         setEndDate(null);
+    //     }
+    //     //console.log(`startDate: ${startDate}, endDate: ${endDate}`);
+    // };
+
+    const handleDateChange = (date) => {
+        const formattedDate = date.toISOString().split('T')[0];
+    
+        // Lógica para cuando se carga el calendario por primera vez
+        if (!startDate) {
+            setStartDate(formattedDate);
+            return;
+        }
+    
+        // Lógica para cuando se agrega la fecha hasta
+        if (startDate && !endDate) {
+            if (formattedDate < startDate) {
+                setEndDate(startDate);
+                setStartDate(formattedDate);
+            } else {
+                setEndDate(formattedDate);
+            }
+            return;
+        }
+    
+        // Lógica para cambiar las fechas si ambas están cargadas
+        // Reinicia el primer valor y establece el segundo en null
+        if (startDate && endDate) {
+            setStartDate(formattedDate);
+            setEndDate(null);
+            return;
+        }
+    
+        //console.log(startDate: ${startDate}, endDate: ${endDate});
+    };
+
+    React.useEffect(() => {
+        console.log(`startDate: ${startDate}, endDate: ${endDate}`);
+    }, [startDate, endDate]);
+    
+    
+    
+    
+    
+    
+{/* 
+        empiezan vacios -> startDate: '' endDate:''
+        usuario clickea -> startDate: 'date' endDate:''
+        usuario clickea denuevo -> startDate: 'date' endDate:'date'
+        Si el usuario clickea de nuevo -> startDate: '' endDate:'' -> startDate:'date' endDate:''
+        Si el startDate > endDate -> startDate.swap(endDate)
+*/}
+    
 
     return (
         <div className="CardDetalleF">
@@ -70,8 +141,9 @@ const CardDetalle = ({ product }) => {
                 </div>
                 <div className='Calendario'>
                     <h2>Visualiza la Disponibilidad de el producto</h2>
+                    <p>{`Fecha inicial: ${startDate ? startDate : 'Not selected'} | Fecha Final: ${endDate ? endDate : 'Not selected'}`}</p>
                         <div className='CalendarioReserva'>
-                            <Calendario reserva={reserva} />
+                            <Calendario reserva={reserva} onChange={handleDateChange}/>
                         </div>
                         <div className='btnDetalles'>
                             <BotonReservas product={product} />

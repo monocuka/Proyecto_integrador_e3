@@ -54,10 +54,10 @@
     color: #ccc;
 }
 
-.react-calendar__tile--active {
+/* .react-calendar__tile--active {
     background-color: #007bff;
     color: #fff;
-}
+} */
 
 .selected-date {
     color: #f00;

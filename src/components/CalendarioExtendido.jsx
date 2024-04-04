@@ -8,9 +8,11 @@ const CalendarioExtendido = ({ value, ...props }) => {
         if (view !== 'month') {
             return;
         }
+        const minDate = startDate < endDate ? startDate : endDate;
+        const maxDate = startDate > endDate ? startDate : endDate;
         if (
-            (startDate && date >= startDate) &&
-            (endDate && date <= endDate)
+            (minDate && date >= minDate) &&
+            (maxDate && date <= maxDate)
         ) {
             return 'highlight';
         }
