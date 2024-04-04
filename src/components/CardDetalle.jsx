@@ -11,7 +11,7 @@ import imgBack from '../assets/img/back.png'
 
 
 const CardDetalle = ({ product }) => {
-
+    
     if (!product) {
         return null; 
     }

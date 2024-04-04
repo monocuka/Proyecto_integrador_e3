@@ -1,3 +1,4 @@
+import React from 'react';
 import { useEffect, useState } from 'react';
 // import '../assets/css/home.css'
 import Card from '../components/Card';
@@ -7,7 +8,13 @@ import Card_categoria from '../components/Card_categoria';
 import '../assets/css/card_tipo.css';
 import { Link } from 'react-router-dom';
 
+
+
+
+
 export const Home = () => {
+    const [startDate, setStartDate] = useState(null);
+    const [endDate, setEndDate] = useState(null);
     const [productos, setProductos] = useState([]);
     const updateProductos = (newProductos) => setProductos(newProductos);
     
@@ -28,6 +35,7 @@ export const Home = () => {
     }, []);
 
     return (
+        
         <>
             <div className='buscador'>
                 <h1 className='titulo-buscador'>Encuentra de forma fácil tus herramientas</h1>

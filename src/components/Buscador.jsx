@@ -1,68 +1,75 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef  } from 'react';
 import '../assets/css/buscador.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 import Calendario from './Calendario'; // Importa tu componente de Calendario
 import 'react-calendar/dist/Calendar.css';
 
+
+
 const Buscador = ({ updateProductos }) => {
-  const [nombreBusqueda, setNombreBusqueda] = useState('');
-  const [fechaBusqueda, setFechaBusqueda] = useState('');
-  const [resultados, setResultados] = useState([]);
-  const [error, setError] = useState(null);
-  const [fetchStatus, setFetchStatus] = useState('idle');
-  const [mostrarCalendario, setMostrarCalendario] = useState(false); // Estado para controlar la visibilidad del componente de Calendario
-  const node = useRef();
-
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
-  const [filteredSuggestions, setFilteredSuggestions] = useState([]);
-
-  const fetchData = async () => {
-    setFetchStatus('loading');
-    try {
-      if(startDate === null || endDate === null) {
-        setError("Debe completar las fechas"); // Guardar el mensaje de error
-        setFetchStatus('error');
-        return;
-      }
-
-      const res = await fetch(`http://localhost:8080/api/producto/disponibilidad/fechainicial/${startDate}/fechafinal/${endDate}?busqueda=${nombreBusqueda}`);
-      
-      if (!res.ok) {
-        if (res.status === 404 || res.status === 500) {
-          setError('Product not found');
-          setFetchStatus('error');
-        } else {
-          throw new Error('La solicitud no fue exitosa');
-        }
-      } else {
-        const jsonData = await res.json();
-        if (jsonData.length === 0) { // Check if the array is empty
-          setError('No results found');
-        } else {
-          setResultados(jsonData);
-          updateProductos(jsonData);
-          setError(null); // Limpiar error si la solicitud es exitosa
-        }
-        setFetchStatus('success');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      setError(error.message); // Guardar el mensaje de error
-      setFetchStatus('error');
-    }
-  };
   
+  const [nombreBusqueda, setNombreBusqueda] = useState('');
+    const [fechaBusqueda, setFechaBusqueda] = useState('');
+    const [resultados, setResultados] = useState([]);
+    const [error, setError] = useState(null);
+    const [fetchStatus, setFetchStatus] = useState('idle');
+    const [mostrarCalendario, setMostrarCalendario] = useState(false); // Estado para controlar la visibilidad del componente de Calendario
+    const node = useRef();
+    const [startDate, setStartDate] = useState(null);
+    const [endDate, setEndDate] = useState(null);
+  
+    const [filteredSuggestions, setFilteredSuggestions] = useState([]);
+    
+
+    const fetchData = async () => {
+      setFetchStatus('loading');
+      try {
+        
+        if(startDate === null || endDate === null) {
+          setError("Debe completar las fechas"); // Guardar el mensaje de error
+          setFetchStatus('error');
+          return;
+        }
+        console.log(startDate, endDate);
+        
+        const res = await fetch(`http://localhost:8080/api/producto/disponibilidad/fechainicial/${startDate}/fechafinal/${endDate}?busqueda=${nombreBusqueda}`);
+        
+        if (!res.ok) {
+          if (res.status === 404 || res.status === 500) {
+            setError('Product not found');
+            setFetchStatus('error');
+          } else {
+            throw new Error('La solicitud no fue exitosa');
+          }
+        } else {
+          const jsonData = await res.json();
+          if (jsonData.length === 0) { // Check if the array is empty
+            setError('No results found');
+          } else {
+            setResultados(jsonData);
+            updateProductos(jsonData);
+            setError(null); // Limpiar error si la solicitud es exitosa
+          }
+          setFetchStatus('success');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        setError(error.message); // Guardar el mensaje de error
+        setFetchStatus('error');
+      }
+    };
+  //_________
   const handleDateChange = (date) => {
+    console.log("estamos dentro dela funcion")
     const formattedDate = date.toISOString().split('T')[0];
     if (!startDate) {
-      setStartDate(formattedDate);
+        setStartDate(formattedDate);
     } else if (!endDate) {
-      setEndDate(formattedDate);
+        setEndDate(formattedDate);
     } else {
-      setStartDate(formattedDate);
-      setEndDate(null);
+        setStartDate(formattedDate);
+        setEndDate(null);
     }
   };
 
@@ -79,17 +86,18 @@ const Buscador = ({ updateProductos }) => {
     setNombreBusqueda(value);
 
     try {
-      const response = await fetch(`http://localhost:8080/api/producto/nombresSimilares/${value}`);
-      const data = await response.json();
-      setFilteredSuggestions(data);
-
-      if (Array.isArray(data)) {
-        setFilteredSuggestions(data.map(item => item.nombre));
-      } else {
-        setFilteredSuggestions([]);
-      }
-    } catch (error) {
-      console.error('Error fetching data:', error);
+        const response = await fetch(`http://localhost:8080/api/producto/nombresSimilares/${value}`);
+        const data = await response.json();
+        setFilteredSuggestions(data);
+        
+        if (Array.isArray(data)) {
+          setFilteredSuggestions(data.map(item => item.nombre));
+        
+        } else {
+          setFilteredSuggestions([]);
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
     }
   };
 
@@ -99,6 +107,7 @@ const Buscador = ({ updateProductos }) => {
   };
 
   const handleClickOutside = (e) => {
+    
     if (node.current && !node.current.contains(e.target)) {
       // Click outside the component
       setFilteredSuggestions([]);
@@ -109,12 +118,14 @@ const Buscador = ({ updateProductos }) => {
     document.addEventListener('click', handleClickOutside);
 
     return () => {
-      document.removeEventListener('click', handleClickOutside);
+      
+        document.removeEventListener('click', handleClickOutside);
     };
   }, []);
 
   return (
-    <div className="autocomplete-container" ref={node}>
+    
+    <div className="autocomplete-container"  ref={node}>
       <div className='container-inputs'>
         <input 
           className='input-buscador' 
@@ -124,13 +135,13 @@ const Buscador = ({ updateProductos }) => {
           onChange={handleChange}
         />
         {filteredSuggestions.length > 0 && (
-          <ul className="suggestions-list">
-            {filteredSuggestions.map((suggestion, index) => (
-              <li key={index} onClick={() => handleSelect(suggestion)}>
-                {suggestion}
-              </li>
-            ))}
-          </ul>
+            <ul className="suggestions-list">
+                {filteredSuggestions.map((suggestion, index) => (
+                    <li key={index} onClick={() => handleSelect(suggestion)}>
+                        {suggestion}
+                    </li>
+                ))}
+            </ul>
         )}
         <div className='bucador-inputs'>
           <input 
@@ -145,14 +156,16 @@ const Buscador = ({ updateProductos }) => {
           <button className='btn-buscar' onClick={fetchData}>
             Buscar
           </button>
-        </div>
+      </div>
       </div>
 
       {fetchStatus === 'success' && resultados != null && resultados.length > 0 && <p>Productos encontrados: {resultados.length}</p>}
       {fetchStatus === 'error' && <p>Error: {error}</p>}
       {mostrarCalendario && <Calendario onChange={handleDateChange} />} {/* Muestra el componente de Calendario si mostrarCalendario es true */}
     </div>
+    
   );
+  
 };
 
 export default Buscador;
