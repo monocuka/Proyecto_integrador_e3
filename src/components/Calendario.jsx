@@ -79,7 +79,6 @@ const Calendario = ({ reserva, onChange, startDate, endDate }) => {
     return (
         <div className="cal-container">
             <div className="title-container">
-                <h2>Calendario</h2>
                 <button className='cal-btn' onClick={decrementMonth}>Previous</button>
                 <button className='cal-btn' onClick={incrementMonth}>Next</button>
                 <div></div>
