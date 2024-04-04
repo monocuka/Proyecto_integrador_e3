@@ -124,8 +124,10 @@
         font-size: 18px;
     }
     .card-tipo {
+        width: 100%;
         text-align: center;
         padding: 1em;
+        display: flex;
         flex-direction: column;
 
     }
@@ -138,4 +140,5 @@
     .container-tipo {
         width: 90%;
     }
+    
 }

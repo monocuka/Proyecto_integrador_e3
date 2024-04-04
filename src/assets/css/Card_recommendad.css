@@ -177,3 +177,11 @@ h1.recommended-tittle {
         margin-top: 1rem;
      }
 }
+
+
+@media screen and (max-width: 627px) {
+    .card-product {
+        display: flex;
+        flex-direction: column;
+    }
+}

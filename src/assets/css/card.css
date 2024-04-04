@@ -44,8 +44,13 @@
     border: none;
     text-decoration: none;
 }
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 588px) {
     .infoCard{
         display: flex; 
+        flex-direction: column;
+    }
+    .infoCard > h5{
+        width: 100%;
+        text-align: center;
     }
 }
