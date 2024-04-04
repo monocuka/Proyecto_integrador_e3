@@ -12,35 +12,13 @@ const Calendario = ({ reserva, onChange }) => {
     const siguienteMes = new Date(date);
     siguienteMes.setMonth(siguienteMes.getMonth() + 1);
 
-    const marcarFechasSeleccionadas = ({ date }) => {
-        if (reserva) {
-            for (let i = 0; i < reserva.length; i++) {
-                const fecha_desde = new Date(reserva[i].fecha_desde[0], reserva[i].fecha_desde[1] - 1, reserva[i].fecha_desde[2]);
-                const fecha_hasta = new Date(reserva[i].fecha_hasta[0], reserva[i].fecha_hasta[1] - 1, reserva[i].fecha_hasta[2]);
-                if (date.getMonth() === fecha_desde.getMonth() && date.getFullYear() === fecha_desde.getFullYear()) {
-                    if (date.getDate() >= fecha_desde.getDate() && date.getDate() <= fecha_hasta.getDate()) {
-                        return <div className="selected-date">❌</div>;
-                    }
-                }
-            }
-        }
-    };
+    console.log(reserva?.reservas);
+    
+    const disabledDates = [
+        new Date(2024, 3, 10), 
+        new Date(2024, 3, 11),
+    ];
 
-
-    const marcarFechasSeleccionadas1 = ({ date }) => {
-        if (reserva) {
-            for (let i = 0; i < reserva.length; i++) {
-                const fecha_desde = new Date(reserva[i].fecha_desde[0], reserva[i].fecha_desde[1] - 1, reserva[i].fecha_desde[2]);
-                const fecha_hasta = new Date(reserva[i].fecha_hasta[0], reserva[i].fecha_hasta[1] - 1, reserva[i].fecha_hasta[2]);
-
-                if (date.getMonth() === fecha_desde.getMonth() && date.getFullYear() === fecha_desde.getFullYear()) {
-                    if (date.getDate() >= fecha_desde.getDate() && date.getDate() <= fecha_hasta.getDate()) {
-                        return <div className="selected-date">❌</div>;
-                    }
-                }
-            }
-        }
-    };
 
     return (
         <div className="cal-container">
@@ -56,9 +34,14 @@ const Calendario = ({ reserva, onChange }) => {
                     value={date}
                     calendarType="gregory"
                     showNavigation={true}
-                    tileContent={marcarFechasSeleccionadas}
+                    // tileContent={marcarFechasSeleccionadas}
                     minDetail="year"
                     minDate={new  Date()}
+                    tileDisabled={({ date, view }) => {
+                        return view === 'month' && disabledDates.some(disabledDate => {
+                            return date.getTime() === disabledDate.getTime();
+                        })}
+                    }
                 />
             </div>
             <div className="mes">
@@ -68,9 +51,14 @@ const Calendario = ({ reserva, onChange }) => {
                     value={siguienteMes}
                     calendarType="gregory"
                     showNavigation={true}
-                    tileContent={marcarFechasSeleccionadas1}
+                    // tileContent={marcarFechasSeleccionadas1}
                     minDetail="year"
                     minDate={new  Date()}
+                    tileDisabled={({ date, view }) => {
+                        return view === 'month' && disabledDates.some(disabledDate => {
+                            return date.getTime() === disabledDate.getTime();
+                        })}
+                    }
                 />
             </div>
         </div>
@@ -86,3 +74,4 @@ const nombreMes = (mes) => {
 };
 
 export default Calendario;
+

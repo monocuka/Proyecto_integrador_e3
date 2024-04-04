@@ -24,7 +24,6 @@ const CardDetalle = ({ product }) => {
                 .then(response => response.json())
                 .then(data => {
                     setReserva(data);
-                    console.log(JSON.stringify(data, null, 2));
                 })
                 .catch(error => {
                     console.error('There was an error!', error);
