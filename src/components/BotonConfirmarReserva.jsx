@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
 import '../assets/css/BtnReservar.css';
+import Swal from 'sweetalert2'
+
 
 const BotonConfirmarReserva = ({ product }) => {
-    if (!product || !product.id) {
-        return null; // O manejar el caso en que no haya un producto o la propiedad id no esté definida
-    }
+    
+    http://localhost:8080/api/reserva/guardar
 
+    
     return (
         <Link to={`/detalle/${product.id}`} className="BtnReserva">Reservar</Link>
     );

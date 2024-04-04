@@ -1,10 +1,12 @@
 import { useState, useEffect, useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import CardDetalle from '../components/CardDetalle';
 import '../pages/RegistrarUsuario';
 import '../assets/css/reservaDetalle.css';
 import { AuthContext } from '../context/AuthContext';
 import BotonConfirmarReserva from '../components/BotonConfirmarReserva';
+import DetalleReserva from '../components/DetalleReserva';
+
 //import { useData } from '../context/DataContext';
  // Importing the DataContext
 
@@ -51,7 +53,7 @@ export const ReservaDetalle = () => {
             </div>
             <div className="imagesDetail">
                 <div id='dCard' className="DetailCard">
-                    <CardDetalle product={product} />
+                    <DetalleReserva product={product} />
                 </div>
             </div>
             <div className='divFechasSeleccionadas'>
@@ -61,7 +63,9 @@ export const ReservaDetalle = () => {
                 </div>
             </div>
             <div className='botonConfirmarReserva'>
-                <BotonConfirmarReserva product={product} />
+              {/*  <BotonConfirmarReserva product={product} />*/}
+              <Link to={`/detalle/${product.id}`} className="BtnReserva">Reservar</Link>
+
     </div>
 
         </div>
@@ -89,49 +93,4 @@ const UsuarioRegistrado = () => {
     )
 };
 
-/*const FechasSeleccionadas = ({ product }) => {
-    const [startDate, setStartDate] = useState(null);
-    const [endDate, setEndDate] = useState(null);
-
-    /*useEffect(() => {
-    
-        const res = await fetch(`http://localhost:8080/api/producto/disponibilidad/fechainicial/${startDate}/fechafinal/${endDate}?busqueda=${nombreBusqueda}`)
-                .then(response => response.json())
-                .then(data => {
-                    setReserva(data);
-                    console.log(JSON.stringify(data, null, 2));
-                })
-                .catch(error => {
-                    console.error('There was an error!', error);
-                });
-        }
-        fetchData();
- }, []);
-
-    return (
-        <>
-            <div className='fechasSeleccionadas'>
-                <div>Fecha inicio de reserva: {startDate} </div>
-                <div>Fecha fin de reserva: {endDate} </div>
-            </div>
-        </>
-    )
-};*/
-
-
-
-/*const FechaDesdeCalendar = () => {
-  const { data } = useData(); // Using the useData hook to access context data
-
-  return (
-    <div>
-      <h2>Child Component</h2>
-      <p>Data: {data}</p>
-      <div className='fechasSeleccionadas'>
-                <div>Fecha inicio de reserva: {data.startDate} </div>
-                <div>Fecha fin de reserva: {data.endDate} </div>
-            </div>
-    </div>
-  );
-};*/
 
