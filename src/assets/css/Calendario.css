@@ -63,3 +63,12 @@
     color: #f00;
     font-weight: bold;
 }
+
+.cal-btn{
+    border-radius: 5px;
+    padding: .8rem;
+    border: none;
+    background-color: #de8121;
+    color: var(--color-primary);
+    cursor: pointer;
+}
