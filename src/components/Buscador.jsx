@@ -61,17 +61,34 @@ const Buscador = ({ updateProductos }) => {
     };
   //_________
   const handleDateChange = (date) => {
-    console.log("estamos dentro dela funcion")
     const formattedDate = date.toISOString().split('T')[0];
+
+    // Lógica para cuando se carga el calendario por primera vez
     if (!startDate) {
         setStartDate(formattedDate);
-    } else if (!endDate) {
-        setEndDate(formattedDate);
-    } else {
+        return;
+    }
+
+    // Lógica para cuando se agrega la fecha hasta
+    if (startDate && !endDate) {
+        if (formattedDate < startDate) {
+            setEndDate(startDate);
+            setStartDate(formattedDate);
+        } else {
+            setEndDate(formattedDate);
+        }
+        return;
+    }
+
+    // Lógica para cambiar las fechas si ambas están cargadas
+    // Reinicia el primer valor y establece el segundo en null
+    if (startDate && endDate) {
         setStartDate(formattedDate);
         setEndDate(null);
+        return;
     }
-  };
+
+};
 
   const toggleCalendario = () => {
     setMostrarCalendario(!mostrarCalendario); // Cambia el estado de visibilidad del componente de Calendario
