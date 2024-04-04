@@ -55,10 +55,12 @@ const Calendario = ({ reserva, onChange, startDate, endDate }) => {
         setDate(new Date(date.getFullYear(), date.getMonth() - 1));
         setSiguienteMes(new Date(siguienteMes.getFullYear(), siguienteMes.getMonth() - 1));
     };
-    //setSiguienteMes(new Date(date.getFullYear(), date.getMonth() + 1));
 
     const handleDateChange = (date) => {
-        onChange(date);
+        if(onChange != null){
+            onChange(date);
+        }
+       
         const formattedDate = date.toISOString().split('T')[0];
         if (!start) {
             setStart(formattedDate);
@@ -137,7 +139,7 @@ const Calendario = ({ reserva, onChange, startDate, endDate }) => {
                     calendarType="gregory"
                     showNavigation={false}
                     minDetail="year"
-                    minDate={new  Date()}
+                    minDate={new Date()}
                     tileDisabled={({ date, view }) => {
                         return view === 'month' && fechasDeshabilitadas.some(disabledDate => {
                             return date.getTime() === disabledDate.getTime();
@@ -158,4 +160,3 @@ const nombreMes = (mes) => {
 };
 
 export default Calendario;
-

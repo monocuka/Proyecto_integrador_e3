@@ -1,14 +1,20 @@
+import React from 'react';
 import { useEffect, useState } from 'react';
 // import '../assets/css/home.css'
 import Card from '../components/Card';
 import Buscador from '../components/Buscador';
 import Recommended from '../components/Card_recommended/Recommended';
 import Card_categoria from '../components/Card_categoria';
-import '../assets/css/card_tipo.css'
+import '../assets/css/card_tipo.css';
 import { Link } from 'react-router-dom';
 
-export const Home = () => {
 
+
+
+
+export const Home = () => {
+    const [startDate, setStartDate] = useState(null);
+    const [endDate, setEndDate] = useState(null);
     const [productos, setProductos] = useState([]);
     const updateProductos = (newProductos) => setProductos(newProductos);
     
@@ -28,10 +34,8 @@ export const Home = () => {
         fetchData();
     }, []);
 
-    // Mostrar máximo 8 productos
-    // const productosMostrados = productos.slice(0, 8);
-
     return (
+        
         <>
             <div className='buscador'>
                 <h1 className='titulo-buscador'>Encuentra de forma fácil tus herramientas</h1>
@@ -45,6 +49,7 @@ export const Home = () => {
                     ))}
                 </div>
             </div>
+            <h3 className='titulo_tipo background-tittle'>Busqueda por tipo de maquinaria</h3>
             <div>
                 <h3 className='titulo_tipo background-tittle'>Busqueda por tipo de maquinaria</h3>
             </div>
@@ -52,11 +57,11 @@ export const Home = () => {
                 <Card_categoria/>
             </div>
             <div className="fondo-recomendado">
-            <h3 className='titulo_tipo'>Lo más recomendado</h3>
-            <div className='card-tipo card-recomendado'>
-                <Recommended/>
-            </div>
+                <h3 className='titulo_tipo'>Lo más recomendado</h3>
+                <div className='card-tipo card-recomendado'>
+                    <Recommended/>
+                </div>
             </div>
         </> 
-        );
+    );
 }
