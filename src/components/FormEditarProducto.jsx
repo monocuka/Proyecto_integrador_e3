@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import serverEndPoint from "./constans";
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 export const FormEditarProducto = ({ id }) => {
 
@@ -82,8 +83,13 @@ export const FormEditarProducto = ({ id }) => {
         fetch(`${serverEndPoint}/api/producto/actualizar`, requestOptions)
             .then((response) => response.text())
             .then((result) => {
-                alert("El producto se modifico correctamente");
-                window.location.href = "/listarProductos"; 
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "El producto se modifico correctamente",
+                    showConfirmButton: false,
+                    timer: 1500
+                  }).then(() => window.location.href = "/listarProductos"); 
             })
             .catch((error) => console.error(error));
     }

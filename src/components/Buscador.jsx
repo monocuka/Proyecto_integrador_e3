@@ -6,7 +6,10 @@ import Calendario from './Calendario'; // Importa tu componente de Calendario
 import 'react-calendar/dist/Calendar.css';
 import serverEndPoint from './constans';
 
+
+
 const Buscador = ({ updateProductos }) => {
+  
   const [nombreBusqueda, setNombreBusqueda] = useState('');
     const [fechaBusqueda, setFechaBusqueda] = useState('');
     const [resultados, setResultados] = useState([]);
@@ -14,10 +17,11 @@ const Buscador = ({ updateProductos }) => {
     const [fetchStatus, setFetchStatus] = useState('idle');
     const [mostrarCalendario, setMostrarCalendario] = useState(false); // Estado para controlar la visibilidad del componente de Calendario
     const node = useRef();
-  
     const [startDate, setStartDate] = useState(null);
     const [endDate, setEndDate] = useState(null);
+  
     const [filteredSuggestions, setFilteredSuggestions] = useState([]);
+    
 
     const fetchData = async () => {
       setFetchStatus('loading');
@@ -28,7 +32,7 @@ const Buscador = ({ updateProductos }) => {
           setFetchStatus('error');
           return;
         }
-        console.log
+        console.log(startDate, endDate);
         
         const res = await fetch(`${serverEndPoint}/api/producto/disponibilidad/fechainicial/${startDate}/fechafinal/${endDate}?busqueda=${nombreBusqueda}`);
         
@@ -59,15 +63,33 @@ const Buscador = ({ updateProductos }) => {
   //_________
   const handleDateChange = (date) => {
     const formattedDate = date.toISOString().split('T')[0];
+
+    // Lógica para cuando se carga el calendario por primera vez
     if (!startDate) {
         setStartDate(formattedDate);
-    } else if (!endDate) {
-        setEndDate(formattedDate);
-    } else {
+        return;
+    }
+
+    // Lógica para cuando se agrega la fecha hasta
+    if (startDate && !endDate) {
+        if (formattedDate < startDate) {
+            setEndDate(startDate);
+            setStartDate(formattedDate);
+        } else {
+            setEndDate(formattedDate);
+        }
+        return;
+    }
+
+    // Lógica para cambiar las fechas si ambas están cargadas
+    // Reinicia el primer valor y establece el segundo en null
+    if (startDate && endDate) {
         setStartDate(formattedDate);
         setEndDate(null);
+        return;
     }
-  };
+
+};
 
   const toggleCalendario = () => {
     setMostrarCalendario(!mostrarCalendario); // Cambia el estado de visibilidad del componente de Calendario
@@ -114,11 +136,13 @@ const Buscador = ({ updateProductos }) => {
     document.addEventListener('click', handleClickOutside);
 
     return () => {
+      
         document.removeEventListener('click', handleClickOutside);
     };
   }, []);
 
   return (
+    
     <div className="autocomplete-container"  ref={node}>
       <div className='container-inputs'>
         <input 
@@ -157,7 +181,9 @@ const Buscador = ({ updateProductos }) => {
       {fetchStatus === 'error' && <p>Error: {error}</p>}
       {mostrarCalendario && <Calendario onChange={handleDateChange} />} {/* Muestra el componente de Calendario si mostrarCalendario es true */}
     </div>
+    
   );
+  
 };
 
 export default Buscador;
