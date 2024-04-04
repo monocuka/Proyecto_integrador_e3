@@ -1,46 +1,42 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Calendar from 'react-calendar';
 import '../assets/css/Calendario.css';
-
 
 //import 'react-calendar/dist/Calendar.css';
 import '../assets/css/Calendario.css';
 
 const Calendario = ({ reserva, onChange }) => {
     const [date, setDate] = useState(new Date());
-
+    const [ fechasDeshabilitadas, setFechasDeshabilitadas] = useState([]);
     const siguienteMes = new Date(date);
     siguienteMes.setMonth(siguienteMes.getMonth() + 1);
 
-    const marcarFechasSeleccionadas = ({ date }) => {
-        if (reserva) {
-            for (let i = 0; i < reserva.length; i++) {
-                const fecha_desde = new Date(reserva[i].fecha_desde[0], reserva[i].fecha_desde[1] - 1, reserva[i].fecha_desde[2]);
-                const fecha_hasta = new Date(reserva[i].fecha_hasta[0], reserva[i].fecha_hasta[1] - 1, reserva[i].fecha_hasta[2]);
-                if (date.getMonth() === fecha_desde.getMonth() && date.getFullYear() === fecha_desde.getFullYear()) {
-                    if (date.getDate() >= fecha_desde.getDate() && date.getDate() <= fecha_hasta.getDate()) {
-                        return <div className="selected-date">❌</div>;
-                    }
-                }
-            }
+
+    const generarRangoFechas = (fechaDesde, fechaHasta) => {
+        let disabledDates = [];
+    
+        const dateDesde = new Date(fechaDesde[0], fechaDesde[1] - 1, fechaDesde[2]);
+        const dateHasta = new Date(fechaHasta[0], fechaHasta[1] - 1, fechaHasta[2]);
+    
+        for (let date = new Date(dateDesde); date <= dateHasta; date.setDate(date.getDate() + 1)) {
+            disabledDates.push(new Date(date));
         }
-    };
-
-
-    const marcarFechasSeleccionadas1 = ({ date }) => {
+    
+        return disabledDates;
+    }
+    
+    useEffect(() =>{
         if (reserva) {
-            for (let i = 0; i < reserva.length; i++) {
-                const fecha_desde = new Date(reserva[i].fecha_desde[0], reserva[i].fecha_desde[1] - 1, reserva[i].fecha_desde[2]);
-                const fecha_hasta = new Date(reserva[i].fecha_hasta[0], reserva[i].fecha_hasta[1] - 1, reserva[i].fecha_hasta[2]);
+            let deshabilitarFechas = [];
 
-                if (date.getMonth() === fecha_desde.getMonth() && date.getFullYear() === fecha_desde.getFullYear()) {
-                    if (date.getDate() >= fecha_desde.getDate() && date.getDate() <= fecha_hasta.getDate()) {
-                        return <div className="selected-date">❌</div>;
-                    }
-                }
-            }
-        }
-    };
+            reserva.reservas.forEach(item => {
+                const disabledDates = generarRangoFechas(item.fechaDesde, item.fechaHasta);
+                deshabilitarFechas = [...deshabilitarFechas, ...disabledDates];
+            });
+
+            setFechasDeshabilitadas(deshabilitarFechas);
+        }
+    }, [reserva]);
 
     return (
         <div className="cal-container">
@@ -56,9 +52,13 @@ const Calendario = ({ reserva, onChange }) => {
                     value={date}
                     calendarType="gregory"
                     showNavigation={true}
-                    tileContent={marcarFechasSeleccionadas}
                     minDetail="year"
                     minDate={new  Date()}
+                    tileDisabled={({ date, view }) => {
+                        return view === 'month' && fechasDeshabilitadas.some(disabledDate => {
+                            return date.getTime() === disabledDate.getTime();
+                        })}
+                    }
                 />
             </div>
             <div className="mes">
@@ -68,9 +68,13 @@ const Calendario = ({ reserva, onChange }) => {
                     value={siguienteMes}
                     calendarType="gregory"
                     showNavigation={true}
-                    tileContent={marcarFechasSeleccionadas1}
                     minDetail="year"
                     minDate={new  Date()}
+                    tileDisabled={({ date, view }) => {
+                        return view === 'month' && fechasDeshabilitadas.some(disabledDate => {
+                            return date.getTime() === disabledDate.getTime();
+                        })}
+                    }
                 />
             </div>
         </div>
@@ -86,3 +90,4 @@ const nombreMes = (mes) => {
 };
 
 export default Calendario;
+
