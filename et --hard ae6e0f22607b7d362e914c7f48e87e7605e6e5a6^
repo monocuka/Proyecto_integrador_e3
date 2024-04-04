@@ -1,0 +1,520 @@
+[33mcommit ae6e0f22607b7d362e914c7f48e87e7605e6e5a6[m[33m ([m[1;36mHEAD -> [m[1;32mDaniela[m[33m)[m
+Merge: 7b8976b e89fde5
+Author: Daniela George jiménez <d47@misena.edu.co>
+Date:   Wed Mar 27 17:56:40 2024 -0500
+
+    Merge branch 'dev' of https://github.com/monocuka/Proyecto_integrador_e3 into Daniela
+
+[33mcommit 7b8976b64198505ed2d43906af3099984a0552b2[m[33m ([m[1;31morigin/Daniela[m[33m)[m
+Author: Daniela George jiménez <d47@misena.edu.co>
+Date:   Wed Mar 27 17:55:57 2024 -0500
+
+    Nada
+
+[33mcommit e89fde5db2fd4a795f15bc965691dc5f7b14f67d[m[33m ([m[1;31morigin/dev[m[33m)[m
+Merge: 0723b8e 3c9ab4b
+Author: Juan Mercado <juan.mercado1986@gmail.com>
+Date:   Wed Mar 27 19:17:13 2024 -0300
+
+    Merge pull request #23 from monocuka/JuanM
+    
+    Se agrego la seguerencia en el input busqueda y css al buscador
+
+[33mcommit 3c9ab4b57a0f7f56bb456b49e442ab9945f93107[m
+Merge: b3c0a8d 0723b8e
+Author: Juan Mercado <juan.mercado1986@gmail.com>
+Date:   Wed Mar 27 19:06:07 2024 -0300
+
+    Merge branch 'dev' into JuanM
+
+[33mcommit b3c0a8da7388f9ab5a597d4434f6e5b0931af280[m
+Author: Juan Mercado <juan.mercado1986@gmail.com>
+Date:   Wed Mar 27 18:44:28 2024 -0300
+
+    Se agrego la seguerencia en el input busqueda y css al buscador
+
+[33mcommit 0723b8e5ab8f5c743c7ed406403ba4910ad01f96[m
+Merge: c57780e cb59a55
+Author: Juan Mercado <juan.mercado1986@gmail.com>
+Date:   Wed Mar 27 14:12:13 2024 -0300
+
+    Merge pull request #22 from monocuka/JuanM
+    
+    Juan m
+
+[33mcommit c57780e4f0dcd5f118d4cdf0d7437bd2ca83f414[m
+Merge: 79d1fe8 c59ced7
+Author: eliana osorio <52088371+monocuka@users.noreply.github.com>
+Date:   Wed Mar 27 11:47:44 2024 -0500
+
+    Merge pull request #21 from monocuka/jorgeC
+    
+    feat: elimino boton agregar producto home
+
+[33mcommit cb59a55c395dc926453d807d4d2f97b6c9701db6[m
+Author: Juan Mercado <juan.mercado1986@gmail.com>
+Date:   Wed Mar 27 13:28:54 2024 -0300
+
+    Merge con DEV
+
+[33mcommit a628db9a210d8610c1038c763f500d65f98f2b8e[m
+Merge: 79d1fe8 a1fd77c
+Author: Juan Mercado <juan.mercado1986@gmail.com>
+Date:   Wed Mar 27 12:55:43 2024 -0300
+
+    Merge con feature-fix donde se agrego e listar producto y editar producto
+
+[33mcommit a1fd77cf3f18521918f4f1d00aba9e149b11455a[m
+Author: Juan Mercado <juan.mercado1986@gmail.com>
+Date:   Wed Mar 27 12:42:35 2024 -0300
+
+    Se modifico la la url categorias porque en el back tambien se modifico
+
+[33mcommit 4dffbcb83d3e5e4e141cf67c47197dd56a1cf6a4[m
+Author: Juan Mercado <juan.mercado1986@gmail.com>
+Date:   Wed Mar 27 12:30:55 2024 -0300
+
+    Se completo el listado de producto y el formulario de modificacion de producto
+
+[33mcommit c59ced76bc12f3805f238102cc3cdf482223fe9c[m
+Author: Jorge Corrales <jorgecorralesdh@gmail.com>
+Date:   Wed Mar 27 09:08:18 2024 -0500
+
+    feat: elimino boton agregar producto home
+
+[33mcommit 79d1fe8aa36caa7f7c3508f3e4443116f3d6672d[m
+Merge: eddc786 bf5f381
+Author: eliana osorio <52088371+monocuka@users.noreply.github.com>
+Date:   Wed Mar 27 00:39:50 2024 -0500
+
+    Merge pull request #20 from monocuka/jorgeC
+    
+    Jorge c
+
+[33mcommit bf5f3816f53d21e8ac8b464f5a2ba14355b5ebb1[m
+Merge: c12084d eddc786
+Author: Jorge Corrales <jorgecorralesdh@gmail.com>
+Date:   Wed Mar 27 00:30:19 2024 -0500
+
+    unificando dev con mi rama
+
+[33mcommit c12084dbcd569e43baeaa36b05ae33b8200a24e4[m
+Author: Jorge Corrales <jorgecorralesdh@gmail.com>
+Date:   Wed Mar 27 00:08:51 2024 -0500
+
+    feat: creación de favoritos, mejora de categoría y mucho más
+
+[33mcommit eddc7861ce6bac0027a36abe57d5b2d314ce3135[m
+Author: eliana osorio <yasminosorio2013@gmail.com>
+Date:   Tue Mar 26 23:58:49 2024 -0500
+
+    fix: link agregar categoria
+
+[33mcommit 3c00d9808d0e86b489157c9d7820c1c3fb239e98[m
+Author: eliana osorio <yasminosorio2013@gmail.com>
+Date:   Tue Mar 26 23:54:25 2024 -0500
+
+    style: color and decoration none Link a
+
+[33mcommit 2f10956ed9d3688c6fbbcac26c58cc333c4d5d31[m
+Author: eliana osorio <yasminosorio2013@gmail.com>
+Date:   Tue Mar 26 23:33:48 2024 -0500
+
+    fix:CSS changes and calendar improvements
+
+[33mcommit addd40e7add804127333382a68861977a2bab9ab[m[33m ([m[1;32mdev[m[33m)[m
+Author: eliana osorio <yasminosorio2013@gmail.com>
+Date:   Tue Mar 26 20:59:28 2024 -0500
+
+    fix changes
+
+[33mcommit e42fe96e21364365b9208a283a90efd6705cc464[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Merge: 16f5a71 4737168
+Author: Juan Mercado <juan.mercado1986@gmail.com>
+Date:   Tue Mar 26 22:38:24 2024 -0300
+
+    Merge pull request #19 from monocuka/Daniela
+    
+    Daniela
+
+[33mcommit 47371683db91d0ad9eacc89590e33e542898ada5[m
+Merge: 40f199b b6927f3
+Author: Daniela George jiménez <d47@misena.edu.co>
+Date:   Tue Mar 26 20:30:28 2024 -0500
+
+    Aceptando componentes
+
+[33mcommit b6927f3aa5e0ade773fe0163284182223868e4c2[m
+Author: eliana osorio <yasminosorio2013@gmail.com>
+Date:   Tue Mar 26 20:24:13 2024 -0500
+
+    feat: changes in card detail
+
+[33mcommit 40f199b345756b70e5388e5eea305e9f4e186d5c[m
+Merge: 55647e4 8f1b805
+Author: Daniela George jiménez <d47@misena.edu.co>
+Date:   Tue Mar 26 20:15:47 2024 -0500
+
+    Merge
+
+[33mcommit 55647e4db6f155a12f1b9cedaa749b9a5164901b[m
+Author: Daniela George jiménez <d47@misena.edu.co>
+Date:   Tue Mar 26 19:59:10 2024 -0500
+
+    Eliminé un comentario
+
+[33mcommit 16f5a71b964ab4721c2f247b643168f6e53bf65f[m
+Merge: 449894f 8f1b805
+Author: eliana osorio <52088371+monocuka@users.noreply.github.com>
+Date:   Tue Mar 26 12:39:15 2024 -0500
+
+    Merge pull request #18 from monocuka/dev
+    
+    Dev funcional hasta el 25 de marzo de 2024
+
+[33mcommit 78d2d2fa168bcf61234cdcc22c810a2678649bc9[m
+Author: Daniela George jiménez <d47@misena.edu.co>
+Date:   Tue Mar 26 12:06:56 2024 -0500
+
+    Calendario y busqueda
+
+[33mcommit 8f1b8053898a709f2801aa740240e495074f8c60[m
+Author: eliana osorio <yasminosorio2013@gmail.com>
+Date:   Mon Mar 25 22:55:44 2024 -0500
+
+    feat: cambios en las dependencias para el despliegue
+
+[33mcommit d188be0a1de0a8c09cd8dc4983cdc5dd69191df2[m
+Merge: 2e7e195 449894f
+Author: eliana osorio <yasminosorio2013@gmail.com>
+Date:   Mon Mar 25 22:20:49 2024 -0500
+
+    Merge branch 'main' of https://github.com/monocuka/Proyecto_integrador_e3 into dev
+
+[33mcommit 2f22a4f9ba4fc3e8310b5c4f7af94dd0ee0cdeac[m
+Author: Daniela George jiménez <d47@misena.edu.co>
+Date:   Mon Mar 25 17:37:22 2024 -0500
+
+    Botón de reservar
+
+[33mcommit 41c256c6eb4dbe28de3c1ea5c887e98bb1f62bc7[m
+Author: Daniela George jiménez <d47@misena.edu.co>
+Date:   Mon Mar 25 10:57:03 2024 -0500
+
+    Prueba de renderizar el botón de reservas
+
+[33mcommit 2e7e1954c4d53e168f14dc42169cb1c854c4eb23[m
+Author: eliana osorio <yasminosorio2013@gmail.com>
+Date:   Mon Mar 25 10:51:48 2024 -0500
+
+    feat: color title search
+
+[33mcommit 0bd6071958ad79756a44376def98172446439818[m
+Merge: e42d522 dd068cd
+Author: eliana osorio <yasminosorio2013@gmail.com>
+Date:   Mon Mar 25 10:51:03 2024 -0500
+
+    Merge branch 'dev' of https://github.com/monocuka/Proyecto_integrador_e3 into dev
+
+[33mcommit e42d522b367ab4e9232329ad7201c8b6c30d24d0[m
+Author: eliana osorio <yasminosorio2013@gmail.com>
+Date:   Mon Mar 25 10:50:58 2024 -0500
+
+    feat: change title color
+
+[33mcommit dd068cd30455f35881362bb5b16ad13edd6d4cb0[m
+Merge: 0ca49a9 59bae80
+Author: Juan Mercado <juan.mercado1986@gmail.com>
+Date:   Mon Mar 25 12:50:01 2024 -0300
+
+    Merge pull request #17 from monocuka/JuanM
+    
+    Juan m
+
+[33mcommit 59bae80bab29ed046a4a5884ce91f9fb25f560c8[m[33m ([m[1;31morigin/JuanM[m[33m)[m
+Merge: 26057f3 d5eedf1
+Author: Juan Mercado <juan.mercado1986@gmail.com>
+Date:   Mon Mar 25 12:44:20 2024 -0300
+
+    Merge branch 'feature-fix' into JuanM
+
+[33mcommit 26057f374b7474c4d302195458858c5fda0b4020[m
+Author: Juan Mercado <juan.mercado1986@gmail.com>
+Date:   Mon Mar 25 12:43:47 2024 -0300
+
+    Se soluciona la redireccion root a home
+
+[33mcommit 0f2a76d3e1f4b9a7d2622dbf0e97be10becd8b37[m
+Author: Daniela George jiménez <d47@misena.edu.co>
+Date:   Mon Mar 25 10:43:04 2024 -0500
+
+    Prueba de renderizar el botón de reservas
+
+[33mcommit 0ca49a9c2cbf7146734e825ebeccb028c9ff6c77[m
+Author: eliana osorio <yasminosorio2013@gmail.com>
+Date:   Mon Mar 25 10:15:31 2024 -0500
+
+    feat: delete change
+
+[33mcommit 66a16906ee37e7e324da1bb313669fbfdf4a5cd3[m
+Author: Daniela George jiménez <d47@misena.edu.co>
+Date:   Sun Mar 24 22:56:16 2024 -0500
+
+    Prueba de renderizar el botón de reservas
+
+[33mcommit 340569febcbf99b3ba8615939e786e9ee6d0982c[m
+Author: Daniela George jiménez <d47@misena.edu.co>
+Date:   Sun Mar 24 21:45:00 2024 -0500
+
+    Prueba de calendario
+
+[33mcommit 6b48e653bb402acc636dc266df133fbf3f9a9cd3[m
+Author: Daniela George jiménez <d47@misena.edu.co>
+Date:   Sun Mar 24 21:41:22 2024 -0500
+
+    Prueba de calendario
+
+[33mcommit 1c5662f0a8cad5c3063e6ec7d0d1e9adc02e8503[m
+Author: Daniela George jiménez <d47@misena.edu.co>
+Date:   Sun Mar 24 17:03:08 2024 -0500
+
+    Mensaje descriptivo del commit
+
+[33mcommit 792690a56acfb4961aa8454f1e3e5e829b886b31[m[33m ([m[1;31morigin/jorgeC[m[33m)[m
+Merge: 3682a91 d5eedf1
+Author: Jorge Corrales <jorgecorralesdh@gmail.com>
+Date:   Sat Mar 23 22:54:55 2024 -0500
+
+    Esto finalizará la fusión
+
+[33mcommit 751310051e82b8e0b117a976d17b05af0f7de727[m
+Merge: 176f3a8 d5eedf1
+Author: Daniela George jiménez <d47@misena.edu.co>
+Date:   Sat Mar 23 21:09:15 2024 -0500
+
+    Merge branch 'dev' of https://github.com/monocuka/Proyecto_integrador_e3 into Daniela
+
+[33mcommit d5eedf1bc8273ed7dc97476c212974ffd5ef0edd[m
+Merge: 1da75ca 7dd131d
+Author: eliana osorio <yasminosorio2013@gmail.com>
+Date:   Fri Mar 22 19:55:13 2024 -0500
+
+    Merge branch 'dev' of https://github.com/monocuka/Proyecto_integrador_e3 into dev
+
+[33mcommit 1da75cade89c61e0f2d20a7198e5f03981decc74[m
+Author: eliana osorio <yasminosorio2013@gmail.com>
+Date:   Fri Mar 22 19:54:29 2024 -0500
+
+    espacio calendario
+    
+    creo el div para que daniela agregue el componente calendario, y el espacio para el boton de reservas.
+
+[33mcommit 176f3a821611053b0766074c7ade781a9ae04d68[m
+Author: Daniela George jiménez <d47@misena.edu.co>
+Date:   Thu Mar 21 23:41:58 2024 -0500
+
+    Calendario
+
+[33mcommit 280707624091363890e72b7aa5403d457e195244[m
+Author: Daniela George jiménez <d47@misena.edu.co>
+Date:   Thu Mar 21 23:36:44 2024 -0500
+
+    Archivo css
+
+[33mcommit 539f36bf353abad2586891131739ca400595372b[m
+Author: Daniela George jiménez <d47@misena.edu.co>
+Date:   Thu Mar 21 21:30:32 2024 -0500
+
+    Archivo css
+
+[33mcommit e793dd5720753d5c2dc909def4b9df6f77a93f27[m
+Author: Daniela George jiménez <d47@misena.edu.co>
+Date:   Thu Mar 21 21:29:49 2024 -0500
+
+    Archivo css
+
+[33mcommit cf4ba84889aeb4426627225ca6f21d19f209618f[m
+Author: Daniela George jiménez <d47@misena.edu.co>
+Date:   Thu Mar 21 21:11:12 2024 -0500
+
+    Mensaje descriptivo del commit
+
+[33mcommit e4a6302eae7ddf05f0044350e2ac687217072341[m
+Author: Daniela George jiménez <d47@misena.edu.co>
+Date:   Thu Mar 21 21:00:17 2024 -0500
+
+    Mensaje descriptivo del commit
+
+[33mcommit 7e53d74a6b9763d96700495ebd058ad35b85562b[m
+Merge: 3809cbd 7dd131d
+Author: Daniela George jiménez <d47@misena.edu.co>
+Date:   Thu Mar 21 20:58:26 2024 -0500
+
+    Merge branch 'dev' into Daniela
+
+[33mcommit 3809cbd608e4db6f1cb14f3668baf92ec214594d[m
+Author: Daniela George jiménez <d47@misena.edu.co>
+Date:   Thu Mar 21 20:48:20 2024 -0500
+
+    Mensaje descriptivo del commit
+
+[33mcommit 7dd131da8e19e4aef7e6e47ad8328c0a66408d60[m
+Merge: aedd6c5 2461f2d
+Author: Juan Mercado <juan.mercado1986@gmail.com>
+Date:   Thu Mar 21 22:17:21 2024 -0300
+
+    Merge pull request #16 from monocuka/JuanM
+    
+    Routes complete
+
+[33mcommit 2461f2d796850dad5f58d9d52a9d14dfc6d95da4[m
+Author: Juan Mercado <juan.mercado1986@gmail.com>
+Date:   Thu Mar 21 21:59:25 2024 -0300
+
+    Routes complete
+
+[33mcommit aedd6c501dbbe1b8892e1a2cddb8c78c0366776a[m
+Merge: 63ecd4a 6b226fc
+Author: Juan Mercado <juan.mercado1986@gmail.com>
+Date:   Wed Mar 20 00:32:28 2024 -0300
+
+    Merge pull request #15 from monocuka/feature_header_user
+    
+    Feature header user
+
+[33mcommit 6b226fc16ac456b00b5e8bd7313deb3b939b40b8[m
+Merge: 63ecd4a 5171258
+Author: Juan Mercado <juan.mercado1986@gmail.com>
+Date:   Wed Mar 20 00:12:06 2024 -0300
+
+    Merge branch 'feature_modif_header' into dev
+
+[33mcommit 5171258c34aa9e3bfe4d8885c24868e86819d3bd[m
+Author: Juan Mercado <juan.mercado1986@gmail.com>
+Date:   Wed Mar 20 00:08:02 2024 -0300
+
+    Menu user y context completado
+
+[33mcommit 92caa2c8e6bdb01d3098d5d278a6e3f46938c269[m
+Author: Juan Mercado <juan.mercado1986@gmail.com>
+Date:   Tue Mar 19 08:15:41 2024 -0300
+
+    Se completo a medias el 3re menu para el header
+
+[33mcommit 63ecd4a6664e602c14fb858dff55424f7c19e14f[m
+Author: eliana osorio <yasminosorio2013@gmail.com>
+Date:   Mon Mar 18 20:27:39 2024 -0500
+
+    fix: change in card tipo
+
+[33mcommit 449894fabd5f174f02824d828cc6858d2e8e9ae3[m[33m ([m[1;32mListarSegunDisponibilidad[m[33m)[m
+Merge: 39b228a f911fe5
+Author: NahuelCuri <110751285+NahuelCuri@users.noreply.github.com>
+Date:   Mon Mar 18 22:13:28 2024 -0300
+
+    Merge pull request #14 from monocuka/carolina
+    
+    Carolina
+
+[33mcommit f9456d057ecf1401662258c8607b4e91afb5d1d2[m
+Author: eliana osorio <yasminosorio2013@gmail.com>
+Date:   Fri Mar 15 12:57:09 2024 -0500
+
+    fix: css changes
+
+[33mcommit 8d58cf9e63b4d27e68bbe1594911e4c9b9b53f82[m
+Author: eliana osorio <yasminosorio2013@gmail.com>
+Date:   Thu Mar 14 19:05:01 2024 -0500
+
+    feat: css registro usuario
+
+[33mcommit 8503625dfd8699f6aa5ad85124cbfa219cb8a345[m
+Author: eliana osorio <yasminosorio2013@gmail.com>
+Date:   Thu Mar 14 18:35:49 2024 -0500
+
+    feat: css inicio sesion
+
+[33mcommit 91398af68fad1d114e9b554c513c5d2d1895dabb[m
+Merge: ce1f7dd 90c0b99
+Author: eliana osorio <yasminosorio2013@gmail.com>
+Date:   Thu Mar 14 18:32:42 2024 -0500
+
+    Merge branch 'dev' of https://github.com/monocuka/Proyecto_integrador_e3 into dev
+
+[33mcommit 90c0b99ba6445a9db43df9e8065118e9fd119f5b[m
+Author: Nahuel Curi <curin1050@protonmail..com>
+Date:   Thu Mar 14 20:31:17 2024 -0300
+
+    roles_admin
+
+[33mcommit ce1f7dda387ccea00c40ef5a20440c2f93033a1d[m
+Merge: 48af48f 442da6f
+Author: eliana osorio <yasminosorio2013@gmail.com>
+Date:   Thu Mar 14 18:29:05 2024 -0500
+
+    Merge branch 'dev' of https://github.com/monocuka/Proyecto_integrador_e3 into dev
+
+[33mcommit 48af48f9f8ea1c2bdc0ded7773d45bc91bd4af00[m
+Author: eliana osorio <yasminosorio2013@gmail.com>
+Date:   Thu Mar 14 18:29:03 2024 -0500
+
+    feat: css details.
+
+[33mcommit f911fe5d6a7804443251faddad0a03eca1aedabc[m[33m ([m[1;31morigin/carolina[m[33m)[m
+Author: CoralineDL <90666039+CoralineDL@users.noreply.github.com>
+Date:   Thu Mar 14 17:50:26 2024 -0500
+
+    Modificacion Usuario Detalle
+
+[33mcommit 442da6f0d0a8bcf19d9b606f32e1cffb73bdfc28[m
+Author: Nahuel Curi <curin1050@protonmail..com>
+Date:   Thu Mar 14 19:19:55 2024 -0300
+
+    registrar
+
+[33mcommit 4588d3ffbb24a726954dcaad9e33eb5f376bedd0[m
+Author: Nahuel Curi <curin1050@protonmail..com>
+Date:   Thu Mar 14 18:59:43 2024 -0300
+
+    login terminado
+
+[33mcommit 23828f86ef6c71ff10701e8fd9754890bc1b1e4e[m
+Merge: f67b11a ae35712
+Author: eliana osorio <yasminosorio2013@gmail.com>
+Date:   Thu Mar 14 16:44:16 2024 -0500
+
+    Merge branch 'dev' of https://github.com/monocuka/Proyecto_integrador_e3 into dev
+
+[33mcommit f67b11ae46eaf8eef95e316b98fb01e9f7f54276[m
+Author: eliana osorio <yasminosorio2013@gmail.com>
+Date:   Thu Mar 14 16:44:09 2024 -0500
+
+    ya renderizo card detaller wii
+
+[33mcommit ae35712206d0a6b304a19a791d6f101230001c7c[m
+Author: Nahuel Curi <curin1050@protonmail..com>
+Date:   Thu Mar 14 18:30:24 2024 -0300
+
+    lo de caro
+
+[33mcommit 785c76936d847b80d24e6935fa5ef402ca7a4beb[m
+Merge: f0b48ce aba1151
+Author: CoralineDL <90666039+CoralineDL@users.noreply.github.com>
+Date:   Thu Mar 14 15:18:13 2024 -0500
+
+    Merge branch 'dev' of https://github.com/monocuka/Proyecto_integrador_e3 into carolina
+
+[33mcommit f0b48ce8aefa08c0e7ff4af7cfd65f1017286082[m
+Author: CoralineDL <90666039+CoralineDL@users.noreply.github.com>
+Date:   Thu Mar 14 13:48:16 2024 -0500
+
+    agregar usuario detalle
+
+[33mcommit aba1151611a58fa4bf47d01559d64d7fbd54bc74[m
+Merge: d9bacfa abd1c4e
+Author: eliana osorio <52088371+monocuka@users.noreply.github.com>
+Date:   Thu Mar 14 13:45:25 2024 -0500
+
+    Merge pull request #13 from monocuka/Body
+    
+    Body
