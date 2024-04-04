@@ -1,5 +1,6 @@
 import '../assets/css/registrarProducto.css';
 import { useState, useEffect } from 'react';
+import serverEndPoint from './constants';
 import { Link } from 'react-router-dom';
 
 const ProductoEditar = () => {
@@ -11,7 +12,7 @@ const ProductoEditar = () => {
   const [showShowProductButton, setShowShowProductButton] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:8080/api/categorias/')
+    fetch(`${serverEndPoint}/api/categorias/`)
       .then(response => response.json())
       .then(data => setCategories(data))
       .catch(error => console.error('Error:', error));
@@ -27,7 +28,7 @@ const ProductoEditar = () => {
 
   const cargarProducto = async () => {
     try {
-      const res = await fetch(`http://localhost:8080/api/producto/id/${productId}`);
+      const res = await fetch(`${serverEndPoint}/api/producto/id/${productId}`);
       if (!res.ok) {
         throw new Error('La solicitud no fue exitosa');
       }
@@ -59,7 +60,7 @@ const ProductoEditar = () => {
       }
     };
 
-    const url = 'http://localhost:8080/api/producto/actualizar';
+    const url = `${serverEndPoint}/api/producto/actualizar`;
 
     let formData = new FormData();
     formData.append('producto', JSON.stringify(productData));

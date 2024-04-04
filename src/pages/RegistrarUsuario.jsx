@@ -89,7 +89,7 @@ export const RegistrarUsuario = () => {
             confirmButtonText: "Si, registrar"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch('http://localhost:8080/api/auth/register', requestOptions)
+                fetch(`${serverEndPoint}/api/auth/register`, requestOptions)
                 .then((response) => {
                     if (!response.ok) {
                         return response.text().then((error) => {
@@ -126,18 +126,6 @@ export const RegistrarUsuario = () => {
             }
         });
 
-
-
-        // try {
-        //     const response = await fetch('http://localhost:8080/api/auth/register', requestOptions);
-        //     const responseData = await response.json();
-        //     console.log('Success:', responseData);
-        //     setSuccessMessage("User registered successfully!");
-
-        // } catch (error) {
-        //     console.error('Error:', error);
-        //     setError("Error al registrar usuario");
-        // }
     }
     
 

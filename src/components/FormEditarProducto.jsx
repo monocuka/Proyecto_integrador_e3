@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import serverEndPoint from "./constans";
 import { Link } from 'react-router-dom';
 
 export const FormEditarProducto = ({ id }) => {
@@ -17,7 +18,7 @@ export const FormEditarProducto = ({ id }) => {
     const [imagenUrl, setImagenUrl] = useState("");
     
     useEffect(() => {
-        fetch('http://localhost:8080/api/producto/id/'+id)
+        fetch(`${serverEndPoint}/api/producto/id/`+id)
         .then(response => response.json())
         .then(data => {
             setProducto({
@@ -33,7 +34,7 @@ export const FormEditarProducto = ({ id }) => {
     }, []);
 
     useEffect(() => {
-        fetch('http://localhost:8080/api/categoria/listar')
+        fetch(`${serverEndPoint}/api/categoria/listar`)
           .then(response => response.json())
           .then(data => setCategorias(data))
           .catch(error => console.error('Error:', error));
@@ -78,7 +79,7 @@ export const FormEditarProducto = ({ id }) => {
             redirect: "follow"
         };
 
-        fetch("http://localhost:8080/api/producto/actualizar", requestOptions)
+        fetch(`${serverEndPoint}/api/producto/actualizar`, requestOptions)
             .then((response) => response.text())
             .then((result) => {
                 alert("El producto se modifico correctamente");

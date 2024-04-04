@@ -3,6 +3,7 @@ import '../assets/css/listarProducto.css';
 import { Link } from 'react-router-dom';
 import Card from './Card';
 import '../assets/css/home.css';
+import serverEndPoint from './constans';
 
 const ListarProducto = () => {
   const [products, setProducts] = useState([]);
@@ -13,7 +14,7 @@ const ListarProducto = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('http://localhost:8080/api/producto/listar');
+        const res = await fetch(`${serverEndPoint}/api/producto/listar`);
         if (!res.ok) {
           throw new Error('La solicitud no fue exitosa');
         }

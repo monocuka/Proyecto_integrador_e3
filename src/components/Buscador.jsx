@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 import Calendario from './Calendario'; // Importa tu componente de Calendario
 import 'react-calendar/dist/Calendar.css';
+import serverEndPoint from './constans';
 
 const Buscador = ({ updateProductos }) => {
   const [nombreBusqueda, setNombreBusqueda] = useState('');
@@ -29,7 +30,7 @@ const Buscador = ({ updateProductos }) => {
         }
         console.log
         
-        const res = await fetch(`http://localhost:8080/api/producto/disponibilidad/fechainicial/${startDate}/fechafinal/${endDate}?busqueda=${nombreBusqueda}`);
+        const res = await fetch(`${serverEndPoint}/api/producto/disponibilidad/fechainicial/${startDate}/fechafinal/${endDate}?busqueda=${nombreBusqueda}`);
         
         if (!res.ok) {
           if (res.status === 404 || res.status === 500) {
@@ -81,7 +82,7 @@ const Buscador = ({ updateProductos }) => {
     setNombreBusqueda(value);
 
     try {
-        const response = await fetch(`http://localhost:8080/api/producto/nombresSimilares/${value}`);
+        const response = await fetch(`${serverEndPoint}/api/producto/nombresSimilares/${value}`);
         const data = await response.json();
         setFilteredSuggestions(data);
         

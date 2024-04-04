@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2'
+import serverEndPoint from "./constans";
 
 import '../assets/css/registrarProducto.css';
 
@@ -20,7 +21,7 @@ export const RegistrarProducto = () => {
     const [imagenUrl, setImagenUrl] = useState("");
 
     useEffect(() => {
-        fetch('http://localhost:8080/api/categoria/listar')
+        fetch(`${serverEndPoint}/api/categoria/listar`)
           .then(response => response.json())
           .then(data => setCategorias(data))
           .catch(error => console.error('Error:', error));
@@ -134,7 +135,7 @@ export const RegistrarProducto = () => {
         confirmButtonText: "Si, registrar"
     }).then((result) => {
       if (result.isConfirmed) {
-          fetch("http://localhost:8080/api/producto/guardar", requestOptions)
+          fetch(`${serverEndPoint}/api/producto/guardar`, requestOptions)
               .then((response) => {
                   if (!response.ok) {
                       return response.text().then((error) => {

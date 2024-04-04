@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import '../assets/css/listarProducto.css';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
+import serverEndPoint from '../components/constans';
 
 export const ListarProductos = () => {
   const [productos, setproductos] = useState([]);
@@ -15,7 +16,7 @@ export const ListarProductos = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('http://localhost:8080/api/producto/listar');
+        const res = await fetch(`${serverEndPoint}/api/producto/listar`);
         if (!res.ok) {
           throw new Error('La solicitud no fue exitosa');
         }

@@ -5,6 +5,7 @@ import Buscador from '../components/Buscador';
 import Recommended from '../components/Card_recommended/Recommended';
 import Card_categoria from '../components/Card_categoria';
 import '../assets/css/card_tipo.css'
+import serverEndPoint from '../components/constans';
 import { Link } from 'react-router-dom';
 
 export const Home = () => {
@@ -15,7 +16,7 @@ export const Home = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('http://localhost:8080/api/producto/listar');
+                const response = await fetch(`${serverEndPoint}/api/producto/listar`);
                 if (!response.ok) {
                     throw new Error('Error al obtener los datos');
                 }

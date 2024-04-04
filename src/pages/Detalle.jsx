@@ -12,7 +12,7 @@ export const Detalle = () => {
     useEffect(() => {
         const obtenerDetallesProductoPorId = async (id) => {
             try {
-                const response = await fetch(`http://localhost:8080/api/producto/id/${id}`);
+                const response = await fetch(`${serverEndPoint}/api/producto/id/${id}`);
                 const data = await response.json();
                 return data; 
             } catch (error) {

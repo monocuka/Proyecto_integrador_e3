@@ -6,6 +6,7 @@ import Gallery from '../components/Gallery'
 import { useEffect, useState } from 'react'; 
 import '../assets/css/cardDetalle.css'
 import imgBack from '../assets/img/back.png'
+import serverEndPoint from './constans';
 
 
 
@@ -20,7 +21,7 @@ const CardDetalle = ({ product }) => {
 
     useEffect(() => {
         if (product && product.id) {
-            fetch(`http://localhost:8080/api/reserva/producto/${product.id}`)
+            fetch(`${serverEndPoint}/api/reserva/producto/${product.id}`)
                 .then(response => response.json())
                 .then(data => {
                     setReserva(data);

@@ -2,6 +2,7 @@ import { useReducer } from 'react';
 import { AuthContext } from './AuthContext';
 import { authReducer } from './authReducer';
 import { types } from '../types/types';
+import serverEndPoint from '../components/constans';
 
 const init = () => {
     const user = JSON.parse( localStorage.getItem('usuario') );
@@ -21,7 +22,7 @@ export const AuthProvider = ({ children }) => {
       };
     
       try {
-        const response = await fetch("http://localhost:8080/api/auth/authenticate", requestOptions);
+        const response = await fetch(`${serverEndPoint}/api/auth/authenticate`, requestOptions);
         
         if (response.status === 403) {
           return { logged: false, error: 'Acceso prohibido: las credenciales son incorrectas' };

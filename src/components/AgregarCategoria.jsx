@@ -1,5 +1,6 @@
 import '../assets/css/registrarProducto.css'
 import { useState, useEffect } from 'react';
+import serverEndPoint from './constans';
 import { Link } from 'react-router-dom';
 
 export const AgregarCategoria = () => {
@@ -16,7 +17,7 @@ export const AgregarCategoria = () => {
           descripcion: description,
         };
     
-        const url = 'http://localhost:8080/api/categoria/guardar';
+        const url = `${serverEndPoint}/api/categoria/guardar`;
 
         let formData = new FormData();
         formData.append('producto', JSON.stringify(productData));

@@ -1,6 +1,8 @@
 // Card_product.jsx
 import React, { useEffect, useState } from 'react';
 import Card_recommended from './Card_ recommended';
+import serverEndPoint from '../constans';
+
 import '../../assets/css/Card_recommendad.css';
 
 const Card_product = () => {
@@ -10,7 +12,7 @@ const Card_product = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('http://localhost:8080/api/producto/listar');
+        const res = await fetch(`${serverEndPoint}/api/producto/listar`);
         if (!res.ok) {
           throw new Error('La solicitud no fue exitosa');
         }

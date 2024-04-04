@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../assets/css/card_tipo.css';
 import { Link } from 'react-router-dom';
 import obtenerProductosPorCategoria from './obtenerProductosPorCategoria';
+import serverEndPoint from './constans';
 
 const Card_tipo = () => {
   const [categorias, setCategorias] = useState([]);
@@ -9,7 +10,7 @@ const Card_tipo = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('http://localhost:8080/api/categoria/listar');
+        const res = await fetch(`${serverEndPoint}/api/categoria/listar`);
 
         if (!res.ok) {
           throw new Error('La solicitud no fue exitosa');
