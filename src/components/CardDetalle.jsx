@@ -75,6 +75,8 @@ const CardDetalle = ({ product }) => {
     
   
 
+   
+
     return (
         <div className="CardDetalleF">
             <div className='superiorDtalle'>
