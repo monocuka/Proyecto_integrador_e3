@@ -112,7 +112,7 @@ const CardDetalle = ({ product }) => {
                     <h2>Visualiza la Disponibilidad de el producto</h2>
                     <p>{`Fecha inicial: ${startDate ? startDate : 'Not selected'} | Fecha Final: ${endDate ? endDate : 'Not selected'}`}</p>
                         <div className='CalendarioReserva'>
-                            <Calendario reserva={reserva} />
+                            <Calendario reserva={reserva} onChange={handleDateChange}/>
                         </div>
                         <div className='btnDetalles'>
                             <BotonReservas product={product} />

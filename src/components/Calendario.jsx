@@ -102,20 +102,6 @@ const Calendario = ({ reserva, onChange, startDate, endDate }) => {
                         })}
                     }
                 />
-
-                {/* <Calendar
-                    onChange={handleDateChange}
-                    value={[adjustedStartDate, adjustedEndDate]}
-                    calendarType="gregory"
-                    showNavigation={false}
-                    minDetail="year"
-                    minDate={new  Date()}
-                    tileDisabled={({ date, view }) => {
-                        return view === 'month' && fechasDeshabilitadas.some(disabledDate => {
-                            return date.getTime() === disabledDate.getTime();
-                        })}
-                    } 
-                />*/}
             </div>
             <div className="mes">
                 <h3>{nombreMes(siguienteMes.getMonth())} {siguienteMes.getFullYear()}</h3>
@@ -133,19 +119,6 @@ const Calendario = ({ reserva, onChange, startDate, endDate }) => {
                         })}
                     }
                 />
-                {/* <Calendar
-                    onChange={handleDateChange}
-                    value={[adjustedStartDate, adjustedEndDate]}
-                    calendarType="gregory"
-                    showNavigation={false}
-                    minDetail="year"
-                    minDate={new Date()}
-                    tileDisabled={({ date, view }) => {
-                        return view === 'month' && fechasDeshabilitadas.some(disabledDate => {
-                            return date.getTime() === disabledDate.getTime();
-                        })}
-                    }
-                /> */}
             </div>
         </div>
     );
