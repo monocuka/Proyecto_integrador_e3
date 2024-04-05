@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Calendario from '../components/Calendario';
 import BotonReservas from '../components/BotonReservas';
 import Gallery from '../components/Gallery'
-import { useEffect, useState } from 'react'; 
+import { useEffect, useState } from 'react';
 import '../assets/css/cardDetalle.css'
 import imgBack from '../assets/img/back.png'
 import serverEndPoint from './constans';
@@ -14,9 +14,10 @@ import serverEndPoint from './constans';
 const CardDetalle = ({ product }) => {
     const [startDate, setStartDate] = useState(null);
     const [endDate, setEndDate] = useState(null);
+    //const history = useHistory();
 
     if (!product) {
-        return null; 
+        return null;
     }
 
     const [reserva, setReserva] = useState(null);
@@ -42,13 +43,13 @@ const CardDetalle = ({ product }) => {
 
     const handleDateChange = (date) => {
         const formattedDate = date.toISOString().split('T')[0];
-    
+
         // Lógica para cuando se carga el calendario por primera vez
         if (!startDate) {
             setStartDate(formattedDate);
             return;
         }
-    
+
         // Lógica para cuando se agrega la fecha hasta
         if (startDate && !endDate) {
             if (formattedDate < startDate) {
@@ -59,7 +60,7 @@ const CardDetalle = ({ product }) => {
             }
             return;
         }
-    
+
         // Lógica para cambiar las fechas si ambas están cargadas
         // Reinicia el primer valor y establece el segundo en null
         if (startDate && endDate) {
@@ -67,16 +68,19 @@ const CardDetalle = ({ product }) => {
             setEndDate(null);
             return;
         }
-  
+
     };
 
-    React.useEffect(() => {
-        console.log(`startDate: ${startDate}, endDate: ${endDate}`);
-    }, [startDate, endDate]);
-    
-  
+    let fechaDesde;
+    let fechaHasta;
 
-   
+    React.useEffect(() => {
+        fechaDesde = startDate;
+        fechaHasta = endDate;
+        console.log("cosa", startDate, endDate);
+
+    }, [startDate, endDate]);
+
 
     return (
         <div className="CardDetalleF">
@@ -89,34 +93,35 @@ const CardDetalle = ({ product }) => {
                 <h2 className='titleDetalle'>Detalle del Producto</h2>
             </div>
 
-                {/* Galería de imágenes */}
-                <Gallery imageUrls={product.imagenes.map(imagen => imagen.urlImagen)} />
+            {/* Galería de imágenes */}
+            <Gallery imageUrls={product.imagenes.map(imagen => imagen.urlImagen)} />
 
-                <div className='nombrePuntuacion'>
-                    <h3>{product.nombre}</h3>
-                    <p>⭐⭐⭐⭐</p>
+            <div className='nombrePuntuacion'>
+                <h3>{product.nombre}</h3>
+                <p>⭐⭐⭐⭐</p>
+            </div>
+            <div className="infoCardDetail">
+                <div className='precio'>
+                    <p><strong>Precio: $</strong> {product.precio}</p>
                 </div>
-                <div className="infoCardDetail">
-                        <div className='precio'>
-                                <p><strong>Precio: $</strong> {product.precio}</p>
-                        </div>
-                        <div className='InfoDetalle'>
-                            <p><strong>Descripción:</strong> {product.descripcion}</p>
-                            <p><strong>Categoría:</strong> {product.categoria.nombre}</p>
-                        </div>
+                <div className='InfoDetalle'>
+                    <p><strong>Descripción:</strong> {product.descripcion}</p>
+                    <p><strong>Categoría:</strong> {product.categoria.nombre}</p>
                 </div>
-                <div className='Caracteristicas'>
-                    <h2><strong>Características.</strong></h2>
-                    <ul className='listCaracteristicas'>{listaCaracteristicas}</ul>
-                </div>
-                <div className='Calendario'>
-                    <h2>Visualiza la Disponibilidad de el producto</h2>
+            </div>
+            <div className='Caracteristicas'>
+                <h2><strong>Características.</strong></h2>
+                <ul className='listCaracteristicas'>{listaCaracteristicas}</ul>
+            </div>
+            <div className='Calendario'>
+                 <h2>Visualiza la Disponibilidad de el producto</h2>
                     <p>{`Fecha inicial: ${startDate ? startDate : 'Not selected'} | Fecha Final: ${endDate ? endDate : 'Not selected'}`}</p>
                         <div className='CalendarioReserva'>
                             <Calendario reserva={reserva} onChange={handleDateChange}/>
                         </div>
                         <div className='btnDetalles'>
-                            <BotonReservas product={product} />
+                            {/* <BotonReservas product={product} startDate={startDate} endDate={endDate} /> */}
+                            {startDate && endDate && <BotonReservas product={product} startDate={startDate} endDate={endDate} />}
                         </div>
                     </div>
                 <div className='poliDiv'>
