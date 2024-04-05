@@ -124,19 +124,23 @@
         width: 100%;
     }
 }
+.btn-buscar{
+    background-color: #de8121;
+    color: #fff;
+    border: 2px solid #DE8121;
+    border-radius: 5px;
+    padding: 10px 15px;
+    box-shadow: 0 8px 15px #0000001a;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 10px;
+}
 
 @media (max-width: 635px) {
     .autocomplete-container{
         width: 100%;
     }
-
     .buscador{
         padding: 5%;
     }
-    
 }
-
-
-
-
-
