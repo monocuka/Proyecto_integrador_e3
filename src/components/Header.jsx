@@ -5,7 +5,6 @@ import { AuthContext } from '../context/AuthContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
-
 import logo from '../assets/img/logo-sin-fondo-ni letras.png';
 import logoMobile from '../assets/img/soloLogoPng.png';
 import menuHamburguesa from '../assets/img/burger-menu.svg';

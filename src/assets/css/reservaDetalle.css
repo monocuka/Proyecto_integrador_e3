@@ -23,6 +23,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
+    background-color: #ffffff;
 }
 
 .registro-container {
@@ -94,32 +95,69 @@ header {
     display: none;
 }
 
-h2.h2usuarioDetalle {
-    margin-top: 3%;
-    text-align: left;
-    margin-left: 5%;
-    margin-bottom: 2%;
-    font-size: larger;
-}
-
-#cardUsuDetalle {
-    background-color: coral;
-    height: 300px;
-    justify-content: center;
+#cardUsuDetalleReservaDet {
+    height: 100px;
     display: flex;
-    align-content: center;
-}
-
-.avatar{
-    background-color: skyblue;
-    height: 200px;
-    width: 200px;
-    margin-top: 10px;
-}
-
-.tituloMiCuenta{
-    margin-top: 8%;
-    text-align: center;
     font-size:x-large;
-    font-weight: bolder;
+    margin: 20px 0 10px 20px;
 }
+
+#tituloMiCuentaReserva {
+    margin-top: 100px;
+    font-size: x-large;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+#infoUsuario {
+    margin-top: 10%;
+    /*background-color: aquamarine;*/
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.titleDetalle{
+    text-align: center;
+}
+.divFechasSeleccionadas {
+    height: 80px;
+    display: flex;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: justify;
+    align-content: flex-start;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: larger;
+    margin-left: 20px;
+}
+
+.botonConfirmarReserva {
+   
+    margin-right: 50px;
+    height: 40px;
+    margin-bottom: 60px;
+    display: flex;
+    justify-content: space-evenly;
+    padding-right: 50px;
+    width: 200px;
+    background-color: #DE8121;
+    border: 2px solid #DE8121;
+    border-radius: 5px;
+    padding: 10px 15px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: all 0.3s ease;
+    float: inline-end;
+}
+
+.fechasSeleccionadas{
+    height: 150px;
+}
+
