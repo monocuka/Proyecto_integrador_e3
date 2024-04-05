@@ -171,7 +171,7 @@ const Buscador = ({ updateProductos }) => {
           <div onClick={toggleCalendario} className='icono-calendario'  style={{ cursor: 'pointer' }} >
             <FontAwesomeIcon icon={faCalendarAlt}  size="2x"/>
           </div>
-          <button className='btn-buscar' onClick={fetchData}>
+          <button className='btn-buscar-pro' onClick={fetchData}>
             Buscar
           </button>
       </div>
