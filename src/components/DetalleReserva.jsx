@@ -4,10 +4,9 @@ import Calendario from './Calendario';
 import BotonReservas from './BotonReservas';
 import Gallery from './Gallery'
 import { useEffect, useState } from 'react';
-import '../assets/css/cardDetalle.css'
-import imgBack from '../assets/img/back.png'
-//import { useData } from '../context/DataContext';
-//import axios from 'axios';
+import '../assets/css/cardDetalle.css';
+import imgBack from '../assets/img/back.png';
+import serverEndPoint from './constans';
 
 
 
@@ -24,7 +23,7 @@ const DetalleReserva = ({ product }) => {
 
     useEffect(() => {
         if (product && product.id) {
-            fetch(`http://localhost:8080/api/reserva/producto/${product.id}`)
+            fetch(`${serverEndPoint}/api/reserva/producto/${product.id}`)
                 .then(response => response.json())
                 .then(data => {
                     setReserva(data);

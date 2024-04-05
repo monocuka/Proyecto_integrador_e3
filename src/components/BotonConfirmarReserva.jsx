@@ -5,7 +5,7 @@ import Swal from 'sweetalert2'
 
 const BotonConfirmarReserva = ({ product }) => {
     
-    http://localhost:8080/api/reserva/guardar
+    //http://localhost:8080/api/reserva/guardar
 
 
     return (

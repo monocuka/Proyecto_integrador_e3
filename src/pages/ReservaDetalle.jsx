@@ -6,6 +6,7 @@ import { AuthContext } from '../context/AuthContext';
 import BotonConfirmarReserva from '../components/BotonConfirmarReserva';
 import DetalleReserva from '../components/DetalleReserva';
 import Swal from 'sweetalert2'
+import serverEndPoint from '../components/constans';
 
 export const ReservaDetalle = () => {
 
@@ -41,7 +42,7 @@ export const ReservaDetalle = () => {
     }, []);
 
     const enviarReserva = async () => {
-          fetch('http://localhost:8080/api/reserva/guardar', {
+          fetch(`${serverEndPoint}/api/reserva/guardar`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -63,7 +64,7 @@ export const ReservaDetalle = () => {
     useEffect(() => {
         const obtenerDetallesProductoPorId = async (id) => {
             try {
-                const response = await fetch(`http://localhost:8080/api/producto/id/${id}`);
+                const response = await fetch(`${serverEndPoint}/api/producto/id/${id}`);
                 const data = await response.json();
                 return data; 
             } catch (error) {
