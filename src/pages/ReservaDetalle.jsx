@@ -5,7 +5,7 @@ import '../assets/css/reservaDetalle.css';
 import { AuthContext } from '../context/AuthContext';
 import BotonConfirmarReserva from '../components/BotonConfirmarReserva';
 import DetalleReserva from '../components/DetalleReserva';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 import serverEndPoint from '../components/constans';
 
 export const ReservaDetalle = () => {
